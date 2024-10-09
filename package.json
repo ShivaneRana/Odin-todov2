@@ -8,8 +8,8 @@
     "server": "webpack server",
     "deploy": "git subtree push --prefix dist origin gh-pages",
     "build": "webpack",
-    "prettier write":"npx prettier . --write",
-    "prettier check":"npx prettier . --check"
+    "pwrite": "npx prettier . --write",
+    "pcheck": "npx prettier . --check"
   },
   "keywords": [],
   "author": "",
