@@ -1,3 +1,3 @@
-# template
+# Todo v2
 
-it is what the name suggest just a template repo.
+This is a second iteration of a failed todo app. I am building this to redeem myself.
