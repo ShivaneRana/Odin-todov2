@@ -1,6 +1,23 @@
 @import url(./modules/colorsheet.css);
 @import url(./asset/Gilroy/stylesheet.css);
 
+/* used to apply font styling to buttons */
+.gilroyLight{
+  font-family: gilroy-light,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gilroyBold{
+  font-family: gilroy-bold,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gilroyHeavy{
+  font-family: gilroy-heavy,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gilroyRegular{
+  font-family: gilroy-regular,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 :root {
   scroll-behavior: smooth;
   transition: all 0.75 ease;
@@ -49,6 +66,7 @@ body {
     & > button{
       width: 90%;
       height: 6vh;
+      cursor: pointer;
     }
 
 
@@ -58,6 +76,7 @@ body {
   & > button{
     width: 80%;
     height: 6vh;
+    cursor: pointer;
   }
 
 
@@ -75,6 +94,7 @@ body {
     & > button{
       width: 90%;
       height: 6vh;
+      cursor: pointer;
     }
 
     /* holds newly created project */
@@ -96,11 +116,13 @@ body {
         & > button:first-child{
           height: 5vh;
           width: 70%;
+          cursor: pointer;
         }
 
         & > button:last-child{
           height: 5vh;
           width: 20%;
+          cursor: pointer;
         }
       }
     }
@@ -109,26 +131,56 @@ body {
 
 .navBar{
   grid-area: 1 / 3 / 2 / 13;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 5px;
+  gap: 5px;
+
+  /* theme,add and expand button */
+  & > button{
+    height: 90%;
+    width: 10%;
+    cursor: pointer;
+  }
+
 }
 
 .mainBar{
   grid-area: 2 / 3 / 13 / 13;
+  padding: 10px;
+  overflow: scroll;
 }
 
+.todoContainer{
+  display: grid;
+  justify-items: center;
+  grid-tempal
 
-/* used to apply font styling to buttons */
-.gilroyLight{
-  font-family: gilroy-light,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  & > div{
+    background-color: red;
+    width: 90%;
+    height: 90px;
+    outline: 1px solid;
+    margin: 10px 0px 10px 0px;
+  }
 }
 
-.gilroyBold{
-  font-family: gilroy-bold,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.notesContainer{
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(auto-fit,300px);
+  gap: 10px;
+
+  & > div{
+    background-color: red;
+    outline: 1px solid;
+    width: 300px;
+    height: 350px;
+  }
+
 }
 
-.gilroyHeavy{
-  font-family: gilroy-heavy,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.gilroyRegular{
-  font-family: gilroy-regular,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.hide{
+  display: none;
 }
