@@ -48,6 +48,7 @@ body {
 
     & > button{
       width: 90%;
+      height: 6vh;
     }
 
 
@@ -56,6 +57,7 @@ body {
   /* notes button */
   & > button{
     width: 80%;
+    height: 6vh;
   }
 
 
@@ -64,9 +66,44 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
     width: 90%;
     height: 50%;
     outline: 1px solid;
+
+    /* add new project button */
+    & > button{
+      width: 90%;
+      height: 6vh;
+    }
+
+    /* holds newly created project */
+    & > .projectContainer{
+      width: 90%;
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: scroll;
+      gap: 10px;
+      padding-top: 5px;
+
+      & > div{
+        height: 5vh;
+        width: 90%;
+        text-align: center;
+
+        & > button:first-child{
+          height: 5vh;
+          width: 70%;
+        }
+
+        & > button:last-child{
+          height: 5vh;
+          width: 20%;
+        }
+      }
+    }
   }
 }
 
@@ -76,4 +113,22 @@ body {
 
 .mainBar{
   grid-area: 2 / 3 / 13 / 13;
+}
+
+
+/* used to apply font styling to buttons */
+.gilroyLight{
+  font-family: gilroy-light,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gilroyBold{
+  font-family: gilroy-bold,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gilroyHeavy{
+  font-family: gilroy-heavy,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.gilroyRegular{
+  font-family: gilroy-regular,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
