@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   projectLogic.renderProject(projectContainer);
 });
 
+expand.addEventListener("click", () => {});
+
 addNewProject.addEventListener("click", () => {
   projectLogic.projectFinale(projectContainer);
 });

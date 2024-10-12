@@ -9,7 +9,12 @@ export const projectLogic = (function () {
   };
 
   const checkProjectName = function (value) {
-    if (value === "" || value === undefined || value === null) {
+    if (
+      value === "" ||
+      value === undefined ||
+      value === null ||
+      projectList.includes(value)
+    ) {
       console.log("No changes were made");
       return false;
     } else {
@@ -38,6 +43,7 @@ export const projectLogic = (function () {
     renderProjectList.render(getProjectList(), container);
   };
 
+  // final step of input, checking , and pushing to project list and then rendering;
   const projectFinale = function (container) {
     const name = askProjectName();
     if (checkProjectName(name)) {
