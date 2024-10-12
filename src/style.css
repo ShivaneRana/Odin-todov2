@@ -2,26 +2,26 @@
 @import url(./asset/Gilroy/stylesheet.css);
 
 /* used to apply font styling to buttons */
-.gilroyLight{
-  font-family: gilroy-light,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.gilroyLight {
+  font-family: gilroy-light, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.gilroyBold{
-  font-family: gilroy-bold,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.gilroyBold {
+  font-family: gilroy-bold, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.gilroyHeavy{
-  font-family: gilroy-heavy,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.gilroyHeavy {
+  font-family: gilroy-heavy, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.gilroyRegular{
-  font-family: gilroy-regular,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.gilroyRegular {
+  font-family: gilroy-regular, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 :root {
   scroll-behavior: smooth;
   transition: all 0.75 ease;
-  font-family: gilroy-light,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: gilroy-light, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
@@ -36,25 +36,26 @@ body {
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: repeat(12,1fr);
+  grid-template-rows: repeat(12, 1fr);
   gap: 5px;
   padding: 5px;
 }
 
-.sideBar,.navBar,.mainBar{
+.sideBar,
+.navBar,
+.mainBar {
   outline: 2px dashed;
 }
 
-.sideBar{
+.sideBar {
   grid-area: 1/ 1 / 13 / 3;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
 
-
   /*contains:- all,today,completed  */
-  & > div:first-child{
+  & > div:first-child {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,25 +64,22 @@ body {
     height: 30%;
     outline: 1px solid;
 
-    & > button{
+    & > button {
       width: 90%;
       height: 6vh;
       cursor: pointer;
     }
-
-
   }
 
   /* notes button */
-  & > button{
+  & > button {
     width: 80%;
     height: 6vh;
     cursor: pointer;
   }
 
-
   /*contains:- add new project  */
-  & > div:last-child{
+  & > div:last-child {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -91,14 +89,14 @@ body {
     outline: 1px solid;
 
     /* add new project button */
-    & > button{
+    & > button {
       width: 90%;
       height: 6vh;
       cursor: pointer;
     }
 
     /* holds newly created project */
-    & > .projectContainer{
+    & > .projectContainer {
       width: 90%;
       height: 80%;
       display: flex;
@@ -111,7 +109,7 @@ body {
   }
 }
 
-.navBar{
+.navBar {
   grid-area: 1 / 3 / 2 / 13;
   display: flex;
   align-items: center;
@@ -120,17 +118,15 @@ body {
   gap: 5px;
 
   /* theme,add and expand button */
-  & > button{
+  & > button {
     height: 90%;
     width: 10%;
     cursor: pointer;
   }
-
 }
 
-.mainBar{
+.mainBar {
   grid-area: 2 / 3 / 13 / 13;
   padding: 10px;
   overflow: scroll;
 }
-

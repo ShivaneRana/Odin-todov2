@@ -1,21 +1,21 @@
-:root{
-    --color-light-primary:#EDEEF0;
-    --color-light-secondary:#E1E3E6;
-    --color-light-tertiary:#B1B5B7;
-    --color-neutral:#5D5F64;
-    --color-dark-primary:#141415;
-    --color-dark-secondary:#1C1D1F;
-    --color-dark-tertiary:#27292A;
-    --color-red:#e74c3c;
-    --color-yellow:#f1c40f;
-    --color-green:#2ecc71;
+:root {
+  --color-light-primary: #edeef0;
+  --color-light-secondary: #e1e3e6;
+  --color-light-tertiary: #b1b5b7;
+  --color-neutral: #5d5f64;
+  --color-dark-primary: #141415;
+  --color-dark-secondary: #1c1d1f;
+  --color-dark-tertiary: #27292a;
+  --color-red: #e74c3c;
+  --color-yellow: #f1c40f;
+  --color-green: #2ecc71;
 }
 
-:root.dark{
-    --color-light-primary: #141415;
-    --color-light-secondary: #1C1D1F;
-    --color-light-tertiary: #27292A;
-    --color-dark-primary: #EDEEF0;
-    --color-dark-secondary: #E1E3E6;
-    --color-dark-tertiary: #B1B5B7;
+:root.dark {
+  --color-light-primary: #141415;
+  --color-light-secondary: #1c1d1f;
+  --color-light-tertiary: #27292a;
+  --color-dark-primary: #edeef0;
+  --color-dark-secondary: #e1e3e6;
+  --color-dark-tertiary: #b1b5b7;
 }
