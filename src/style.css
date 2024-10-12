@@ -120,7 +120,7 @@ body {
   /* theme,add and expand button */
   & > button {
     height: 90%;
-    width: 10%;
+    width: 10vw;
     cursor: pointer;
   }
 }

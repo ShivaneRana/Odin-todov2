@@ -61,3 +61,11 @@
 .hide {
   display: none;
 }
+
+.newNav {
+  grid-column: 1/13;
+}
+
+.newMain {
+  grid-column: 1/13;
+}
