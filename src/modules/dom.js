@@ -2,9 +2,15 @@ import "./dom.css";
 import { projectLogic } from "./project";
 
 export const renderProjectList = (function () {
-  const render = function(){
-    
-  }
+  const render = function (projectList,container) {
+    for(let i in projectList){
+      const div = document.createElement("div");
+      div.classList.add("newProject");
+      const button = document.createElement("button");
+      const remove = document.createElement("button");
+      remove.textContent = "X";  
+    }
+  };
 })();
 
 export const renderExpand = (function () {

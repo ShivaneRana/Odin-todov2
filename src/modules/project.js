@@ -2,49 +2,57 @@ import { renderProjectList } from "./dom.js";
 
 export const projectLogic = (function () {
   const projectList = {
-    gym:{
-      
-    },
-    study:{
-
-    },
-    houseChore:{
-
-    },
+    gym: {},
+    study: {},
+    houseChore: {},
   };
 
-  const getList = function(){
-    console.log("Current State of the Project List~");
-    for(let i of Object.values(projectList)){
-      console.log(i);
+  const getList = function () {
+    for (let i in projectList) {
+      console.log(`${i}`, projectList[i]);
     }
+
     return projectList;
-  }
+  };
 
-  const removeFromList = function(){
+  const removeFromList = function (key) {
+    delete projectList[key];
+    console.log(`${key} has been removed`);
+    getList();
+  };
 
-  }
+  const askForInput = function () {
+    const name = prompt("What is the name of the project?");
+    return name;
+  };
 
-  const askForInpupt = function(){
-    cons
-  }
+  const checkInput = function (name) {
+    let exist = Object.keys(projectList).includes(name);
+    if (exist === true) {
+      console.log("key already exist in the list");
+      return false;
+    } else {
+      if (name !== "" || name !== null || name !== undefined) {
+        console.log("key was registered to the list");
+        return true;
+      } else {
+        console.log("key is invalid");
+        return false;
+      }
+    }
+  };
 
-  const checkInput = function(){
+  const addToList = function(name){
+    projectList[name] = {};
+  };
 
-  }
+  const finale = function () {
+    const projectName = askForInput();
+    if(checkInput(projectName)){
+      addToList(projectName);
+      getList();
+    }
+  };
 
-  const addToList = function(){
-
-  }
-
-  const renderList = function(){
-
-  }
-
-  // this will call them accordingly
-  const finale = function(){
-
-  }
-
-  return {getList};
+  return { finale};
 })();
