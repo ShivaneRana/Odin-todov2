@@ -1,56 +1,50 @@
 import { renderProjectList } from "./dom.js";
 
 export const projectLogic = (function () {
-  const projectList = ["gym", "study", "karate"];
+  const projectList = {
+    gym:{
+      
+    },
+    study:{
 
-  const askProjectName = function () {
-    const name = prompt("What is the name of the project?");
-    return name;
+    },
+    houseChore:{
+
+    },
   };
 
-  const checkProjectName = function (value) {
-    if (
-      value === "" ||
-      value === undefined ||
-      value === null ||
-      projectList.includes(value)
-    ) {
-      console.log("No changes were made");
-      return false;
-    } else {
-      console.log("changes were made successfully");
-      return true;
+  const getList = function(){
+    console.log("Current State of the Project List~");
+    for(let i of Object.values(projectList)){
+      console.log(i);
     }
-  };
-
-  const removeItem = function (value) {
-    projectList.splice(value, 1);
-    getProjectList();
-  };
-
-  const getProjectList = function () {
-    console.log("Project List Currently: ");
-    console.log(projectList);
     return projectList;
-  };
+  }
 
-  const pushToProjectList = function (value) {
-    projectList.unshift(value);
-  };
+  const removeFromList = function(){
 
-  const renderProject = function (container) {
-    renderProjectList.clearProjectArea(container);
-    renderProjectList.render(getProjectList(), container);
-  };
+  }
 
-  // final step of input, checking , and pushing to project list and then rendering;
-  const projectFinale = function (container) {
-    const name = askProjectName();
-    if (checkProjectName(name)) {
-      pushToProjectList(name);
-      renderProject(container);
-    }
-  };
+  const askForInpupt = function(){
+    cons
+  }
 
-  return { projectFinale, removeItem, renderProject, getProjectList };
+  const checkInput = function(){
+
+  }
+
+  const addToList = function(){
+
+  }
+
+  const renderList = function(){
+
+  }
+
+  // this will call them accordingly
+  const finale = function(){
+
+  }
+
+  return {getList};
 })();
