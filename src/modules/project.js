@@ -46,13 +46,19 @@ export const projectLogic = (function () {
     projectList[name] = {};
   };
 
-  const finale = function () {
+  const renderList = function(container){
+    renderProjectList.clear(container);
+    renderProjectList.render(projectList,container);
+  }
+
+  const finale = function (container) {
     const projectName = askForInput();
     if(checkInput(projectName)){
       addToList(projectName);
       getList();
+      renderList(container);
     }
   };
 
-  return { finale};
+  return { finale , removeFromList, renderList};
 })();

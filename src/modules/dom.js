@@ -8,9 +8,23 @@ export const renderProjectList = (function () {
       div.classList.add("newProject");
       const button = document.createElement("button");
       const remove = document.createElement("button");
-      remove.textContent = "X";  
+      button.textContent = i;
+      remove.textContent = "X";
+      div.append(button,remove);
+      container.append(div);
+
+      remove.addEventListener("click",() => {
+        div.remove();
+        projectLogic.removeFromList(i);
+      })
     }
   };
+
+  const clear = function(container){
+    container.textContent = "";
+  }
+
+  return {render,clear};
 })();
 
 export const renderExpand = (function () {
