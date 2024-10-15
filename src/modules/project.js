@@ -42,23 +42,23 @@ export const projectLogic = (function () {
     }
   };
 
-  const addToList = function(name){
+  const addToList = function (name) {
     projectList[name] = {};
   };
 
-  const renderList = function(container){
+  const renderList = function (container) {
     renderProjectList.clear(container);
-    renderProjectList.render(projectList,container);
-  }
+    renderProjectList.render(projectList, container);
+  };
 
   const finale = function (container) {
     const projectName = askForInput();
-    if(checkInput(projectName)){
+    if (checkInput(projectName)) {
       addToList(projectName);
       getList();
       renderList(container);
     }
   };
 
-  return { finale , removeFromList, renderList};
+  return { finale, removeFromList, renderList };
 })();
