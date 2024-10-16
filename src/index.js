@@ -5,6 +5,7 @@ import { expandLogic } from "./modules/uilogic.js";
 import { renderProjectList } from "./modules/dom.js";
 
 const expand = document.querySelector(".expand");
+const theme = document.querySelector(".theme");
 const sideBar = document.querySelector(".sideBar");
 const navBar = document.querySelector(".navBar");
 const mainBar = document.querySelector(".mainBar");
@@ -18,6 +19,10 @@ document.addEventListener("DOMContentLoaded", () => {
 expand.addEventListener("click", () => {
   expandLogic.expandFinale(sideBar, navBar, mainBar, expand);
 });
+
+theme.addEventListener("click",() => {
+  console.log("Theme button was clicked");
+})
 
 addNewProject.addEventListener("click", () => {
   projectLogic.finale(projectContainer);

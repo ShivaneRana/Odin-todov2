@@ -29,3 +29,21 @@ export const expandLogic = (function () {
 
   return { expandFinale };
 })();
+
+export const themeLogic = function(){
+  const themeIsDark = function(theme){
+    if(theme.textContent === "Dark"){
+      return true;
+    }else if (theme.textContent === "Light"){
+      return false;
+    }else{
+      return null;
+    }
+  }
+
+  const themeFinale = function(theme){
+    
+  }
+
+  return {};
+}
