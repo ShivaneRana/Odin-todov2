@@ -1,7 +1,7 @@
 import "./style.css";
 import "./asset/Gilroy/stylesheet.css";
 import { projectLogic } from "./modules/project.js";
-import { expandLogic } from "./modules/uilogic.js";
+import { expandLogic, themeLogic } from "./modules/uilogic.js";
 import { renderProjectList } from "./modules/dom.js";
 
 const expand = document.querySelector(".expand");
@@ -21,7 +21,7 @@ expand.addEventListener("click", () => {
 });
 
 theme.addEventListener("click",() => {
-  console.log("Theme button was clicked");
+  themeLogic.themeFinale(theme);
 })
 
 addNewProject.addEventListener("click", () => {

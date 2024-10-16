@@ -30,20 +30,35 @@ export const expandLogic = (function () {
   return { expandFinale };
 })();
 
-export const themeLogic = function(){
-  const themeIsDark = function(theme){
-    if(theme.textContent === "Dark"){
+export const themeLogic = (function(){
+
+  const darkThemeApplied = function(theme){
+    if(theme.textContent === "Theme : Light"){
+      console.log("Dark theme is applied");
+      theme.textContent = "Theme : Dark";
       return true;
-    }else if (theme.textContent === "Light"){
+    }else if(theme.textContent === "Theme : Dark"){
+      console.log("Light theme is applied");
+      theme.textContent = "Theme : Light";
       return false;
-    }else{
-      return null;
     }
   }
 
-  const themeFinale = function(theme){
-    
+  const applyDarkTheme = function(){
+    document.documentElement.classList.toggle("dark");
   }
 
-  return {};
-}
+  const applyLightTheme = function(){
+    document.documentElement.classList.remove("dark");
+  }
+
+  const themeFinale = function(theme){
+    if((darkThemeApplied(theme))){
+      applyLightTheme(theme);
+    }else{
+      applyDarkTheme(theme);
+    }
+  }
+
+  return { themeFinale};
+})();
