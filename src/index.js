@@ -20,9 +20,9 @@ expand.addEventListener("click", () => {
   expandLogic.expandFinale(sideBar, navBar, mainBar, expand);
 });
 
-theme.addEventListener("click",() => {
+theme.addEventListener("click", () => {
   themeLogic.themeFinale(theme);
-})
+});
 
 addNewProject.addEventListener("click", () => {
   projectLogic.finale(projectContainer);

@@ -1,6 +1,3 @@
-export const notesLogic = function(){
-
-    
-
-    return {};
-}
+export const notesLogic = function () {
+  return {};
+};
