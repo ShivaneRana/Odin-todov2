@@ -19,3 +19,7 @@
   --color-dark-secondary: #e1e3e6;
   --color-dark-tertiary: #b1b5b7;
 }
+
+body{
+  position: relative;
+}

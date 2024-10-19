@@ -71,10 +71,9 @@
 }
 
 /* this is for dialogBox */
-
 .addDialog{
-    position: absolute;
-    margin: auto;
+  position: absolute;
+  margin: auto;
 }
 
 .wrapper{
