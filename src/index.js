@@ -10,6 +10,7 @@ const navBar = document.querySelector(".navBar");
 const mainBar = document.querySelector(".mainBar");
 const addNewProject = document.querySelector(".addNewProject");
 const projectContainer = document.querySelector(".projectContainer");
+const addTodoOrNotes = document.querySelector(".add");
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -27,3 +28,5 @@ theme.addEventListener("click", () => {
 addNewProject.addEventListener("click", () => {
   projectLogic.finale(projectContainer);
 });
+
+addTodoOrNotes.style.backgroundColor = "red";
