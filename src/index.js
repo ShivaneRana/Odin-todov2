@@ -2,6 +2,7 @@ import "./style.css";
 import "./asset/Gilroy/stylesheet.css";
 import { projectLogic } from "./modules/project.js";
 import { expandLogic, themeLogic } from "./modules/uilogic.js";
+import { renderDefaultDialog } from "./modules/dom.js";
 
 const expand = document.querySelector(".expand");
 const theme = document.querySelector(".theme");
@@ -29,4 +30,6 @@ addNewProject.addEventListener("click", () => {
   projectLogic.finale(projectContainer);
 });
 
-addTodoOrNotes.style.backgroundColor = "red";
+addTodoOrNotes.addEventListener("click",() => {
+  renderDefaultDialog.showDialog();
+})
