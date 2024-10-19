@@ -132,3 +132,213 @@ body {
   padding: 10px;
   overflow: scroll;
 }
+
+/* this is for the dialog box for adding and removing of notes or todos */
+.addDialog{
+    position: absolute;
+    margin: auto;
+}
+
+.wrapper{
+    display: flex;
+    width: 800px;
+    height: 500px;
+}
+
+.buttonHolder{
+	display:flex;
+	flex-direction:column;
+	padding:10px;
+	gap:20px;
+    outline: 2px dashed;
+    width: 20%;
+
+    & > button{
+        height: 10%;
+        border: none;
+        outline: 2px solid black;
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+}
+
+.todoArea,.notesArea{
+    width: 80%;
+    height: 100%;
+    outline: 2px dashed;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    overflow: hidden;
+    padding: 10px;
+}
+
+
+/* this is for todoContainer Item */
+.todoArea{
+    background-color: lightgrey;
+
+    & > h1{
+        grid-row: 1/3;
+        grid-column: 3/14;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & > .close{
+        grid-row: 1/3;
+        grid-column: 14/16;
+        font-size: 1rem;
+        font-weight: bolder;
+        border: none;
+        outline: 2px solid black;
+    }
+
+    & > .tTitle{
+        grid-row: 4/6;
+        grid-column: 1/12;
+        font-size: 1rem;
+        padding: 5px;
+        border: none;
+        outline: 2px solid black;
+    }
+
+    & > .tDate{
+        grid-row: 4/6;
+        grid-column: 13/16;
+        border: none;
+        outline: 2px solid black;
+    }
+
+    & > .tDescription{
+        grid-row: 7/15;
+        grid-column: 1/16;
+        resize: none;
+        font-size: 1rem;
+        padding: 5px;
+        border: none;
+        outline: 2px solid black;
+    }
+
+    & > .tPriority,.tProject{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    & > .tPriority{
+        grid-row: 16/18;
+        grid-column: 1/8;
+
+        & > button{
+            padding: 4%;
+            margin: 0px 5px 0px 5px;
+            font-size: 0.80rem;
+            border: none;
+        }
+    }
+
+    & > .tProject{
+        grid-row: 16/18;
+        grid-column: 9/16;
+        & > select{
+            border: none;
+            outline: 2px solid black;
+            padding: 4%;
+            margin: 0px 5px 0px 5px;
+            font-size: 0.80rem;
+        }
+    }
+
+    & > .clearAll{
+        grid-row: 19/21;
+        grid-column: 2/7;
+        font-size: 1rem;
+        font-weight: bolder;
+        border: none;
+        outline: 2px solid black;
+    }
+
+    & > .confirm{
+        grid-row: 19/21;
+        grid-column: 10/15;
+        font-size: 1rem;
+        font-weight: bolder;
+        border: none;
+        outline: 2px solid black;
+    }
+}
+
+
+/* this is for notesContainer Item */
+.notesArea{
+    background-color: lightgray;
+
+    & > h1{
+        grid-row: 1/3;
+        grid-column: 3/14;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & > .close{
+        grid-row: 1/3;
+        grid-column: 14/16;
+        font-size: 1rem;
+        font-weight: bolder;
+    }
+
+    & > .nTitle{
+        grid-row: 4/6;
+        grid-column: 1/16;
+        font-size: 1rem;
+        padding: 5px;
+        border: none;
+        outline: 2px solid black;
+    }
+
+    & > .nDescription{
+        resize: none;
+        grid-row: 7/18;
+        grid-column: 1/16;
+        font-size: 1rem;
+        padding: 5px;
+        border: none;
+        outline: 2px solid black;
+    }
+
+    & > .clearAll{
+        grid-row: 19/21;
+        grid-column: 2/7;
+        font-size: 1rem;
+        font-weight: bolder;
+        border: none;
+        outline: 2px solid black;
+    }
+    
+    & > .confirm{
+        grid-row: 19/21;
+        grid-column: 10/15;
+        font-size: 1rem;
+        font-weight: bolder;
+        border: none;
+        outline: 2px solid black;
+    }
+}
+
+.hide{
+	display:none;
+}
+
+.picked{
+    background-color: black;
+    color: whitesmoke;
+}
+
+.unpicked{
+    outline: 2px solid black;
+    color: black;
+    background-color: whitesmoke;
+}

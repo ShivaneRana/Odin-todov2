@@ -1,5 +1,6 @@
 import "./dom.css";
-import { projectLogic } from "./project";
+import { projectLogic } from "./project.js";
+import { defaultDialogLogic } from "./dialog.js";
 
 export const renderProjectList = (function () {
   const render = function (projectList, container) {
