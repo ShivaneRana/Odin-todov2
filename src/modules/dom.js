@@ -1,6 +1,7 @@
 import "./dom.css";
 import { projectLogic } from "./project.js";
 
+// render project list
 export const renderProjectList = (function () {
   const render = function (projectList, container) {
     for (let i in projectList) {
@@ -27,6 +28,7 @@ export const renderProjectList = (function () {
   return { render, clear };
 })();
 
+// expands and collapse the main Container
 export const renderExpand = (function () {
   const expand = function (sideBar, navBar, mainBar, button) {
     button.textContent = "Collapse";
@@ -45,3 +47,27 @@ export const renderExpand = (function () {
   return { expand, collapse };
 })();
 
+// render the dialog box for todo and notes
+export const renderDefaultDialog = (function(){
+
+  const dialog = document.createElement("dialog");
+  const wrapper = document.createElement("div");
+  const buttonHolder = document.createElement("div");
+  const showTodo = document.createElement("button");
+  const showNotes = document.createElement("button");
+  const todoArea = document.createElement("div");
+  const notesArea = document.createElement("div");
+  
+
+  dialog.classList.add("defaultDialog");
+  wrapper.classList.add("wrapper");
+  buttonHolder.classList.add("buttonHolder");
+  
+  document.body.append(dialog);
+
+  const showDialog = function(){
+    dialog.showModal();
+  }
+
+  return {showDialog};
+})();
