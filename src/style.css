@@ -40,6 +40,7 @@ body {
   grid-template-rows: repeat(12, 1fr);
   gap: 5px;
   padding: 5px;
+  position: relative;
 }
 
 .sideBar,
