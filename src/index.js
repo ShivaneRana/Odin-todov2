@@ -2,7 +2,6 @@ import "./style.css";
 import "./asset/Gilroy/stylesheet.css";
 import { projectLogic } from "./modules/project.js";
 import { expandLogic, themeLogic } from "./modules/uilogic.js";
-import { defaultDialogLogic } from "./modules/dialog.js";
 
 const expand = document.querySelector(".expand");
 const theme = document.querySelector(".theme");
@@ -11,8 +10,7 @@ const navBar = document.querySelector(".navBar");
 const mainBar = document.querySelector(".mainBar");
 const addNewProject = document.querySelector(".addNewProject");
 const projectContainer = document.querySelector(".projectContainer");
-const addSomethingDialog = document.querySelector(".add");
-const defaultDialogBox = document.querySelector(".addDialog"); //todo and notes dialog box
+
 
 document.addEventListener("DOMContentLoaded", () => {
   projectLogic.renderList(projectContainer);
@@ -29,7 +27,3 @@ theme.addEventListener("click", () => {
 addNewProject.addEventListener("click", () => {
   projectLogic.finale(projectContainer);
 });
-
-addSomethingDialog.addEventListener("click",() => {
-  defaultDialogLogic.finale(defaultDialogBox);
-})

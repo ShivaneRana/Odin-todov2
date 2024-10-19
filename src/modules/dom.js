@@ -1,6 +1,5 @@
 import "./dom.css";
 import { projectLogic } from "./project.js";
-import { defaultDialogLogic } from "./dialog.js";
 
 export const renderProjectList = (function () {
   const render = function (projectList, container) {
@@ -45,3 +44,4 @@ export const renderExpand = (function () {
 
   return { expand, collapse };
 })();
+

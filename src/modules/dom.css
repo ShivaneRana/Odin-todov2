@@ -69,3 +69,12 @@
 .newMain {
   grid-column: 1/13;
 }
+
+/* this is for dialogBox */
+
+.defaultDialogBox{
+  width: 50%;
+  width: 50%;
+  background-color: red;
+  backdrop-filter: pink;
+}
