@@ -53,7 +53,6 @@ const medium = document.createElement("button");
 medium.textContent = "Medium";
 const high = document.createElement("button");
 high.textContent = "High";
-high.classList.add("project");
 const tProject = document.createElement("h3");
 tProject.textContent = "Project:";
 tProject.classList.add("tProject");
