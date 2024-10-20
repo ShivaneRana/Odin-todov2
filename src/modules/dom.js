@@ -82,7 +82,7 @@ export const renderDefaultDialog = (function(){
   let isNotesActive = false;
   let priority = ""; 
   
-  dialog.classList.add("defaultDialog");
+  dialog.classList.add("addDialog");
   wrapper.classList.add("wrapper");
   
 

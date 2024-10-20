@@ -40,7 +40,6 @@ body {
   grid-template-rows: repeat(12, 1fr);
   gap: 5px;
   padding: 5px;
-  position: relative;
 }
 
 .sideBar,
@@ -131,4 +130,5 @@ body {
   grid-area: 2 / 3 / 13 / 13;
   padding: 10px;
   overflow: scroll;
+  position: relative;
 }
