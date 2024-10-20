@@ -61,7 +61,9 @@ const nh1 = document.createElement("h1");
 nh1.textContent = "Add Notes";
 const nTitle = document.createElement("input");
 nTitle.classList.add("nTitle");
+nTitle.setAttribute("placeholder","title goes here");
 const nDescription = document.createElement("input");
+nDescription.setAttribute
 nDescription.classList.add("nDescription");
 
 function initalize() {
