@@ -8,8 +8,8 @@
     "server": "webpack server",
     "deploy": "git add --all && git commit -m 'rebundle' && git subtree push --prefix dist origin gh-pages && git push",
     "build": "webpack",
-    "pwrite": "npx prettier . --write",
-    "pcheck": "npx prettier . --check"
+    "pwrite": "prettier . --write",
+    "pcheck": "prettier . --check"
   },
   "keywords": [],
   "author": "",
