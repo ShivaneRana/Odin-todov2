@@ -154,6 +154,7 @@
     font-size: 1rem;
     font-weight: bolder;
     outline: 2px solid black;
+    border: none;
   }
 
   & > .nTitle {

@@ -53,6 +53,7 @@ const medium = document.createElement("button");
 medium.textContent = "Medium";
 const high = document.createElement("button");
 high.textContent = "High";
+high.classList.add("project");
 const tProject = document.createElement("h3");
 tProject.textContent = "Project:";
 tProject.classList.add("tProject");
@@ -65,9 +66,7 @@ const option3 = document.createElement("option");
 option3.textContent = "project2";
 const option4 = document.createElement("option");
 option4.textContent = "project3";
-
-
-targetProject.append(option1,option2,option3,option4);
+targetProject.append(option1, option2, option3, option4);
 
 // notes files
 const notesArea = document.createElement("div");
@@ -113,6 +112,7 @@ export const renderDefaultDialog = (function () {
   };
 
   const closeDialog = function () {
+    defaultDialogLogic.clearEverything();
     dialog.close();
   };
 
@@ -120,6 +120,14 @@ export const renderDefaultDialog = (function () {
     if (!wrapper.contains(e.target)) {
       closeDialog();
     }
+  });
+
+  tClose.addEventListener("click", () => {
+    closeDialog();
+  });
+
+  nClose.addEventListener("click", () => {
+    closeDialog();
   });
 
   notesButton.addEventListener("click", () => {
@@ -145,15 +153,24 @@ export const defaultDialogLogic = (function () {
   let priority = "";
 
   function clear() {
-    if(isTodoActive === true){
+    if (isTodoActive === true) {
       nTitle.value = "";
       nDescription.value = "";
-    }else if(isNotesActive === true){
-        tTitle.value = "";
-        tDescription.value = "";
-        tDate.value = "";
-        targetProject.selectedIndex = 0;
+    } else if (isNotesActive === true) {
+      tTitle.value = "";
+      tDescription.value = "";
+      tDate.value = "";
+      targetProject.selectedIndex = 0;
     }
+  }
+
+  function clearEverything() {
+    nTitle.value = "";
+    nDescription.value = "";
+    tTitle.value = "";
+    tDescription.value = "";
+    tDate.value = "";
+    targetProject.selectedIndex = 0;
   }
 
   function displayNotes() {
@@ -173,5 +190,5 @@ export const defaultDialogLogic = (function () {
   function finale() {
     renderDefaultDialog.showDialog();
   }
-  return { displayNotes, displayTodo,clear, finale };
+  return { displayNotes, displayTodo, clear, clearEverything, finale };
 })();
