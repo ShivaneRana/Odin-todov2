@@ -49,20 +49,25 @@ tPriority.textContent = "Priority:";
 tPriority.classList.add("tPriority");
 const low = document.createElement("button");
 low.textContent = "Low";
-low.classList.add("priorityButton");
 const medium = document.createElement("button");
 medium.textContent = "Medium";
-medium.classList.add("priorityButton");
 const high = document.createElement("button");
 high.textContent = "High";
-high.classList.add("priorityButton");
 const tProject = document.createElement("h3");
 tProject.textContent = "Project:";
 tProject.classList.add("tProject");
 const targetProject = document.createElement("select");
 const option1 = document.createElement("option");
 option1.textContent = "All";
-targetProject.append(option1);
+const option2 = document.createElement("option");
+option2.textContent = "project1";
+const option3 = document.createElement("option");
+option3.textContent = "project2";
+const option4 = document.createElement("option");
+option4.textContent = "project3";
+
+
+targetProject.append(option1,option2,option3,option4);
 
 // notes files
 const notesArea = document.createElement("div");
@@ -119,12 +124,14 @@ export const renderDefaultDialog = (function () {
 
   notesButton.addEventListener("click", () => {
     defaultDialogLogic.displayNotes();
+    defaultDialogLogic.clear();
     notesArea.classList.remove("hide");
     todoArea.classList.add("hide");
   });
 
   todoButton.addEventListener("click", () => {
     defaultDialogLogic.displayTodo();
+    defaultDialogLogic.clear();
     todoArea.classList.remove("hide");
     notesArea.classList.add("hide");
   });
@@ -137,7 +144,17 @@ export const defaultDialogLogic = (function () {
   let isNotesActive = false;
   let priority = "";
 
-  function clear() {}
+  function clear() {
+    if(isTodoActive === true){
+      nTitle.value = "";
+      nDescription.value = "";
+    }else if(isNotesActive === true){
+        tTitle.value = "";
+        tDescription.value = "";
+        tDate.value = "";
+        targetProject.selectedIndex = 0;
+    }
+  }
 
   function displayNotes() {
     isTodoActive = false;
@@ -156,5 +173,5 @@ export const defaultDialogLogic = (function () {
   function finale() {
     renderDefaultDialog.showDialog();
   }
-  return { displayNotes, displayTodo, finale };
+  return { displayNotes, displayTodo,clear, finale };
 })();
