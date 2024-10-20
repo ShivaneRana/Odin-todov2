@@ -49,10 +49,13 @@ tPriority.textContent = "Priority:";
 tPriority.classList.add("tPriority");
 const low = document.createElement("button");
 low.textContent = "Low";
+low.classList.add("priorityButton");
 const medium = document.createElement("button");
 medium.textContent = "Medium";
+medium.classList.add("priorityButton");
 const high = document.createElement("button");
 high.textContent = "High";
+high.classList.add("priorityButton");
 const tProject = document.createElement("h3");
 tProject.textContent = "Project:";
 tProject.classList.add("tProject");
@@ -100,16 +103,18 @@ function initalize() {
   tPriority.append(low, medium, high);
   tProject.append(targetProject);
   document.body.append(dialog);
-}
 
-// render the dialog box for todo and notes
-export const renderDefaultDialog = (function () {
-  initalize();
+  // low,medium,high button funcitonality
+  const priorityButtonAll = document.querySelectorAll(".priorityButton");
+  priorityButtonAll.forEach((item) => {
+    item.addEventListener("click", () => {
+      priorityButtonAll.forEach((item) => item.classList.remove("picked"));
+      item.classList.add("picked");
+      defaultDialogLogic.changePriority(item.textContent);
+    });
+  });
 
-  const showDialog = function () {
-    dialog.showModal();
-  };
-
+  // functionality added to all the elements
   const closeDialog = function () {
     defaultDialogLogic.clearEverything();
     dialog.close();
@@ -150,6 +155,15 @@ export const renderDefaultDialog = (function () {
     todoArea.classList.remove("hide");
     notesArea.classList.add("hide");
   });
+}
+
+// render the dialog box for todo and notes
+export const renderDefaultDialog = (function () {
+  initalize();
+
+  const showDialog = function () {
+    dialog.showModal();
+  };
 
   return { showDialog };
 })();
@@ -180,6 +194,11 @@ export const defaultDialogLogic = (function () {
     targetProject.selectedIndex = 0;
   }
 
+  function changePriority(value) {
+    priority = value;
+    console.log("Cpriority changed to: " + priority);
+  }
+
   function displayNotes() {
     isTodoActive = false;
     isNotesActive = true;
@@ -197,5 +216,12 @@ export const defaultDialogLogic = (function () {
   function finale() {
     renderDefaultDialog.showDialog();
   }
-  return { displayNotes, displayTodo, clear, clearEverything, finale };
+  return {
+    displayNotes,
+    displayTodo,
+    clear,
+    changePriority,
+    clearEverything,
+    finale,
+  };
 })();

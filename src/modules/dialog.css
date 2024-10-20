@@ -1,3 +1,4 @@
+@import url(/src/asset/Gilroy/stylesheet.css);
 /* this is for dialogBox */
 .addDialog {
   position: absolute;
@@ -45,10 +46,11 @@
 
   & > h1 {
     grid-row: 1/3;
-    grid-column: 3/14;
+    grid-column: 1/14;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-weight: bold;
   }
 
   & > .close {
@@ -196,17 +198,17 @@
   }
 }
 
-.picked {
-  background-color: black;
-  color: whitesmoke;
+.hide {
+  display: none;
 }
 
-.unpicked {
+.priorityButton {
   outline: 2px solid black;
   color: black;
   background-color: whitesmoke;
 }
 
-.hide {
-  display: none;
+.picked {
+  background-color: black;
+  color: whitesmoke;
 }
