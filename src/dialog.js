@@ -64,69 +64,75 @@ nTitle.classList.add("nTitle");
 const nDescription = document.createElement("input");
 nDescription.classList.add("nDescription");
 
-function initalize(){
-    // adding class to all the elements
-    dialog.classList.add("addDialog");
-    wrapper.classList.add("wrapper");
-    buttonHolder.classList.add("buttonHolder");
-    todoArea.classList.add("todoArea");
-    notesArea.classList.add("notesArea");
-    notesArea.classList.add("hide");
-    
-    //append all the elements together
-    dialog.append(wrapper);
-    wrapper.append(buttonHolder, todoArea, notesArea);
-    
-    todoArea.append(th1, close.cloneNode(true), tTitle);
-    todoArea.append(tDate, tDescription, tPriority);
-    todoArea.append(tProject, clearAll.cloneNode(true), confirm.cloneNode(true));
-    
-    buttonHolder.append(todoButton, notesButton);
-    notesArea.append(nh1, close, nTitle, nDescription, clearAll, confirm);
-    tPriority.append(low, medium, high);
-    tProject.append(targetProject);
-    document.body.append(dialog);
+function initalize() {
+  // adding class to all the elements
+  dialog.classList.add("addDialog");
+  wrapper.classList.add("wrapper");
+  buttonHolder.classList.add("buttonHolder");
+  todoArea.classList.add("todoArea");
+  notesArea.classList.add("notesArea");
+  notesArea.classList.add("hide");
+
+  //append all the elements together
+  dialog.append(wrapper);
+  wrapper.append(buttonHolder, todoArea, notesArea);
+
+  todoArea.append(th1, close.cloneNode(true), tTitle);
+  todoArea.append(tDate, tDescription, tPriority);
+  todoArea.append(tProject, clearAll.cloneNode(true), confirm.cloneNode(true));
+
+  buttonHolder.append(todoButton, notesButton);
+  notesArea.append(nh1, close, nTitle, nDescription, clearAll, confirm);
+  tPriority.append(low, medium, high);
+  tProject.append(targetProject);
+  document.body.append(dialog);
 }
 
 // render the dialog box for todo and notes
 export const renderDefaultDialog = (function () {
-
-    initalize();
+  initalize();
 
   const showDialog = function () {
     dialog.showModal();
   };
 
+  notesButton.addEventListener("click", () => {
+    defaultDialogLogic.displayNotes();
+    notesArea.classList.remove("hide");
+    todoArea.classList.add("hide");
+  });
+
+  todoButton.addEventListener("click", () => {
+    defaultDialogLogic.displayTodo();
+    todoArea.classList.remove("hide");
+    notesArea.classList.add("hide");
+  });
+
   return { showDialog };
 })();
-
 
 export const defaultDialogLogic = (function () {
   let isTodoActive = true;
   let isNotesActive = false;
   let priority = "";
 
-  function displayNotes(){
+  function displayNotes() {
+    isTodoActive = false;
     isNotesActive = true;
-	isTodoActive = false;
+    notesButton.textContent = "-> Notes";
+    todoButton.textContent = "Todo";
   }
 
-  function displayTodo(){
+  function displayTodo() {
     isTodoActive = true;
     isNotesActive = false;
+    notesButton.textContent = "Notes";
+    todoButton.textContent = "-> Todo";
   }
 
-  function situationBasedRender(){
-    if(isNotesActive === false && isTodoActive === true){
-
-    }else if (isTodoActive === true && isNotesActive === false){
-
-    } 
-  }
-
-  function finale(){
+  function finale() {
     renderDefaultDialog.showDialog();
   }
 
-  return { displayNotes,displayTodo,situationBasedRender,finale};
+  return { displayNotes, displayTodo, finale };
 })();
