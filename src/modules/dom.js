@@ -46,4 +46,3 @@ export const renderExpand = (function () {
 
   return { expand, collapse };
 })();
-
