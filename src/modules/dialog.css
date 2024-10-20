@@ -153,6 +153,7 @@
     grid-column: 14/16;
     font-size: 1rem;
     font-weight: bolder;
+    outline: 2px solid black;
   }
 
   & > .nTitle {
@@ -165,9 +166,9 @@
   }
 
   & > .nDescription {
-    resize: none;
     grid-row: 7/18;
     grid-column: 1/16;
+    resize: none;
     font-size: 1rem;
     padding: 5px;
     border: none;

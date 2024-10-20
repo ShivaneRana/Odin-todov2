@@ -10,16 +10,26 @@ todoButton.textContent = "-> Todo";
 const notesButton = document.createElement("button");
 notesButton.textContent = "Notes";
 
-//   these button are common in both tab
-const close = document.createElement("button");
-close.textContent = "Close";
-close.classList.add("close");
-const clearAll = document.createElement("button");
-clearAll.textContent = "Clear All";
-clearAll.classList.add("clearAll");
-const confirm = document.createElement("button");
-confirm.textContent = "Confirm";
-confirm.classList.add("confirm");
+//   these button are common in both tab but different name for various reason
+const nClose = document.createElement("button");
+nClose.textContent = "Close";
+nClose.classList.add("close");
+const nClearAll = document.createElement("button");
+nClearAll.textContent = "Clear All";
+nClearAll.classList.add("clearAll");
+const nConfirm = document.createElement("button");
+nConfirm.textContent = "Confirm";
+nConfirm.classList.add("confirm");
+
+const tClose = document.createElement("button");
+tClose.classList.add("close");
+tClose.textContent = "Close";
+const tClearAll = document.createElement("button");
+tClearAll.classList.add("clearAll");
+tClearAll.textContent = "Clear All";
+const tconfirm = document.createElement("button");
+tconfirm.textContent = "Confirm";
+tconfirm.classList.add("confirm");
 
 // todo files
 const todoArea = document.createElement("div");
@@ -39,13 +49,13 @@ tPriority.textContent = "Priority:";
 tPriority.classList.add("tPriority");
 const low = document.createElement("button");
 low.textContent = "Low";
-low.classList.add(".priorityButton");
+low.classList.add("priorityButton");
 const medium = document.createElement("button");
 medium.textContent = "Medium";
-medium.classList.add(".priorityButton");
+medium.classList.add("priorityButton");
 const high = document.createElement("button");
 high.textContent = "High";
-high.classList.add(".priorityButton");
+high.classList.add("priorityButton");
 const tProject = document.createElement("h3");
 tProject.textContent = "Project:";
 tProject.classList.add("tProject");
@@ -56,15 +66,14 @@ targetProject.append(option1);
 
 // notes files
 const notesArea = document.createElement("div");
-notesArea.classList.add();
 const nh1 = document.createElement("h1");
 nh1.textContent = "Add Notes";
 const nTitle = document.createElement("input");
 nTitle.classList.add("nTitle");
-nTitle.setAttribute("placeholder","title goes here");
-const nDescription = document.createElement("input");
-nDescription.setAttribute
+nTitle.setAttribute("placeholder", "add title");
+const nDescription = document.createElement("textarea");
 nDescription.classList.add("nDescription");
+nDescription.setAttribute("placeholder", "add description");
 
 function initalize() {
   // adding class to all the elements
@@ -79,12 +88,12 @@ function initalize() {
   dialog.append(wrapper);
   wrapper.append(buttonHolder, todoArea, notesArea);
 
-  todoArea.append(th1, close.cloneNode(true), tTitle);
+  todoArea.append(th1, tClose, tTitle);
   todoArea.append(tDate, tDescription, tPriority);
-  todoArea.append(tProject, clearAll.cloneNode(true), confirm.cloneNode(true));
+  todoArea.append(tProject, tClearAll, tconfirm);
 
   buttonHolder.append(todoButton, notesButton);
-  notesArea.append(nh1, close, nTitle, nDescription, clearAll, confirm);
+  notesArea.append(nh1, nClose, nTitle, nDescription, nClearAll, nConfirm);
   tPriority.append(low, medium, high);
   tProject.append(targetProject);
   document.body.append(dialog);
@@ -97,6 +106,16 @@ export const renderDefaultDialog = (function () {
   const showDialog = function () {
     dialog.showModal();
   };
+
+  const closeDialog = function () {
+    dialog.close();
+  };
+
+  dialog.addEventListener("click", (e) => {
+    if (!wrapper.contains(e.target)) {
+      closeDialog();
+    }
+  });
 
   notesButton.addEventListener("click", () => {
     defaultDialogLogic.displayNotes();
@@ -118,6 +137,8 @@ export const defaultDialogLogic = (function () {
   let isNotesActive = false;
   let priority = "";
 
+  function clear() {}
+
   function displayNotes() {
     isTodoActive = false;
     isNotesActive = true;
@@ -135,6 +156,5 @@ export const defaultDialogLogic = (function () {
   function finale() {
     renderDefaultDialog.showDialog();
   }
-
   return { displayNotes, displayTodo, finale };
 })();
