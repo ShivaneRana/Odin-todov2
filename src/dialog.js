@@ -129,6 +129,14 @@ export const renderDefaultDialog = (function () {
     closeDialog();
   });
 
+  tClearAll.addEventListener("click", () => {
+    defaultDialogLogic.clearEverything();
+  });
+
+  nClearAll.addEventListener("click", () => {
+    defaultDialogLogic.clearEverything();
+  });
+
   notesButton.addEventListener("click", () => {
     defaultDialogLogic.displayNotes();
     defaultDialogLogic.clear();
