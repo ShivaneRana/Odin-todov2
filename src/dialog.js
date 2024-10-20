@@ -118,6 +118,7 @@ function initalize() {
   const closeDialog = function () {
     defaultDialogLogic.clearEverything();
     dialog.close();
+    renderDefaultDialog.rerenderPriority(priorityButtonAll);
   };
 
   dialog.addEventListener("click", (e) => {
@@ -128,6 +129,7 @@ function initalize() {
 
   tClose.addEventListener("click", () => {
     closeDialog();
+    renderDefaultDialog.rerenderPriority(priorityButtonAll);
   });
 
   nClose.addEventListener("click", () => {
@@ -136,6 +138,7 @@ function initalize() {
 
   tClearAll.addEventListener("click", () => {
     defaultDialogLogic.clearEverything();
+    renderDefaultDialog.rerenderPriority(priorityButtonAll);
   });
 
   nClearAll.addEventListener("click", () => {
@@ -144,6 +147,7 @@ function initalize() {
 
   notesButton.addEventListener("click", () => {
     defaultDialogLogic.displayNotes();
+    renderDefaultDialog.rerenderPriority(priorityButtonAll);
     defaultDialogLogic.clear();
     notesArea.classList.remove("hide");
     todoArea.classList.add("hide");
@@ -165,7 +169,13 @@ export const renderDefaultDialog = (function () {
     dialog.showModal();
   };
 
-  return { showDialog };
+  const rerenderPriority = function(list){
+    list.forEach(item => {
+      item.classList.remove("picked");
+    })
+  }
+
+  return { showDialog, rerenderPriority};
 })();
 
 export const defaultDialogLogic = (function () {
@@ -182,6 +192,7 @@ export const defaultDialogLogic = (function () {
       tDescription.value = "";
       tDate.value = "";
       targetProject.selectedIndex = 0;
+      defaultDialogLogic.changePriority("");
     }
   }
 
@@ -192,11 +203,11 @@ export const defaultDialogLogic = (function () {
     tDescription.value = "";
     tDate.value = "";
     targetProject.selectedIndex = 0;
+    defaultDialogLogic.changePriority("");
   }
 
   function changePriority(value) {
     priority = value;
-    console.log("Cpriority changed to: " + priority);
   }
 
   function displayNotes() {
