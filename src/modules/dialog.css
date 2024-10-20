@@ -71,9 +71,10 @@
 
   & > .tDate {
     grid-row: 4/6;
-    grid-column: 13/16;
+    grid-column: 12/16;
     border: none;
     outline: 2px solid black;
+    margin-left: 10px;
   }
 
   & > .tDescription {
