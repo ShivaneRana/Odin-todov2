@@ -29,7 +29,7 @@ addNewProject.addEventListener("click", () => {
   projectLogic.finale(projectContainer);
 });
 
-renderDefaultDialog.showDialog()
+renderDefaultDialog.showDialog();
 
 addTodoOrNotes.addEventListener("click", () => {
   renderDefaultDialog.showDialog();
