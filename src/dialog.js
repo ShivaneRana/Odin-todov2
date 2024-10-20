@@ -13,7 +13,7 @@ export const renderDefaultDialog = (function () {
 
   // todo files
   const todoArea = document.createElement("div");
-  const h1 = document.createElement("h1");
+  const th1 = document.createElement("h1");
   const tTitle = document.createElement("input");
   const tDate = document.createElement("input");
   const tDescription = document.createElement("textarea");
@@ -26,6 +26,7 @@ export const renderDefaultDialog = (function () {
 
   // notes files
   const notesArea = document.createElement("div");
+  const nh1 = document.createElement("h1");
   const nTitle = document.createElement("input");
   const nDescription = document.createElement("input");
 
@@ -42,9 +43,28 @@ export const renderDefaultDialog = (function () {
   notesArea.classList.add("hide");
 
   dialog.append(wrapper);
-  wrapper.append(buttonHolder);
-  wrapper.append(todoArea);
-  wrapper.append(notesArea);
+  wrapper.append(buttonHolder, todoArea, notesArea);
+
+  buttonHolder.append(showTodo, showNotes);
+
+  todoArea.append(
+    th1,
+    close,
+    tTitle,
+    tDate,
+    tDescription,
+    tPriority,
+    low,
+    medium,
+    high,
+    tProject,
+    targetProject,
+    clearAll,
+    confirm,
+  );
+
+  notesArea.append(nh1, close, nTitle, nDescription, clearAll, confirm);
+
   document.body.append(dialog);
 
   const showDialog = function () {
