@@ -10,7 +10,7 @@ todoButton.textContent = "-> Todo";
 const notesButton = document.createElement("button");
 notesButton.textContent = "Notes";
 
-//   these button are common in both tab but different name for various reason
+//  close confirm and clear all button for the notes list
 const nClose = document.createElement("button");
 nClose.textContent = "Close";
 nClose.classList.add("close");
@@ -21,15 +21,16 @@ const nConfirm = document.createElement("button");
 nConfirm.textContent = "Confirm";
 nConfirm.classList.add("confirm");
 
+// close confirm and clear all button for the todo list
 const tClose = document.createElement("button");
 tClose.classList.add("close");
 tClose.textContent = "Close";
 const tClearAll = document.createElement("button");
 tClearAll.classList.add("clearAll");
 tClearAll.textContent = "Clear All";
-const tconfirm = document.createElement("button");
-tconfirm.textContent = "Confirm";
-tconfirm.classList.add("confirm");
+const tConfirm = document.createElement("button");
+tConfirm.textContent = "Confirm";
+tConfirm.classList.add("confirm");
 
 // todo files
 const todoArea = document.createElement("div");
@@ -96,7 +97,7 @@ function initalize() {
 
   todoArea.append(th1, tClose, tTitle);
   todoArea.append(tDate, tDescription, tPriority);
-  todoArea.append(tProject, tClearAll, tconfirm);
+  todoArea.append(tProject, tClearAll, tConfirm);
 
   buttonHolder.append(todoButton, notesButton);
   notesArea.append(nh1, nClose, nTitle, nDescription, nClearAll, nConfirm);
@@ -116,7 +117,7 @@ function initalize() {
 
   // functionality added to all the elements
   const closeDialog = function () {
-    defaultDialogLogic.clearEverything();
+    defaultDialogLogic.clearEverything(); //clear everything on closing dialog box
     dialog.close();
     renderDefaultDialog.rerenderPriority(priorityButtonAll);
   };
@@ -144,6 +145,17 @@ function initalize() {
   nClearAll.addEventListener("click", () => {
     defaultDialogLogic.clearEverything();
   });
+
+  tConfirm.addEventListener("click",() => {
+    console.log("Todo area confirm button was pressed");
+    console.log(tTitle.value,tDate.value,tDescription.value,targetProject.selectedIndex,defaultDialogLogic.getPriority());
+  })
+
+  nConfirm.addEventListener("click",() => {
+    console.log("notes area confirm button was pressed");
+    console.log(nTitle.value,nDescription.value);
+  })
+
 
   notesButton.addEventListener("click", () => {
     defaultDialogLogic.displayNotes();
@@ -210,6 +222,10 @@ export const defaultDialogLogic = (function () {
     priority = value;
   }
 
+  function getPriority(){
+    return priority;
+  }
+
   function displayNotes() {
     isTodoActive = false;
     isNotesActive = true;
@@ -232,6 +248,7 @@ export const defaultDialogLogic = (function () {
     displayTodo,
     clear,
     changePriority,
+    getPriority,
     clearEverything,
     finale,
   };
