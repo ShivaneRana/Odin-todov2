@@ -147,7 +147,7 @@ function initalize() {
       tTitle.value,
       tDate.value,
       tDescription.value,
-      targetProject.selectedIndex,
+      targetProject.options[targetProject.selectedIndex].textContent,
       defaultDialogLogic.getPriority(),
     );
   });
