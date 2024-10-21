@@ -182,27 +182,26 @@ export const renderDefaultDialog = (function () {
     dialog.showModal();
   };
 
-  const renderTargetProjectList = function(){
+  const renderTargetProjectList = function () {
     targetProject.textContent = "";
     const option = document.createElement("option");
     option.textContent = "All";
     targetProject.append(option);
-    for(let i in projectLogic.getList()){
+    for (let i in projectLogic.getList()) {
       const option = document.createElement("option");
       option.textContent = i;
       targetProject.append(option);
     }
-  }
-   
+  };
+
   const rerenderPriority = function (list) {
     list.forEach((item) => {
       item.classList.remove("picked");
     });
   };
 
-  return { showDialog, rerenderPriority , renderTargetProjectList};
+  return { showDialog, rerenderPriority, renderTargetProjectList };
 })();
-
 
 // this handle logic to a certain degree
 export const defaultDialogLogic = (function () {
