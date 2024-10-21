@@ -8,6 +8,7 @@ export const projectLogic = (function () {
   };
 
   const getList = function () {
+    console.log("getlist was called");
     for (let i in projectList) {
       console.log(`${i}`, projectList[i]);
     }

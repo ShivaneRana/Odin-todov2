@@ -61,16 +61,10 @@ high.classList.add("priorityButton");
 const tProject = document.createElement("h3");
 tProject.textContent = "Project:";
 tProject.classList.add("tProject");
-const targetProject = document.createElement("select");
-const option1 = document.createElement("option");
-option1.textContent = "All";
-const option2 = document.createElement("option");
-option2.textContent = "project1";
-const option3 = document.createElement("option");
-option3.textContent = "project2";
-const option4 = document.createElement("option");
-option4.textContent = "project3";
-targetProject.append(option1, option2, option3, option4);
+const targetProject = document.createElement("select"); //option inside are rendered with renderTargetPRojectList function inside renderDefaultDialog
+// const option1 = document.createElement("option");
+// option1.textContent = "All";
+// targetProject.append(option1);
 
 // notes files
 const notesArea = document.createElement("div");
@@ -184,18 +178,33 @@ export const renderDefaultDialog = (function () {
   initalize();
 
   const showDialog = function () {
+    renderTargetProjectList();
     dialog.showModal();
   };
 
+  const renderTargetProjectList = function(){
+    targetProject.textContent = "";
+    const option = document.createElement("option");
+    option.textContent = "All";
+    targetProject.append(option);
+    for(let i in projectLogic.getList()){
+      const option = document.createElement("option");
+      option.textContent = i;
+      targetProject.append(option);
+    }
+  }
+   
   const rerenderPriority = function (list) {
     list.forEach((item) => {
       item.classList.remove("picked");
     });
   };
 
-  return { showDialog, rerenderPriority };
+  return { showDialog, rerenderPriority , renderTargetProjectList};
 })();
 
+
+// this handle logic to a certain degree
 export const defaultDialogLogic = (function () {
   let isTodoActive = true;
   let isNotesActive = false;
