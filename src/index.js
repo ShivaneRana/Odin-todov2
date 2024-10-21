@@ -2,7 +2,8 @@ import "./style.css";
 import "./asset/Gilroy/stylesheet.css";
 import { projectLogic } from "./modules/project.js";
 import { expandLogic, themeLogic } from "./modules/uilogic.js";
-import { defaultDialogLogic } from "./dialog.js";
+import { defaultDialogLogic, renderDefaultDialog } from "./dialog.js";
+import { renderProjectInputDialog } from "./modules/dom.js";
 
 const expand = document.querySelector(".expand");
 const theme = document.querySelector(".theme");
@@ -32,3 +33,5 @@ addNewProject.addEventListener("click", () => {
 addTodoOrNotes.addEventListener("click", () => {
   defaultDialogLogic.finale();
 });
+
+renderProjectInputDialog.render();

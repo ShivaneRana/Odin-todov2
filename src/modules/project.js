@@ -1,4 +1,4 @@
-import { renderProjectList } from "./dom.js";
+import { renderProjectInputDialog, renderProjectList } from "./dom.js";
 
 export const projectLogic = (function () {
   const projectList = {
@@ -23,7 +23,7 @@ export const projectLogic = (function () {
   };
 
   const askForInput = function () {
-    const name = prompt("What is the name of the project?");
+    const name = prompt("Enter project name");
     return name;
   };
 
