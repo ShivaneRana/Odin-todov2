@@ -1,4 +1,5 @@
 import "./modules/dialog.css";
+import { projectLogic } from "./modules/project.js";
 
 const dialog = document.createElement("dialog");
 const wrapper = document.createElement("div");
@@ -146,16 +147,21 @@ function initalize() {
     defaultDialogLogic.clearEverything();
   });
 
-  tConfirm.addEventListener("click",() => {
+  tConfirm.addEventListener("click", () => {
     console.log("Todo area confirm button was pressed");
-    console.log(tTitle.value,tDate.value,tDescription.value,targetProject.selectedIndex,defaultDialogLogic.getPriority());
-  })
+    console.log(
+      tTitle.value,
+      tDate.value,
+      tDescription.value,
+      targetProject.selectedIndex,
+      defaultDialogLogic.getPriority(),
+    );
+  });
 
-  nConfirm.addEventListener("click",() => {
+  nConfirm.addEventListener("click", () => {
     console.log("notes area confirm button was pressed");
-    console.log(nTitle.value,nDescription.value);
-  })
-
+    console.log(nTitle.value, nDescription.value);
+  });
 
   notesButton.addEventListener("click", () => {
     defaultDialogLogic.displayNotes();
@@ -181,13 +187,13 @@ export const renderDefaultDialog = (function () {
     dialog.showModal();
   };
 
-  const rerenderPriority = function(list){
-    list.forEach(item => {
+  const rerenderPriority = function (list) {
+    list.forEach((item) => {
       item.classList.remove("picked");
-    })
-  }
+    });
+  };
 
-  return { showDialog, rerenderPriority};
+  return { showDialog, rerenderPriority };
 })();
 
 export const defaultDialogLogic = (function () {
@@ -222,7 +228,7 @@ export const defaultDialogLogic = (function () {
     priority = value;
   }
 
-  function getPriority(){
+  function getPriority() {
     return priority;
   }
 

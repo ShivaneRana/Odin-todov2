@@ -60,5 +60,5 @@ export const projectLogic = (function () {
     }
   };
 
-  return { finale, removeFromList, renderList };
+  return { finale, removeFromList, renderList, getList };
 })();
