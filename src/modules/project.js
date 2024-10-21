@@ -28,18 +28,18 @@ export const projectLogic = (function () {
   };
 
   const checkInput = function (name) {
-    let exist = Object.keys(projectList).includes(name);
-    if (exist === true) {
-      console.log("key already exist in the list");
-      return false;
-    } else {
-      if (name !== "" || name !== null || name !== undefined) {
-        console.log("key was registered to the list");
+    if (!(name === "" || name === null || name === undefined)) {
+      let exist = Object.keys(projectList).includes(name);
+      if (exist !== true) {
+        console.log("value added to projectList");
         return true;
       } else {
-        console.log("key is invalid");
+        console.log("value already exist");
         return false;
       }
+    } else {
+      console.log("value is invalid");
+      return false;
     }
   };
 

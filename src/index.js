@@ -29,8 +29,6 @@ addNewProject.addEventListener("click", () => {
   projectLogic.finale(projectContainer);
 });
 
-defaultDialogLogic.finale();
-
 addTodoOrNotes.addEventListener("click", () => {
   defaultDialogLogic.finale();
 });
