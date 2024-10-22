@@ -27,11 +27,9 @@ theme.addEventListener("click", () => {
 });
 
 addNewProject.addEventListener("click", () => {
-  projectLogic.finale(projectContainer);
+  projectLogic.finale(projectContainer, prompt("enter project Name"));
 });
 
 addTodoOrNotes.addEventListener("click", () => {
   defaultDialogLogic.finale();
 });
-
-renderProjectInputDialog.render();
