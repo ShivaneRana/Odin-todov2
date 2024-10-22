@@ -87,12 +87,12 @@ export const renderProjectInputDialog = (function () {
   });
 
   confirmButton.addEventListener("click", () => {
-    return projectName.value;
+
   });
 
   function render() {
     dialog.showModal();
   }
 
-  return { render };
+  return { render};
 })();

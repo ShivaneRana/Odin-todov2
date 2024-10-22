@@ -1,6 +1,7 @@
 import { renderProjectInputDialog, renderProjectList } from "./dom.js";
 
 export const projectLogic = (function () {
+
   const projectList = {
     gym: {},
     study: {},
@@ -23,8 +24,8 @@ export const projectLogic = (function () {
   };
 
   const askForInput = function () {
-    const name = prompt("Enter project name");
-    return name;
+    const pName = prompt("what is the name of the project?");
+    return pName;
   };
 
   const checkInput = function (name) {
@@ -52,7 +53,7 @@ export const projectLogic = (function () {
     renderProjectList.render(projectList, container);
   };
 
-  const finale = function (container) {
+  const finale = function (container){
     const projectName = askForInput();
     if (checkInput(projectName)) {
       addToList(projectName);
@@ -61,5 +62,5 @@ export const projectLogic = (function () {
     }
   };
 
-  return { finale, removeFromList, renderList, getList };
+  return { finale, removeFromList, renderList, getList ,};
 })();
