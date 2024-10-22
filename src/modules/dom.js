@@ -21,9 +21,9 @@ export const renderProjectList = (function () {
     }
   };
 
-  const clear = function (container) {
+  function clear(container) {
     container.textContent = "";
-  };
+  }
 
   return { render, clear };
 })();
@@ -86,10 +86,14 @@ export const renderProjectInputDialog = (function () {
     projectName.value = "";
   });
 
-  confirmButton.addEventListener("click", () => {});
-
-  function render() {
+  function render(container) {
     dialog.showModal();
+
+    confirmButton.addEventListener("click", () => {
+      dialog.close();
+      projectLogic.finale(container, projectName.value);
+      projectName.value = "";
+    });
   }
 
   return { render };

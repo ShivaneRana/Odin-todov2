@@ -47,8 +47,16 @@ export const projectLogic = (function () {
     renderProjectList.render(projectList, container);
   };
 
-  const finale = function (container, pName) {
-    const projectName = pName;
+  // const finale = function (container){
+  //   const projectName = "shviae";
+  //   if (checkInput(projectName)) {
+  //     addToList(projectName);
+  //     getList();
+  //     renderList(container);
+  //   }
+  // };
+
+  const finale = function (container, projectName) {
     if (checkInput(projectName)) {
       addToList(projectName);
       getList();
