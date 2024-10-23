@@ -101,3 +101,17 @@ export const renderProjectInputDialog = (function () {
 
   return { render };
 })();
+
+// this is for rendering notesList
+export const renderNotesList = function () {
+  const render = function (container) {
+    const titleDiv = document.createElement("div");
+    const descriptionDiv = document.createElement("div");
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    const removeButtton = document.createElement("button");
+    removeButtton.textContent = "Delete";
+  };
+
+  return {};
+};
