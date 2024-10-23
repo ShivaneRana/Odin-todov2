@@ -142,7 +142,6 @@ function initalize() {
   });
 
   tConfirm.addEventListener("click", () => {
-    console.log("Todo area confirm button was pressed");
     console.log(
       tTitle.value,
       tDate.value,
@@ -153,7 +152,6 @@ function initalize() {
   });
 
   nConfirm.addEventListener("click", () => {
-    console.log("notes area confirm button was pressed");
     console.log(nTitle.value, nDescription.value);
   });
 

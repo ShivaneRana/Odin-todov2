@@ -5,31 +5,39 @@ import { expandLogic, themeLogic } from "./modules/uilogic.js";
 import { defaultDialogLogic } from "./dialog.js";
 import { renderProjectInputDialog } from "./modules/dom.js";
 
-const expand = document.querySelector(".expand");
-const theme = document.querySelector(".theme");
+const expandButton = document.querySelector(".expand");
+const themeButton = document.querySelector(".theme");
 const sideBar = document.querySelector(".sideBar");
 const navBar = document.querySelector(".navBar");
 const mainBar = document.querySelector(".mainBar");
-const addNewProject = document.querySelector(".addNewProject");
+const addNewProjectButton = document.querySelector(".addNewProject");
 const projectContainer = document.querySelector(".projectContainer");
-const addTodoOrNotes = document.querySelector(".add");
+const addTodoOrNotesButton = document.querySelector(".add");
+const notesButton = document.querySelector(".notes");
+const allButton = document.querySelector(".all");
+const todayButton = document.querySelector(".today");
+const completedButton = document.querySelector(".completed");
 
 document.addEventListener("DOMContentLoaded", () => {
   projectLogic.renderList(projectContainer);
 });
 
-expand.addEventListener("click", () => {
-  expandLogic.expandFinale(sideBar, navBar, mainBar, expand);
+expandButton.addEventListener("click", () => {
+  expandLogic.expandFinale(sideBar, navBar, mainBar, expandButton);
 });
 
-theme.addEventListener("click", () => {
-  themeLogic.themeFinale(theme);
+themeButton.addEventListener("click", () => {
+  themeLogic.themeFinale(themeButton);
 });
 
-addNewProject.addEventListener("click", () => {
+addNewProjectButton.addEventListener("click", () => {
   renderProjectInputDialog.render(projectContainer);
 });
 
-addTodoOrNotes.addEventListener("click", () => {
+addTodoOrNotesButton.addEventListener("click", () => {
   defaultDialogLogic.finale();
+});
+
+notesButton.addEventListener("click", () => {
+  mainBar.style.backgroundColor = "red";
 });

@@ -86,14 +86,17 @@ export const renderProjectInputDialog = (function () {
     projectName.value = "";
   });
 
-  function render(container) {
-    dialog.showModal();
+  let currentContainer = null;
 
-    confirmButton.addEventListener("click", () => {
-      dialog.close();
-      projectLogic.finale(container, projectName.value);
-      projectName.value = "";
-    });
+  confirmButton.addEventListener("click", () => {
+    dialog.close();
+    projectLogic.finale(currentContainer, projectName.value);
+    projectName.value = "";
+  });
+
+  function render(container) {
+    currentContainer = container;
+    dialog.showModal();
   }
 
   return { render };

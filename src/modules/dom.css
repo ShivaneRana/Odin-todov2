@@ -37,37 +37,6 @@ body {
   }
 }
 
-/* display this when displaying todo's */
-.todoContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow-y: scroll;
-  gap: 10px;
-
-  & > div {
-    background-color: lightblue;
-    outline: 1px solid;
-    width: 100%;
-    min-height: 15%;
-  }
-}
-
-/* apply this when displaying note's */
-.noteContainer {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 300px);
-  gap: 10px;
-
-  & > div {
-    background-color: lightblue;
-    outline: 1px solid;
-    width: 300px;
-    height: 350px;
-  }
-}
-
 .hide {
   display: none;
 }
