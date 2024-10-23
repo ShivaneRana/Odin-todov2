@@ -40,5 +40,5 @@ addTodoOrNotesButton.addEventListener("click", () => {
 });
 
 notesButton.addEventListener("click", () => {
-  console.log(notesLogic.getNotesList());
+  notesLogic.finale(mainBar)
 });

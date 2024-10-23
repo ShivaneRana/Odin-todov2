@@ -117,7 +117,6 @@ body {
 
 /* apply this when displaying note's */
 .notesContainer {
-  background-color: lightcoral;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 300px);

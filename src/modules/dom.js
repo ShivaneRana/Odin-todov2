@@ -1,4 +1,5 @@
 import "./dom.css";
+import { notesLogic } from "./notes.js";
 import { projectLogic } from "./project.js";
 
 // render project list
@@ -103,15 +104,40 @@ export const renderProjectInputDialog = (function () {
 })();
 
 // this is for rendering notesList
-export const renderNotesList = function () {
-  const render = function (container) {
-    const titleDiv = document.createElement("div");
-    const descriptionDiv = document.createElement("div");
-    const editButton = document.createElement("button");
-    editButton.textContent = "Edit";
-    const removeButtton = document.createElement("button");
-    removeButtton.textContent = "Delete";
+export const renderNotesList = (function () {
+
+  let currentContainer = null;
+
+  const applyNotesClass = function () {
+    currentContainer.classList.remove("todoContainer");
+    currentContainer.classList.add("notesContainer");
   };
 
-  return {};
-};
+  
+  const clearContainer = function(){
+    currentContainer.textContent = "";
+  }
+
+  const render = function (container) {
+    currentContainer = container;
+    applyNotesClass();
+    clearContainer();
+    const list = notesLogic.getNotesList();
+    for(let i in list){
+      const div = document.createElement("div");
+      const title = document.createElement("h1");
+      title.textContent = i;
+      const description = document.createElement("p");
+      description.textContent
+      const editButton = document.createElement("button");
+      editButton.textContent = "Edit";
+      const removeButtton = document.createElement("button");
+      removeButtton.textContent = "Delete";
+      div.append(title, description, editButton, removeButtton);
+      container.append(div);
+    }
+  };
+
+
+  return { render };
+})();
