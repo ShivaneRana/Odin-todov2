@@ -126,11 +126,13 @@ export const renderNotesList = (function () {
       const title = document.createElement("h1");
       title.textContent = i;
       const description = document.createElement("p");
-      description.textContent;
+      description.textContent = list[i];
       const editButton = document.createElement("button");
       editButton.textContent = "Edit";
+      editButton.classList.add("editBut");
       const removeButtton = document.createElement("button");
       removeButtton.textContent = "Delete";
+      removeButtton.classList.add("deleteBut");
       div.append(title, description, editButton, removeButtton);
       container.append(div);
     }

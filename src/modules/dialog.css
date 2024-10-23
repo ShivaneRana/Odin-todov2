@@ -1,4 +1,6 @@
 @import url(/src/asset/Gilroy/stylesheet.css);
+@import url(./colorsheet.css);
+
 /* this is for dialogBox */
 .addDialog {
   position: absolute;

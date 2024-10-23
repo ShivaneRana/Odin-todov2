@@ -21,6 +21,7 @@ const completedButton = document.querySelector(".completed");
 
 document.addEventListener("DOMContentLoaded", () => {
   projectLogic.renderList(projectContainer);
+  notesLogic.finale(mainBar);
 });
 
 expandButton.addEventListener("click", () => {
