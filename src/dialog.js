@@ -1,4 +1,7 @@
+import { clickNotes } from "./index.js";
 import "./modules/dialog.css";
+import { renderNotesList } from "./modules/dom.js";
+import { notesLogic } from "./modules/notes.js";
 import { projectLogic } from "./modules/project.js";
 
 const dialog = document.createElement("dialog");
@@ -72,6 +75,7 @@ const nh1 = document.createElement("h1");
 nh1.textContent = "Add Notes";
 const nTitle = document.createElement("input");
 nTitle.classList.add("nTitle");
+nTitle.setAttribute("maxLength", "13");
 nTitle.setAttribute("placeholder", "add title");
 const nDescription = document.createElement("textarea");
 nDescription.classList.add("nDescription");
@@ -152,7 +156,9 @@ function initalize() {
   });
 
   nConfirm.addEventListener("click", () => {
-    console.log(nTitle.value, nDescription.value);
+    notesLogic.addToNotesList(nTitle.value, nDescription.value);
+    closeDialog();
+    clickNotes();
   });
 
   notesButton.addEventListener("click", () => {

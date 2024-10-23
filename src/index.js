@@ -43,3 +43,7 @@ addTodoOrNotesButton.addEventListener("click", () => {
 notesButton.addEventListener("click", () => {
   notesLogic.finale(mainBar);
 });
+
+export const clickNotes = function () {
+  notesButton.click();
+};

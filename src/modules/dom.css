@@ -121,14 +121,14 @@ body {
   padding: 50px;
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, 350px);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, 370px);
+  gap: 30px;
 
   & > div {
     background-color: lightgrey;
     outline: 2px solid;
-    width: 330px;
-    height: 350px;
+    width: 370px;
+    height: 370px;
     display: grid;
     grid-template-columns: repeat(15, 1fr);
     grid-template-rows: repeat(15, 1fr);

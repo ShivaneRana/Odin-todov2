@@ -134,7 +134,7 @@ export const renderNotesList = (function () {
       removeButtton.textContent = "X";
       removeButtton.classList.add("deleteBut");
       div.append(title, description, editButton, removeButtton);
-      container.append(div);
+      currentContainer.append(div);
     }
   };
 
