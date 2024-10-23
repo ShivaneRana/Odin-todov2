@@ -116,6 +116,22 @@ export const renderNotesList = (function () {
     currentContainer.textContent = "";
   };
 
+  // used when user try to add an pre existing note
+  const alreadyExist = function () {
+    const dialog = document.createElement("dialog");
+    const wrapper = document.createElement("div");
+    wrapper.textContent = "Old note with smae title already exist!";
+
+    dialog.addEventListener("click", (e) => {
+      if (!dialog.contains(e.target)) {
+        dialog.close();
+      }
+    });
+
+    dialog.append(wrapper);
+    dialog.show();
+  };
+
   const render = function (container) {
     currentContainer = container;
     applyNotesClass();
@@ -130,13 +146,19 @@ export const renderNotesList = (function () {
       const editButton = document.createElement("button");
       editButton.textContent = "Edit";
       editButton.classList.add("editBut");
-      const removeButtton = document.createElement("button");
-      removeButtton.textContent = "X";
-      removeButtton.classList.add("deleteBut");
-      div.append(title, description, editButton, removeButtton);
+      const removeButton = document.createElement("button");
+      removeButton.textContent = "X";
+      removeButton.classList.add("deleteBut");
+      div.append(title, description, editButton, removeButton);
       currentContainer.append(div);
+
+      removeButton.addEventListener("click", () => {
+        console.log(`${i} have been removed`);
+        notesLogic.removeNotesFromList(i);
+        render(container);
+      });
     }
   };
 
-  return { render };
+  return { render, alreadyExist };
 })();

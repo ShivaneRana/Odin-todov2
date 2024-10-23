@@ -20,5 +20,20 @@ export const notesLogic = (function () {
     renderNotesList.render(container);
   };
 
-  return { getNotesList, addToNotesList, removeNotesFromList, finale };
+  const noteExist = function (title) {
+    if (title in notesList) {
+      renderNotesList.alreadyExist();
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  return {
+    getNotesList,
+    addToNotesList,
+    removeNotesFromList,
+    finale,
+    noteExist,
+  };
 })();
