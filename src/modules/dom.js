@@ -131,7 +131,7 @@ export const renderNotesList = (function () {
       editButton.textContent = "Edit";
       editButton.classList.add("editBut");
       const removeButtton = document.createElement("button");
-      removeButtton.textContent = "Delete";
+      removeButtton.textContent = "X";
       removeButtton.classList.add("deleteBut");
       div.append(title, description, editButton, removeButtton);
       container.append(div);
