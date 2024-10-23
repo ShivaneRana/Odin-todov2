@@ -24,9 +24,9 @@ export const notesLogic = (function () {
     delete notesList[title];
   };
 
-  const finale = function(container){
+  const finale = function (container) {
     renderNotesList.render(container);
-  }
+  };
 
-  return { getNotesList, addToNotesList, removeNotesFromList , finale};
+  return { getNotesList, addToNotesList, removeNotesFromList, finale };
 })();

@@ -105,7 +105,6 @@ export const renderProjectInputDialog = (function () {
 
 // this is for rendering notesList
 export const renderNotesList = (function () {
-
   let currentContainer = null;
 
   const applyNotesClass = function () {
@@ -113,22 +112,21 @@ export const renderNotesList = (function () {
     currentContainer.classList.add("notesContainer");
   };
 
-  
-  const clearContainer = function(){
+  const clearContainer = function () {
     currentContainer.textContent = "";
-  }
+  };
 
   const render = function (container) {
     currentContainer = container;
     applyNotesClass();
     clearContainer();
     const list = notesLogic.getNotesList();
-    for(let i in list){
+    for (let i in list) {
       const div = document.createElement("div");
       const title = document.createElement("h1");
       title.textContent = i;
       const description = document.createElement("p");
-      description.textContent
+      description.textContent;
       const editButton = document.createElement("button");
       editButton.textContent = "Edit";
       const removeButtton = document.createElement("button");
@@ -137,7 +135,6 @@ export const renderNotesList = (function () {
       container.append(div);
     }
   };
-
 
   return { render };
 })();
