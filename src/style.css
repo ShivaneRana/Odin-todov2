@@ -136,6 +136,7 @@ body {
 
 /* display this when displaying todo's */
 .todoContainer {
+  background-color: lightslategrey;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,7 +152,8 @@ body {
 }
 
 /* apply this when displaying note's */
-.noteContainer {
+.notesContainer {
+  background-color: lightcoral;
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 300px);

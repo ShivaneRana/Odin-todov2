@@ -4,6 +4,7 @@ import { projectLogic } from "./modules/project.js";
 import { expandLogic, themeLogic } from "./modules/uilogic.js";
 import { defaultDialogLogic } from "./dialog.js";
 import { renderProjectInputDialog } from "./modules/dom.js";
+import { notesLogic } from "./modules/notes.js";
 
 const expandButton = document.querySelector(".expand");
 const themeButton = document.querySelector(".theme");
@@ -39,5 +40,5 @@ addTodoOrNotesButton.addEventListener("click", () => {
 });
 
 notesButton.addEventListener("click", () => {
-  mainBar.style.backgroundColor = "red";
+  console.log(notesLogic.getNotesList());
 });
