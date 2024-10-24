@@ -31,13 +31,13 @@ export const projectLogic = (function () {
       } else {
         renderProjectInputDialog.closeDialog();
         renderProjectInputDialog.projectNotAdded(
-          "Project with same name already exist",
+          "Project with same name already exist!",
         );
         return false;
       }
     } else {
       renderProjectInputDialog.closeDialog();
-      renderProjectInputDialog.projectNotAdded("No project Name was provided");
+      renderProjectInputDialog.projectNotAdded("No project Name was provided!");
       return false;
     }
   };
