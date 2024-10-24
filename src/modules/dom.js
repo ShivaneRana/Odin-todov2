@@ -95,13 +95,41 @@ export const renderProjectInputDialog = (function () {
     projectName.value = "";
   });
 
+  const closeDialog = function () {
+    closeButton.click();
+  };
+
+  const projectNotAdded = function (message) {
+    dialog.close();
+    notAddedDialog(message, "ProjectInputError");
+  };
+
   function render(container) {
     currentContainer = container;
     dialog.showModal();
   }
 
-  return { render };
+  return { render, projectNotAdded, closeDialog };
 })();
+
+// render alert message on not being able to add notes or project
+const notAddedDialog = function (message, className) {
+  const alertDialog = document.createElement("dialog");
+  const alertWrapper = document.createElement("div");
+  const alertH1 = document.createElement("h1");
+  alertH1.textContent = message;
+  alertWrapper.append(alertH1);
+  alertDialog.append(alertWrapper);
+  document.body.append(alertDialog);
+  alertWrapper.classList.add(className);
+  alertDialog.showModal();
+
+  alertDialog.addEventListener("click", (e) => {
+    if (!alertWrapper.contains(e.target)) {
+      alertDialog.close();
+    }
+  });
+};
 
 // this is for rendering notesList
 export const renderNotesList = (function () {
@@ -114,22 +142,6 @@ export const renderNotesList = (function () {
 
   const clearContainer = function () {
     currentContainer.textContent = "";
-  };
-
-  // used when user try to add an pre existing note
-  const alreadyExist = function () {
-    const dialog = document.createElement("dialog");
-    const wrapper = document.createElement("div");
-    wrapper.textContent = "Old note with smae title already exist!";
-
-    dialog.addEventListener("click", (e) => {
-      if (!dialog.contains(e.target)) {
-        dialog.close();
-      }
-    });
-
-    dialog.append(wrapper);
-    dialog.show();
   };
 
   const render = function (container) {
@@ -155,10 +167,10 @@ export const renderNotesList = (function () {
       removeButton.addEventListener("click", () => {
         console.log(`${i} have been removed`);
         notesLogic.removeNotesFromList(i);
-        render(container);
+        div.remove();
       });
     }
   };
 
-  return { render, alreadyExist };
+  return { render };
 })();

@@ -14,6 +14,9 @@ export const notesLogic = (function () {
 
   const removeNotesFromList = function (title) {
     delete notesList[title];
+    for (let i in notesList) {
+      console.log(`${i} =  ${notesList[i]}`);
+    }
   };
 
   const finale = function (container) {
