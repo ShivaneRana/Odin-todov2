@@ -3,9 +3,9 @@ import { renderNotesList } from "./dom";
 
 export const notesLogic = (function () {
   const notesList = {
-    "item1": "asldfjasdf",
-    "item2": "asldfjasdf",
-    "item3": "asldfjasdf",
+    item1: "asldfjasdf",
+    item2: "asldfjasdf",
+    item3: "asldfjasdf",
   };
 
   const getNotesList = function () {
