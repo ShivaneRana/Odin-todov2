@@ -179,6 +179,7 @@ export const renderNotesList = (function () {
         const editWrapper = document.createElement("div");
         const editTitle = document.createElement("input");
         editTitle.setAttribute("placeholder", "new title goes here...");
+        editTitle.setAttribute("maxLength", "14");
         editTitle.value = title.textContent;
         const editDecription = document.createElement("textarea");
         editDecription.value = description.textContent;
@@ -222,7 +223,7 @@ export const renderNotesList = (function () {
         });
 
         editDialog.addEventListener("click", (e) => {
-          if (!editDialog.contains(e.target)) {
+          if (!editWrapper.contains(e.target)) {
             editDialog.close();
           }
         });
