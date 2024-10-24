@@ -2,9 +2,9 @@ import { renderProjectInputDialog, renderProjectList } from "./dom.js";
 
 export const projectLogic = (function () {
   const projectList = {
-    gym: {},
-    study: {},
-    houseChore: {},
+    gym: [],
+    study: [],
+    houseChore: [],
   };
 
   const getList = function () {
@@ -43,7 +43,7 @@ export const projectLogic = (function () {
   };
 
   const addToList = function (name) {
-    projectList[name] = {};
+    projectList[name] = [];
   };
 
   const renderList = function (container) {
