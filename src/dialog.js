@@ -261,6 +261,12 @@ export const defaultDialogLogic = (function () {
   function finale() {
     renderDefaultDialog.showDialog();
   }
+
+  function closeDialog() {
+    dialog.close();
+    clearEverything();
+  }
+
   return {
     displayNotes,
     displayTodo,
@@ -269,5 +275,6 @@ export const defaultDialogLogic = (function () {
     getPriority,
     clearEverything,
     finale,
+    closeDialog,
   };
 })();

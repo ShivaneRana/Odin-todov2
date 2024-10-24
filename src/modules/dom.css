@@ -171,7 +171,7 @@ body {
 }
 
 /* for the alert dialog */
-.projectInputError {
+.inputError {
   position: absolute;
   margin: auto;
   border: none;

@@ -101,7 +101,7 @@ export const renderProjectInputDialog = (function () {
 
   const projectNotAdded = function (message) {
     dialog.close();
-    notAddedDialog(message, "projectInputError");
+    notAddedDialog(message);
   };
 
   function render(container) {
@@ -113,7 +113,7 @@ export const renderProjectInputDialog = (function () {
 })();
 
 // render alert message on not being able to add notes or project
-const notAddedDialog = function (message, className) {
+const notAddedDialog = function (message) {
   const alertDialog = document.createElement("dialog");
   const alertWrapper = document.createElement("div");
   const alertH1 = document.createElement("h1");
@@ -121,7 +121,7 @@ const notAddedDialog = function (message, className) {
   alertWrapper.append(alertH1);
   alertDialog.append(alertWrapper);
   document.body.append(alertDialog);
-  alertDialog.classList.add(className);
+  alertDialog.classList.add("inputError");
   alertDialog.showModal();
 
   alertDialog.addEventListener("click", (e) => {
@@ -142,6 +142,10 @@ export const renderNotesList = (function () {
 
   const clearContainer = function () {
     currentContainer.textContent = "";
+  };
+
+  const noteNotAdded = function (message) {
+    notAddedDialog(message);
   };
 
   const render = function (container) {
@@ -172,5 +176,5 @@ export const renderNotesList = (function () {
     }
   };
 
-  return { render };
+  return { render, noteNotAdded };
 })();

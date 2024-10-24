@@ -1,3 +1,4 @@
+import { defaultDialogLogic } from "../dialog";
 import { renderNotesList } from "./dom";
 
 export const notesLogic = (function () {
@@ -9,7 +10,18 @@ export const notesLogic = (function () {
   };
 
   const addToNotesList = function (title, description) {
-    notesList[title] = description;
+    if (!alreadyInList(title)) {
+      notesList[title] = description;
+    }
+  };
+
+  const alreadyInList = function (title) {
+    if (title in notesList) {
+      defaultDialogLogic.closeDialog();
+      renderNotesList.noteNotAdded("Notes with similar name already exist");
+      return true;
+    }
+    return false;
   };
 
   const removeNotesFromList = function (title) {
@@ -25,7 +37,6 @@ export const notesLogic = (function () {
 
   const noteExist = function (title) {
     if (title in notesList) {
-      renderNotesList.alreadyExist();
       return true;
     } else {
       return false;
