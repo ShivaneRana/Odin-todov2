@@ -55,6 +55,11 @@ body {
   margin: auto;
   outline: none;
 
+  &::backdrop {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+  }
+
   & > div {
     width: 450px;
     height: 250px;
@@ -99,7 +104,7 @@ body {
   }
 }
 
-/* display this when displaying todo's */
+/* display this when displaying todo's (when you press todo button)*/
 .todoContainer {
   background-color: lightslategrey;
   display: flex;
@@ -116,7 +121,7 @@ body {
   }
 }
 
-/* apply this when displaying note's */
+/* apply this when displaying note's(when you press notes button)*/
 .notesContainer {
   padding: 50px;
   display: grid;
@@ -171,6 +176,7 @@ body {
 }
 
 /* for the alert dialog */
+/* this display when ther is an error in accepting a value */
 .inputError {
   position: absolute;
   margin: auto;
@@ -184,5 +190,83 @@ body {
 
   & > div {
     padding: 20px;
+  }
+}
+
+/* for edit notes dialog */
+/* this is what shows when the edit button on a note item is pressed */
+.editNotes{
+  position:absolute;
+  margin: auto;
+  padding: 10px;
+  border: none;
+  outline: 2px solid;
+  background-color: lightgrey;
+
+  &::backdrop {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+  }
+
+  & > div{
+    background-color: lightgrey;
+    width: 600px;
+    height: 400px;
+    display: grid;
+    grid-template-rows: repeat(15,1fr);
+    grid-template-columns: repeat(15,1fr);
+    gap: 10px;
+
+    & > input,textarea{
+      outline: 2px solid;
+      border: none;
+      padding: 5px;
+      font-size: 1rem;
+      
+
+      &:focus{
+        border: none;
+      }
+    }
+
+    /* this is for the title */
+    & > input{
+      grid-row: 3/5;
+      grid-column: 1/16;
+    }
+
+    /* this is for the description */
+    & > textarea{
+      resize: none;
+      grid-row: 5/13;
+      grid-column: 1/16;
+    }
+
+    /* this target all the buttons */
+    & > button{
+      border: none;
+      outline: 1px solid;
+      font-size: 1rem;
+      font-weight: bolder;
+    }
+
+    /* this is for the save */
+    & > button:nth-child(3){
+      grid-row: 14/16;
+      grid-column: 6/11;
+    }
+
+    /* this is for the heading of the edit dialog */
+    & > h1{
+      grid-row: 1/3;
+      grid-column: 1/14;
+      text-align: center;
+    }
+
+    /* this is for the close button */
+    & > button:last-child{
+      grid-row: 1/3;
+      grid-column: 14/16;
+    }
   }
 }

@@ -2,7 +2,11 @@ import { defaultDialogLogic } from "../dialog";
 import { renderNotesList } from "./dom";
 
 export const notesLogic = (function () {
-  const notesList = {};
+  const notesList = {
+    "item1": "asldfjasdf",
+    "item2": "asldfjasdf",
+    "item3": "asldfjasdf",
+  };
 
   const getNotesList = function () {
     console.log("notes list was called");

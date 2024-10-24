@@ -5,6 +5,11 @@
 .addDialog {
   position: absolute;
   margin: auto;
+
+  &::backdrop {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+  }
 }
 
 .wrapper {

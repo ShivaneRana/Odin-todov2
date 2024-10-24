@@ -1,6 +1,5 @@
 import { clickNotes } from "./index.js";
 import "./modules/dialog.css";
-import { renderNotesList } from "./modules/dom.js";
 import { notesLogic } from "./modules/notes.js";
 import { projectLogic } from "./modules/project.js";
 

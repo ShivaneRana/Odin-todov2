@@ -173,6 +173,52 @@ export const renderNotesList = (function () {
         notesLogic.removeNotesFromList(i);
         div.remove();
       });
+
+      editButton.addEventListener("click",() => {
+        const editDialog = document.createElement("dialog");
+        const editWrapper = document.createElement("div");
+        const editTitle = document.createElement("input");
+        editTitle.setAttribute("placeholder","new title goes here...");
+        editTitle.value = title.textContent;
+        const editDecription = document.createElement("textarea");
+        editDecription.value = description.textContent;
+        editDecription.setAttribute("placeholder","new description goes here...");
+        const saveButton = document.createElement("button");
+        saveButton.textContent = "Save changes"
+        const closeButton = document.createElement("button");
+        closeButton.textContent = "X";
+        const header = document.createElement("h1");
+        header.textContent = "Edit Notes";
+
+
+        // apply apply apply....yay
+        editDialog.classList.add("editNotes");
+
+        // append append append....yay
+        editWrapper.append(editTitle,editDecription,saveButton,header,closeButton);
+        editDialog.append(editWrapper);
+        document.body.append(editDialog);
+        editDialog.showModal();
+
+        closeButton.addEventListener("click",() => {
+          editDialog.close();
+        })
+
+        // if u play around the you will find out that if you edit the notes you can have duplicate
+        // that is not a bug thats a feature (easter egg)
+        
+        saveButton.addEventListener("click",() => {
+          title.textContent = editTitle.value;
+          description.textContent = editDecription.value;
+          editDialog.close();
+        })
+
+        editDialog.addEventListener("click",(e) => {
+          if(!(editDialog.contains(e.target))){
+            editDialog.close();
+          }
+        })
+      })
     }
   };
 
