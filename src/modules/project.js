@@ -29,11 +29,15 @@ export const projectLogic = (function () {
         console.log("value added to projectList");
         return true;
       } else {
-        console.log("value already exist");
+        renderProjectInputDialog.closeDialog();
+        renderProjectInputDialog.projectNotAdded(
+          "Project with same name already exist",
+        );
         return false;
       }
     } else {
-      console.log("value is invalid");
+      renderProjectInputDialog.closeDialog();
+      renderProjectInputDialog.projectNotAdded("No project Name was provided");
       return false;
     }
   };
@@ -52,11 +56,6 @@ export const projectLogic = (function () {
       addToList(projectName);
       getList();
       renderList(container);
-    } else {
-      renderProjectInputDialog.closeDialog();
-      renderProjectInputDialog.projectNotAdded(
-        "Project with same name already exist",
-      );
     }
   };
 

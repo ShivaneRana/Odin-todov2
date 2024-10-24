@@ -171,8 +171,11 @@ body {
 }
 
 /* for the alert dialog */
-.ProjectInputError {
+.projectInputError {
   position: absolute;
   margin: auto;
-  background-color: red;
+
+  & > div {
+    padding: 20px;
+  }
 }

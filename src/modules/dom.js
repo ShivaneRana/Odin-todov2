@@ -101,7 +101,7 @@ export const renderProjectInputDialog = (function () {
 
   const projectNotAdded = function (message) {
     dialog.close();
-    notAddedDialog(message, "ProjectInputError");
+    notAddedDialog(message, "projectInputError");
   };
 
   function render(container) {
@@ -121,7 +121,7 @@ const notAddedDialog = function (message, className) {
   alertWrapper.append(alertH1);
   alertDialog.append(alertWrapper);
   document.body.append(alertDialog);
-  alertWrapper.classList.add(className);
+  alertDialog.classList.add(className);
   alertDialog.showModal();
 
   alertDialog.addEventListener("click", (e) => {
