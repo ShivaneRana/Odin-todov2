@@ -2,6 +2,9 @@ import { renderProjectInputDialog, renderProjectList } from "./dom.js";
 
 export const projectLogic = (function () {
   const projectList = {
+    All: {},
+    completed: {},
+    today: {},
     gym: {},
     study: {},
     houseChore: {},
@@ -23,7 +26,20 @@ export const projectLogic = (function () {
   };
 
   const checkInput = function (name) {
-    if (!(name === "" || name === null || name === undefined)) {
+    if (
+      name === "all" ||
+      name === "ALL" ||
+      name === "completed" ||
+      name === "Completed" ||
+      name === "Today" ||
+      name === "today"
+    ) {
+      renderProjectInputDialog.closeDialog();
+      renderProjectInputDialog.projectNotAdded(
+        "This will break the program so dont bother writting it",
+      );
+      return false;
+    } else if (!(name === "" || name === null || name === undefined)) {
       let exist = Object.keys(projectList).includes(name);
       if (exist !== true) {
         console.log("value added to projectList");

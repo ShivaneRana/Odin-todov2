@@ -6,22 +6,24 @@ import { projectLogic } from "./project.js";
 export const renderProjectList = (function () {
   const render = function (projectList, container) {
     for (let i in projectList) {
-      const div = document.createElement("div");
-      div.classList.add("newProject");
-      const button = document.createElement("button");
-      const remove = document.createElement("button");
-      button.textContent = i;
-      remove.textContent = "X";
-      div.append(button, remove);
-      container.append(div);
+      if (!(i === "All" || i === "today" || i === "completed")) {
+        const div = document.createElement("div");
+        div.classList.add("newProject");
+        const button = document.createElement("button");
+        const remove = document.createElement("button");
+        button.textContent = i;
+        remove.textContent = "X";
+        div.append(button, remove);
+        container.append(div);
 
-      remove.addEventListener("click", () => {
-        div.remove();
-        projectLogic.removeFromList(i);
-      });
+        remove.addEventListener("click", () => {
+          div.remove();
+          projectLogic.removeFromList(i);
+        });
 
-      // these are for accesing the newly created projects
-      button.addEventListener("click", () => {});
+        // these are for accesing the newly created projects
+        button.addEventListener("click", () => {});
+      }
     }
   };
 

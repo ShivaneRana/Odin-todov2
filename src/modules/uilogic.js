@@ -63,18 +63,15 @@ export const themeLogic = (function () {
 })();
 
 const allButtonLogic = (function () {
-  const allList = {};
-
   return {};
 })();
 
 const todayButtonLogic = (function () {
-  const todayList = {};
   return {};
 })();
 
 const completedButtonLogic = (function () {
-  const completedList = {};
+  return {};
 })();
 
 // this logic is shared amound all the todo container like all,completed,today
@@ -110,5 +107,5 @@ export const universalLogic = (function () {
 
   const finale = function () {};
 
-  return { assignList, deltedFromList, finale, todoFormat };
+  return { assignList, deleteFromList, finale, todoFormat };
 })();

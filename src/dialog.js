@@ -115,7 +115,7 @@ function initalize() {
     });
   });
 
-  // functionality added to all the elements
+  // close everything and erase all the input fields
   const closeDialog = function () {
     defaultDialogLogic.clearEverything(); //clear everything on closing dialog box
     dialog.close();
@@ -212,15 +212,22 @@ export const renderDefaultDialog = (function () {
     dialog.showModal();
   };
 
+  // add all the avaialable projects as option to the target project list
   const renderTargetProjectList = function () {
     targetProject.textContent = "";
+
+    // add all as a default
     const option = document.createElement("option");
     option.textContent = "All";
     targetProject.append(option);
+
+    // avoid adding add,completed and today as an option
     for (let i in projectLogic.getList()) {
-      const option = document.createElement("option");
-      option.textContent = i;
-      targetProject.append(option);
+      if (!(i === "All" || i === "completed" || i === "today")) {
+        const option = document.createElement("option");
+        option.textContent = i;
+        targetProject.append(option);
+      }
     }
   };
 
