@@ -23,6 +23,12 @@ document.addEventListener("DOMContentLoaded", () => {
   projectLogic.renderList(projectContainer);
 });
 
+allButton.addEventListener("click", () => {});
+
+todayButton.addEventListener("click", () => {});
+
+completedButton.addEventListener("click", () => {});
+
 expandButton.addEventListener("click", () => {
   expandLogic.expandFinale(sideBar, navBar, mainBar, expandButton);
 });
@@ -31,18 +37,22 @@ themeButton.addEventListener("click", () => {
   themeLogic.themeFinale(themeButton);
 });
 
+// add new projects
 addNewProjectButton.addEventListener("click", () => {
   renderProjectInputDialog.render(projectContainer);
 });
 
+// shows dialog box to add todo or notes
 addTodoOrNotesButton.addEventListener("click", () => {
   defaultDialogLogic.finale();
 });
 
+// display notes
 notesButton.addEventListener("click", () => {
   notesLogic.finale(mainBar);
 });
 
+// used for displaying notes screen after pressing confirm adding notes dialog
 export const clickNotes = function () {
   notesButton.click();
 };

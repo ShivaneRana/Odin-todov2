@@ -19,6 +19,9 @@ export const renderProjectList = (function () {
         div.remove();
         projectLogic.removeFromList(i);
       });
+
+      // these are for accesing the newly created projects
+      button.addEventListener("click", () => {});
     }
   };
 

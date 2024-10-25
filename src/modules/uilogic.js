@@ -61,3 +61,24 @@ export const themeLogic = (function () {
 
   return { themeFinale };
 })();
+
+const allButtonLogic = (function () {
+  const allList = {};
+
+  return {};
+})();
+
+const todayButtonLogic = (function () {
+  const todayList = {};
+  return {};
+})();
+
+const completedButtonLogic = (function () {
+  const completedList = {};
+})();
+
+// this logic is shared amound all the todo container like all,completed,today
+// also all the new created projects
+const universalLogic = function () {
+  return {};
+};

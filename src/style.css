@@ -66,6 +66,7 @@ body {
     height: 30%;
     outline: 1px solid;
 
+    /* styling for all,completed and today button */
     & > button {
       width: 90%;
       height: 6vh;
