@@ -106,18 +106,47 @@ body {
 
 /* display this when displaying todo's (when you press todo button)*/
 .todoContainer {
-  background-color: lightslategrey;
   display: flex;
   flex-direction: column;
   align-items: center;
   overflow-y: scroll;
   gap: 10px;
+  padding: 20px;
 
   & > div {
-    background-color: lightblue;
+    background-color: lightgrey;
     outline: 1px solid;
     width: 100%;
-    min-height: 15%;
+    height: 10%;
+
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+
+    & > p {
+      grid-column: 2/7;
+      font-size: 1.5rem;
+      font-weight: bolder;
+    }
+
+    & > button {
+      font-size: 1rem;
+      padding: 10px;
+    }
+
+    & > button:first-of-type {
+      grid-column: 15/17;
+    }
+
+    & > button:nth-child(4) {
+      grid-column: 17/19;
+    }
+
+    & > button:last-of-type {
+      grid-column: 19/21;
+    }
   }
 }
 
@@ -271,8 +300,4 @@ body {
       grid-column: 14/16;
     }
   }
-}
-
-/* this style is applied on all the todos */
-.newTodo {
 }
