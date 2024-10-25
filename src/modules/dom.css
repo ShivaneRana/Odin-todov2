@@ -127,8 +127,7 @@ body {
 
     & > p {
       grid-column: 2/7;
-      font-size: 1.5rem;
-      font-weight: bolder;
+      font-size: 2rem;
     }
 
     & > button {
@@ -148,6 +147,11 @@ body {
       grid-column: 19/21;
     }
   }
+}
+
+.todoContainer > div input[type="checkbox"] {
+  width: 100%;
+  height: 50%;
 }
 
 /* apply this when displaying note's(when you press notes button)*/
