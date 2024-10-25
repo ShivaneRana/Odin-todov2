@@ -66,9 +66,6 @@ const tProject = document.createElement("h3");
 tProject.textContent = "Project:";
 tProject.classList.add("tProject");
 const targetProject = document.createElement("select"); //option inside are rendered with renderTargetPRojectList function inside renderDefaultDialog
-// const option1 = document.createElement("option");
-// option1.textContent = "All";
-// targetProject.append(option1);
 
 // notes files
 const notesArea = document.createElement("div");

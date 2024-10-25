@@ -10,6 +10,7 @@ export const renderProjectList = (function () {
         const div = document.createElement("div");
         div.classList.add("newProject");
         const button = document.createElement("button");
+        button.classList.add("filter-but");
         const remove = document.createElement("button");
         button.textContent = i;
         remove.textContent = "X";
@@ -239,14 +240,14 @@ export const renderNotesList = (function () {
   return { render, noteNotAdded };
 })();
 
-export const renderTodo = (function(){
+export const renderTodo = (function () {
   let currentContainer = null;
-  const render = function(container){
+  const render = function (container) {
     currentContainer = container;
     currentContainer.textContent = "";
     // currentContainer.classList.remove("notesContainer");
     // currentContainer.classList.add("todoContainer");
-  }
+  };
 
-  return {render}
+  return { render };
 })();

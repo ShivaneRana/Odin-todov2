@@ -1,4 +1,4 @@
-import { renderExpand} from "./dom";
+import { renderExpand } from "./dom";
 
 export const expandLogic = (function () {
   const checkContent = function (button) {
@@ -61,4 +61,3 @@ export const themeLogic = (function () {
 
   return { themeFinale };
 })();
-

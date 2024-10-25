@@ -19,21 +19,19 @@ const allButton = document.querySelector(".all");
 const todayButton = document.querySelector(".today");
 const completedButton = document.querySelector(".completed");
 
+allButton.classList.add("filter-but");
+todayButton.classList.add("filter-but");
+completedButton.classList.add("filter-but");
+
 document.addEventListener("DOMContentLoaded", () => {
   projectLogic.renderList(projectContainer);
 });
 
-allButton.addEventListener("click", () => {
+allButton.addEventListener("click", () => {});
 
-});
+todayButton.addEventListener("click", () => {});
 
-todayButton.addEventListener("click", () => {
-
-});
-
-completedButton.addEventListener("click", () => {
-  
-});
+completedButton.addEventListener("click", () => {});
 
 expandButton.addEventListener("click", () => {
   expandLogic.expandFinale(sideBar, navBar, mainBar, expandButton);
