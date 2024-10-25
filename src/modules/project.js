@@ -3,11 +3,11 @@ import { renderProjectInputDialog, renderProjectList } from "./dom.js";
 export const projectLogic = (function () {
   const projectList = {
     All: {},
-    completed: {},
-    today: {},
-    gym: {},
-    study: {},
-    houseChore: {},
+    Completed: {},
+    Today: {},
+    Gym: {},
+    Study: {},
+    HouseChore: {},
   };
 
   const getList = function () {

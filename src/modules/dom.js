@@ -6,7 +6,7 @@ import { projectLogic } from "./project.js";
 export const renderProjectList = (function () {
   const render = function (projectList, container) {
     for (let i in projectList) {
-      if (!(i === "All" || i === "today" || i === "completed")) {
+      if (!(i === "All" || i === "Today" || i === "Completed")) {
         const div = document.createElement("div");
         div.classList.add("newProject");
         const button = document.createElement("button");
