@@ -43,7 +43,7 @@ export const projectLogic = (function () {
   };
 
   const addToList = function (name) {
-    projectList[name] = [];
+    projectList[name] = {};
   };
 
   const renderList = function (container) {

@@ -98,8 +98,14 @@ export const universalLogic = (function () {
     currentList = value;
   };
 
-  const deltedFromList = function (value) {
+  const deleteFromList = function (value) {
     delete currentList[value];
+  };
+
+  const storeToList = function () {};
+
+  const addToList = function (value) {
+    currentList[value.title] = value;
   };
 
   const finale = function () {};

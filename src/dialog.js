@@ -3,6 +3,7 @@ import "./modules/dialog.css";
 import { renderProjectInputDialog } from "./modules/dom.js";
 import { notesLogic } from "./modules/notes.js";
 import { projectLogic } from "./modules/project.js";
+import { universalLogic } from "./modules/uilogic.js";
 
 const dialog = document.createElement("dialog");
 const wrapper = document.createElement("div");
@@ -154,7 +155,6 @@ function initalize() {
       targetProject.options[targetProject.selectedIndex].textContent;
 
     // check that the value being entered is valid or not
-
     if (
       title === "" ||
       description === "" ||
@@ -164,7 +164,13 @@ function initalize() {
       // this method is from project.js
       renderProjectInputDialog.projectNotAdded("Please enter valid input!");
     } else {
-      console.log(title, description, date, priority, location);
+      const resultingObject = universalLogic.todoFormat(
+        title,
+        description,
+        date,
+        priority,
+        location,
+      );
     }
   });
 
