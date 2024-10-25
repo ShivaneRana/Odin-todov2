@@ -79,7 +79,7 @@ export const projectLogic = (function () {
     }
   };
 
-  return { finale, removeFromList, renderList, getList, addObjectToListItems };
+  return { finale, removeFromList, renderList, getList};
 })();
 
 // this logic is shared amound all the todo container like all,completed,today
