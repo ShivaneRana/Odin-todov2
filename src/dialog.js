@@ -1,5 +1,6 @@
 import { clickNotes } from "./index.js";
 import "./modules/dialog.css";
+import { renderProjectInputDialog } from "./modules/dom.js";
 import { notesLogic } from "./modules/notes.js";
 import { projectLogic } from "./modules/project.js";
 
@@ -145,19 +146,39 @@ function initalize() {
   });
 
   tConfirm.addEventListener("click", () => {
-    console.log(
-      tTitle.value,
-      tDate.value,
-      tDescription.value,
-      targetProject.options[targetProject.selectedIndex].textContent,
-      defaultDialogLogic.getPriority(),
-    );
+    const title = tTitle.value;
+    const description = tDescription.value;
+    const date = new Date(tDate.value);
+    const priority = defaultDialogLogic.getPriority();
+    const location =
+      targetProject.options[targetProject.selectedIndex].textContent;
+
+    // check that the value being entered is valid or not
+
+    if (
+      title === "" ||
+      description === "" ||
+      isNaN(date.getTime()) ||
+      priority === ""
+    ) {
+      // this method is from project.js
+      renderProjectInputDialog.projectNotAdded("Please enter valid input!");
+    } else {
+      console.log(title, description, date, priority, location);
+    }
   });
 
   nConfirm.addEventListener("click", () => {
-    notesLogic.addToNotesList(nTitle.value, nDescription.value);
-    closeDialog();
-    clickNotes();
+    // check if the value being entered is valid or note
+
+    if (nTitle.value === "" || nDescription.value === "") {
+      // this method is from project.js
+      renderProjectInputDialog.projectNotAdded("Please enter valid input!");
+    } else {
+      notesLogic.addToNotesList(nTitle.value, nDescription.value);
+      closeDialog();
+      clickNotes();
+    }
   });
 
   notesButton.addEventListener("click", () => {

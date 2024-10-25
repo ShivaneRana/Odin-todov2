@@ -79,6 +79,30 @@ const completedButtonLogic = (function () {
 
 // this logic is shared amound all the todo container like all,completed,today
 // also all the new created projects
-const universalLogic = function () {
-  return {};
-};
+export const universalLogic = (function () {
+  let currentList;
+
+  const todoFormat = function (title, description, date, target, priority) {
+    return {
+      title: title,
+      description: description,
+      date: date,
+      target: target,
+      priority,
+      priority,
+      completed: false,
+    };
+  };
+
+  const assignList = function (value) {
+    currentList = value;
+  };
+
+  const deltedFromList = function (value) {
+    delete currentList[value];
+  };
+
+  const finale = function () {};
+
+  return { assignList, deltedFromList, finale, todoFormat };
+})();
