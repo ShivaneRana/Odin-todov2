@@ -3,7 +3,7 @@ import "./modules/dialog.css";
 import { renderProjectInputDialog } from "./modules/dom.js";
 import { notesLogic } from "./modules/notes.js";
 import { projectLogic } from "./modules/project.js";
-import { universalLogic } from "./modules/uilogic.js";
+import { universalLogic } from "./modules/project.js";
 
 const dialog = document.createElement("dialog");
 const wrapper = document.createElement("div");

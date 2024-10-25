@@ -1,4 +1,4 @@
-import { renderExpand } from "./dom";
+import { renderExpand} from "./dom";
 
 export const expandLogic = (function () {
   const checkContent = function (button) {
@@ -62,50 +62,3 @@ export const themeLogic = (function () {
   return { themeFinale };
 })();
 
-const allButtonLogic = (function () {
-  return {};
-})();
-
-const todayButtonLogic = (function () {
-  return {};
-})();
-
-const completedButtonLogic = (function () {
-  return {};
-})();
-
-// this logic is shared amound all the todo container like all,completed,today
-// also all the new created projects
-export const universalLogic = (function () {
-  let currentList;
-
-  const todoFormat = function (title, description, date, target, priority) {
-    return {
-      title: title,
-      description: description,
-      date: date,
-      target: target,
-      priority,
-      priority,
-      completed: false,
-    };
-  };
-
-  const assignList = function (value) {
-    currentList = value;
-  };
-
-  const deleteFromList = function (value) {
-    delete currentList[value];
-  };
-
-  const storeToList = function () {};
-
-  const addToList = function (value) {
-    currentList[value.title] = value;
-  };
-
-  const finale = function () {};
-
-  return { assignList, deleteFromList, finale, todoFormat };
-})();

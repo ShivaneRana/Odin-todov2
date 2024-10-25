@@ -1,6 +1,6 @@
 import "./style.css";
 import "./asset/Gilroy/stylesheet.css";
-import { projectLogic } from "./modules/project.js";
+import { projectLogic, universalLogic } from "./modules/project.js";
 import { expandLogic, themeLogic } from "./modules/uilogic.js";
 import { defaultDialogLogic } from "./dialog.js";
 import { renderProjectInputDialog } from "./modules/dom.js";
@@ -23,11 +23,17 @@ document.addEventListener("DOMContentLoaded", () => {
   projectLogic.renderList(projectContainer);
 });
 
-allButton.addEventListener("click", () => {});
+allButton.addEventListener("click", () => {
 
-todayButton.addEventListener("click", () => {});
+});
 
-completedButton.addEventListener("click", () => {});
+todayButton.addEventListener("click", () => {
+
+});
+
+completedButton.addEventListener("click", () => {
+  
+});
 
 expandButton.addEventListener("click", () => {
   expandLogic.expandFinale(sideBar, navBar, mainBar, expandButton);

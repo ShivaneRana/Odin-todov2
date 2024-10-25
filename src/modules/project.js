@@ -1,4 +1,4 @@
-import { renderProjectInputDialog, renderProjectList } from "./dom.js";
+import { renderProjectInputDialog, renderProjectList , renderTodo} from "./dom.js";
 
 export const projectLogic = (function () {
   const projectList = {
@@ -76,4 +76,44 @@ export const projectLogic = (function () {
   };
 
   return { finale, removeFromList, renderList, getList };
+})();
+
+// this logic is shared amound all the todo container like all,completed,today
+// also all the new created projects
+export const universalLogic = (function () {
+  let currentList;
+
+  // this is used on all the todos
+  const todoFormat = function (title, description, date, target, priority) {
+    return {
+      title: title,
+      description: description,
+      date: date,
+      target: target,
+      priority,
+      priority,
+      completed: false,
+    };
+  };
+
+  const assignList = function (value) {
+    currentList = value;
+  };
+
+  const deleteFromList = function (value) {
+    delete currentList[value];
+  };
+
+  const storeToList = function () {};
+
+  const addToList = function (value){
+    currentList[value.title] = value;
+  };
+
+  const finale = function (container) {
+    renderTodo.render(container);
+  };
+
+
+  return { assignList, deleteFromList, finale, todoFormat };
 })();

@@ -238,3 +238,15 @@ export const renderNotesList = (function () {
 
   return { render, noteNotAdded };
 })();
+
+export const renderTodo = (function(){
+  let currentContainer = null;
+  const render = function(container){
+    currentContainer = container;
+    currentContainer.textContent = "";
+    // currentContainer.classList.remove("notesContainer");
+    // currentContainer.classList.add("todoContainer");
+  }
+
+  return {render}
+})();
