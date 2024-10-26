@@ -168,6 +168,8 @@ function initalize() {
         priority,
         location,
       );
+
+      console.log(resultingObject);
     }
   });
 

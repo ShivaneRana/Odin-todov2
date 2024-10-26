@@ -69,6 +69,11 @@ export const projectLogic = (function () {
     renderProjectList.render(projectList, container);
   };
 
+  const addObjectToListItems = function(object){
+    projectList[object.location][object.title] = object;
+    localStorageProject.storeProjectList();
+  }
+
   const finale = function (container, projectName) {
     if (checkInput(projectName)) {
       addToList(projectName);
@@ -77,7 +82,7 @@ export const projectLogic = (function () {
     }
   };
 
-  return { finale, removeFromList, renderList, getList, setList };
+  return { finale, removeFromList, renderList, getList, setList ,addObjectToListItems};
 })();
 
 // this logic is shared amound all the todo container like all,completed,today
