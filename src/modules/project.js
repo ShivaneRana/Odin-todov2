@@ -84,8 +84,7 @@ export const projectLogic = (function () {
 // this logic is shared amound all the todo container like all,completed,today
 // also all the new created projects
 export const universalLogic = (function () {
-  let currentList;
-
+  
   // this is used on all the todos
   const todoFormat = function (title, description, date, target, priority) {
     return {
