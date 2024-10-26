@@ -312,4 +312,3 @@ export const defaultDialogLogic = (function () {
     closeDialog,
   };
 })();
-
