@@ -144,8 +144,8 @@ function initalize() {
   });
 
   tConfirm.addEventListener("click", () => {
-    const title = (tTitle.value).trim();
-    const description = (tDescription.value).trim();
+    const title = tTitle.value.trim();
+    const description = tDescription.value.trim();
     const date = new Date(tDate.value);
     const priority = defaultDialogLogic.getPriority();
     const location =

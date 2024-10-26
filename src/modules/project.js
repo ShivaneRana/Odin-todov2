@@ -1,4 +1,8 @@
-import { renderProjectInputDialog, renderProjectList, renderTodo } from "./dom.js";
+import {
+  renderProjectInputDialog,
+  renderProjectList,
+  renderTodo,
+} from "./dom.js";
 import { localStorageProject } from "./storage.js";
 
 export const projectLogic = (function () {

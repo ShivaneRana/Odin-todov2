@@ -126,46 +126,44 @@ body {
     padding: 10px;
 
     /* input */
-    & > div > input[type="checkbox"] {
+    & > .tCheckBox {
+      grid-column: 1/2;
       width: 100%;
       height: 50%;
     }
 
     /* title */
-    & > p:first-of-type {
-      grid-column: 2/7;
+    & > .tTitle {
+      grid-column: 2/13;
       font-size: 2rem;
     }
 
     & > button {
-      font-size: 1rem;
-      padding: 10px;
+      font-size: 1px;
     }
 
     /* detail */
-    & > button:first-of-type {
+    & > .tDetail {
       grid-column: 13/15;
     }
 
     /* date */
-    & > p:last-of-type {
+    & > .tDate {
       grid-column: 15/17;
       text-align: center;
     }
 
     /* edit */
-    & > button:nth-child(5) {
+    & > .tEdit {
       grid-column: 17/19;
     }
 
     /* delete */
-    & > button:last-of-type {
+    & > .tDelete {
       grid-column: 19/21;
     }
   }
 }
-
-
 
 /* apply this when displaying note's(when you press notes button)*/
 .notesContainer {

@@ -247,10 +247,9 @@ export const renderNotesList = (function () {
 export const renderTodo = (function () {
   let currentContainer = null;
 
-  function assignCurrent(){
+  function assignCurrent() {
     currentContainer = getMainBar();
   }
-
 
   const render = function (list) {
     assignCurrent();
@@ -261,27 +260,33 @@ export const renderTodo = (function () {
       const div = document.createElement("div");
       const checkBox = document.createElement("input");
       const title = document.createElement("p");
-      let dueDate = document.createElement("p");
+      const dueDate = document.createElement("p");
       const detailButton = document.createElement("button");
       const editButton = document.createElement("button");
       const deleteButton = document.createElement("button");
 
+      // assign classes
+      title.classList.add("tTitle");
+      checkBox.classList.add("tCheckBox");
+      dueDate.classList.add("tDate");
+      detailButton.classList.add("tDetail");
+      editButton.classList.add("tEdit");
+      deleteButton.classList.add("tDelete");
+
       // assign assign assign
       title.textContent = list[i].title;
-      dueDate = list[i].date;
       // `${list[i].getFullYear}-${list[i].getFullYear}-${list[i].getFullYear}`
-      checkBox.setAttribute("type","checkbox");
+      checkBox.setAttribute("type", "checkbox");
       editButton.textContent = "Edit";
       deleteButton.textContent = "Delete";
       detailButton.textContent = "Detail";
 
       // append append append append
-      div.append(
-      );
+      div.append(title, detailButton, deleteButton, editButton);
 
       currentContainer.append(div);
     }
   };
 
-  return {render};
+  return { render };
 })();

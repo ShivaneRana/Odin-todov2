@@ -1,6 +1,6 @@
 import "./style.css";
 import "./asset/Gilroy/stylesheet.css";
-import { projectLogic} from "./modules/project.js";
+import { projectLogic } from "./modules/project.js";
 import { expandLogic, themeLogic } from "./modules/uilogic.js";
 import { defaultDialogLogic } from "./dialog.js";
 import { renderProjectInputDialog } from "./modules/dom.js";
@@ -27,6 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   projectLogic.setList();
   projectLogic.renderList(projectContainer);
   notesLogic.setNotesList();
+  allButton.click();
 });
 
 allButton.addEventListener("click", (e) => {
@@ -69,6 +70,6 @@ export const clickNotes = function () {
   notesButton.click();
 };
 
-export const getMainBar = function(){
+export const getMainBar = function () {
   return mainBar;
-}
+};
