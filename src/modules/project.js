@@ -11,9 +11,9 @@ export const projectLogic = (function () {
     HouseChore: {},
   };
 
-  const setList = function (list) {
+  const setList = function () {
     console.log("ProjectList was set");
-    projectList = list;
+    projectList = localStorageProject.retrieveProjectList();
   };
 
   const getList = function () {

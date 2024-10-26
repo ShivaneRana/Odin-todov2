@@ -1,11 +1,16 @@
-import { defaultDialogLogic } from "../dialog";
-import { renderNotesList } from "./dom";
+import { defaultDialogLogic } from "../dialog.js";
+import { renderNotesList } from "./dom.js";
+import { localStorageNotes } from "./storage.js";
 
 export const notesLogic = (function () {
-  const notesList = {
+  let notesList = {
     Twitter: "https://x.com/shivane_rana",
     Linkedin: "https://www.linkedin.com/in/shivane-rana-77982b2a5/",
     Github: "https://github.com/ShivaneRana",
+  };
+
+  const setNotesList = function () {
+    notesList = localStorageNotes.retrieveNotesList();
   };
 
   const getNotesList = function () {
@@ -17,6 +22,7 @@ export const notesLogic = (function () {
     if (!alreadyInList(title)) {
       notesList[title] = description;
     }
+    localStorageNotes.storeNotesList();
   };
 
   const alreadyInList = function (title) {
@@ -30,15 +36,15 @@ export const notesLogic = (function () {
 
   const removeNotesFromList = function (title) {
     delete notesList[title];
-    for (let i in notesList) {
-      console.log(`${i} =  ${notesList[i]}`);
-    }
+    console.log("A note was removed");
+    localStorageNotes.storeNotesList();
   };
 
   const finale = function (container) {
     renderNotesList.render(container);
   };
 
+  // check if the note exist
   const noteExist = function (title) {
     if (title in notesList) {
       return true;
@@ -53,5 +59,6 @@ export const notesLogic = (function () {
     removeNotesFromList,
     finale,
     noteExist,
+    setNotesList,
   };
 })();

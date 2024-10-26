@@ -19,15 +19,18 @@ export const localStorageProject = (function () {
 
 export const localStorageNotes = (function () {
   // this stores the current notesList
-  console.log("Changes to the localStorage for noteList were made");
   const storeNotesList = function () {
-    localStorage.setItem("notesList", JSON.parse(notesLogic.getNotesList()));
+    console.log("Changes to the localStorage for noteList were made");
+    localStorage.setItem(
+      "notesList",
+      JSON.stringify(notesLogic.getNotesList()),
+    );
   };
 
   const retrieveNotesList = function () {
     console.log("Notes list was retrieved from the localStorage");
-    const returnedList = JSON.parse(localStorage.getItem("notesList"));
-    return returnedList || {};
+    const returnedNotesList = JSON.parse(localStorage.getItem("notesList"));
+    return returnedNotesList || {};
   };
 
   return { storeNotesList, retrieveNotesList };
