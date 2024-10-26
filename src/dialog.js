@@ -169,7 +169,9 @@ function initalize() {
         location,
       );
 
-      console.log(resultingObject);
+      if(projectLogic.addObjectToListItems(resultingObject)){
+        closeDialog();
+      }
     }
   });
 

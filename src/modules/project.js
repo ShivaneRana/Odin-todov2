@@ -69,9 +69,15 @@ export const projectLogic = (function () {
     renderProjectList.render(projectList, container);
   };
 
-  const addObjectToListItems = function(object){
-    projectList[object.location][object.title] = object;
-    localStorageProject.storeProjectList();
+  const addObjectToListItems = function(obj){
+    if(obj.title in projectList[obj.location]){
+      renderProjectInputDialog.projectNotAdded("Todo with similar name already exist");
+      return false;
+    }else{
+      projectList[obj.location][obj.title] = obj;
+      localStorageProject.storeProjectList();  
+      return true;
+    }
   }
 
   const finale = function (container, projectName) {
@@ -90,14 +96,13 @@ export const projectLogic = (function () {
 export const universalLogic = (function () {
   
   // this is used on all the todos
-  const todoFormat = function (title, description, date, target, priority) {
+  const todoFormat = function (title, description, date,priority, target) {
     return {
       title: title,
       description: description,
       date: date,
-      target: target,
-      priority,
-      priority,
+      location: target,
+      priority:priority,
       completed: false,
     };
   };
