@@ -1,3 +1,4 @@
+import { getMainBar } from "../index.js";
 import "./dom.css";
 import { notesLogic } from "./notes.js";
 import { projectLogic } from "./project.js";
@@ -246,43 +247,41 @@ export const renderNotesList = (function () {
 export const renderTodo = (function () {
   let currentContainer = null;
 
-  const getContainer = function (container) {
-    currentContainer = container;
-  };
+  function assignCurrent(){
+    currentContainer = getMainBar();
+  }
+
 
   const render = function (list) {
-    getContainer();
-
+    assignCurrent();
+    currentContainer.textContent = "";
     for (let i in list) {
-      currentContainer.textContent = "";
       currentContainer.classList.remove("notesContainer");
       currentContainer.classList.add("todoContainer");
       const div = document.createElement("div");
-      const checkBox = document.createElement("checkbox");
+      const checkBox = document.createElement("input");
       const title = document.createElement("p");
-      const dueDate = document.createElement("p");
+      let dueDate = document.createElement("p");
       const detailButton = document.createElement("button");
       const editButton = document.createElement("button");
       const deleteButton = document.createElement("button");
 
       // assign assign assign
-      title.textContent = i.title;
-      dueDate.textContent = i.date;
+      title.textContent = list[i].title;
+      dueDate = list[i].date;
+      // `${list[i].getFullYear}-${list[i].getFullYear}-${list[i].getFullYear}`
+      checkBox.setAttribute("type","checkbox");
       editButton.textContent = "Edit";
       deleteButton.textContent = "Delete";
       detailButton.textContent = "Detail";
 
       // append append append append
-      currentContainer.append(
-        checkBox,
-        title,
-        detailButton,
-        dueDate,
-        editButton,
-        deleteButton,
+      div.append(
       );
+
+      currentContainer.append(div);
     }
   };
 
-  return { render };
+  return {render};
 })();

@@ -1,4 +1,4 @@
-import { renderProjectInputDialog, renderProjectList } from "./dom.js";
+import { renderProjectInputDialog, renderProjectList, renderTodo } from "./dom.js";
 import { localStorageProject } from "./storage.js";
 
 export const projectLogic = (function () {
@@ -85,7 +85,7 @@ export const projectLogic = (function () {
   // display the content of the list
   const displayProjectListItems = function (name) {
     const list = projectList[name];
-    console.log(list);
+    renderTodo.render(list);
   };
 
   const finale = function (container, projectName) {
