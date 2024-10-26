@@ -3,11 +3,7 @@ import { renderNotesList } from "./dom.js";
 import { localStorageNotes } from "./storage.js";
 
 export const notesLogic = (function () {
-  let notesList = {
-    Twitter: "https://x.com/shivane_rana",
-    Linkedin: "https://www.linkedin.com/in/shivane-rana-77982b2a5/",
-    Github: "https://github.com/ShivaneRana",
-  };
+  let notesList = {};
 
   const setNotesList = function () {
     notesList = localStorageNotes.retrieveNotesList();
