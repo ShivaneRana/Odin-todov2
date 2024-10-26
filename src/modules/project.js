@@ -6,18 +6,17 @@ export const projectLogic = (function () {
     All: {},
     Completed: {},
     Today: {},
-    Gym: {},
-    Study: {},
-    HouseChore: {},
   };
 
   const setList = function () {
     console.log("ProjectList was set");
-    projectList = localStorageProject.retrieveProjectList();
+    let retrivedList = localStorageProject.retrieveProjectList();
+    projectList = { ...projectList , ...retrivedList};
   };
 
   const getList = function () {
     console.log("projectList was called");
+    console.log(projectList);
     return projectList;
   };
 
