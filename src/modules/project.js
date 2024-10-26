@@ -15,11 +15,7 @@ export const projectLogic = (function () {
   };
 
   const getList = function () {
-    console.log("getlist was called");
-    for (let i in projectList) {
-      console.log(`${i}`, projectList[i]);
-    }
-
+    console.log("projectList was called");
     return projectList;
   };
 
@@ -79,7 +75,7 @@ export const projectLogic = (function () {
     }
   };
 
-  return { finale, removeFromList, renderList, getList};
+  return { finale, removeFromList, renderList, getList };
 })();
 
 // this logic is shared amound all the todo container like all,completed,today
