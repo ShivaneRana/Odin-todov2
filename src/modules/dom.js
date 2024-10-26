@@ -259,7 +259,7 @@ export const renderTodo = (function () {
     const editButton = document.createElement("button");
     const deleteButton = document.createElement("button");
 
-    
+
     // append append append
   };
 

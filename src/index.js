@@ -29,11 +29,17 @@ document.addEventListener("DOMContentLoaded", () => {
   notesLogic.setNotesList();
 });
 
-allButton.addEventListener("click", () => {});
+allButton.addEventListener("click", (e) => {
+  projectLogic.displayProjectListItems(e.target.textContent);
+});
 
-todayButton.addEventListener("click", () => {});
+todayButton.addEventListener("click", (e) => {
+  projectLogic.displayProjectListItems(e.target.textContent);
+});
 
-completedButton.addEventListener("click", () => {});
+completedButton.addEventListener("click", (e) => {
+  projectLogic.displayProjectListItems(e.target.textContent);
+});
 
 expandButton.addEventListener("click", () => {
   expandLogic.expandFinale(sideBar, navBar, mainBar, expandButton);

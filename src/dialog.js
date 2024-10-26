@@ -313,4 +313,3 @@ export const defaultDialogLogic = (function () {
   };
 })();
 
-export const renderTodo = function () {};

@@ -83,7 +83,7 @@ export const projectLogic = (function () {
   };
 
   // display the content of the list
-  const displayList = function (name) {
+  const displayProjectListItems = function (name) {
     const list = projectList[name];
     console.log(list);
   };
@@ -103,7 +103,7 @@ export const projectLogic = (function () {
     getList,
     setList,
     addObjectToListItems,
-    displayList,
+    displayProjectListItems,
   };
 })();
 
