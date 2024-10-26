@@ -1,17 +1,19 @@
-import {
-  renderProjectInputDialog,
-  renderProjectList,
-  renderTodo,
-} from "./dom.js";
+import { renderProjectInputDialog, renderProjectList } from "./dom.js";
+import { localStorageProject } from "./storage.js";
 
 export const projectLogic = (function () {
-  const projectList = {
+  let projectList = {
     All: {},
     Completed: {},
     Today: {},
     Gym: {},
     Study: {},
     HouseChore: {},
+  };
+
+  const setList = function (list) {
+    console.log("ProjectList was set");
+    projectList = list;
   };
 
   const getList = function () {
@@ -22,7 +24,7 @@ export const projectLogic = (function () {
   const removeFromList = function (key) {
     delete projectList[key];
     console.log(`${key} has been removed`);
-    getList();
+    localStorageProject.storeProjectList();
   };
 
   const checkInput = function (name) {
@@ -60,6 +62,7 @@ export const projectLogic = (function () {
 
   const addToList = function (name) {
     projectList[name] = {};
+    localStorageProject.storeProjectList();
   };
 
   const renderList = function (container) {
@@ -75,7 +78,7 @@ export const projectLogic = (function () {
     }
   };
 
-  return { finale, removeFromList, renderList, getList };
+  return { finale, removeFromList, renderList, getList, setList };
 })();
 
 // this logic is shared amound all the todo container like all,completed,today

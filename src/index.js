@@ -5,6 +5,7 @@ import { expandLogic, themeLogic } from "./modules/uilogic.js";
 import { defaultDialogLogic } from "./dialog.js";
 import { renderProjectInputDialog } from "./modules/dom.js";
 import { notesLogic } from "./modules/notes.js";
+import { localStorageProject } from "./modules/storage.js";
 
 const expandButton = document.querySelector(".expand");
 const themeButton = document.querySelector(".theme");
@@ -24,6 +25,7 @@ todayButton.classList.add("filter-but");
 completedButton.classList.add("filter-but");
 
 document.addEventListener("DOMContentLoaded", () => {
+  projectLogic.setList(localStorageProject.retrieveProjectList());
   projectLogic.renderList(projectContainer);
 });
 
