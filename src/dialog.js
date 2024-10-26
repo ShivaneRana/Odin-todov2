@@ -169,7 +169,7 @@ function initalize() {
         location,
       );
 
-      if(projectLogic.addObjectToListItems(resultingObject)){
+      if (projectLogic.addObjectToListItems(resultingObject)) {
         closeDialog();
       }
     }
@@ -312,3 +312,5 @@ export const defaultDialogLogic = (function () {
     closeDialog,
   };
 })();
+
+export const renderTodo = function () {};

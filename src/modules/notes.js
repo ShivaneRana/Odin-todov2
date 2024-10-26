@@ -3,12 +3,10 @@ import { renderNotesList } from "./dom.js";
 import { localStorageNotes } from "./storage.js";
 
 export const notesLogic = (function () {
-  let notesList = {
-  };
+  let notesList = {};
 
   const setNotesList = function () {
     notesList = localStorageNotes.retrieveNotesList();
-
   };
 
   const getNotesList = function () {

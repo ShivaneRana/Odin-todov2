@@ -11,7 +11,7 @@ export const projectLogic = (function () {
   const setList = function () {
     console.log("ProjectList was set");
     let retrivedList = localStorageProject.retrieveProjectList();
-    projectList = { ...projectList , ...retrivedList};
+    projectList = { ...projectList, ...retrivedList };
   };
 
   const getList = function () {
@@ -69,16 +69,24 @@ export const projectLogic = (function () {
     renderProjectList.render(projectList, container);
   };
 
-  const addObjectToListItems = function(obj){
-    if(obj.title in projectList[obj.location]){
-      renderProjectInputDialog.projectNotAdded("Todo with similar name already exist");
+  const addObjectToListItems = function (obj) {
+    if (obj.title in projectList[obj.location]) {
+      renderProjectInputDialog.projectNotAdded(
+        "Todo with similar name already exist",
+      );
       return false;
-    }else{
+    } else {
       projectList[obj.location][obj.title] = obj;
-      localStorageProject.storeProjectList();  
+      localStorageProject.storeProjectList();
       return true;
     }
-  }
+  };
+
+  // display the content of the list
+  const displayList = function (name) {
+    const list = projectList[name];
+    console.log(list);
+  };
 
   const finale = function (container, projectName) {
     if (checkInput(projectName)) {
@@ -88,21 +96,28 @@ export const projectLogic = (function () {
     }
   };
 
-  return { finale, removeFromList, renderList, getList, setList ,addObjectToListItems};
+  return {
+    finale,
+    removeFromList,
+    renderList,
+    getList,
+    setList,
+    addObjectToListItems,
+    displayList,
+  };
 })();
 
 // this logic is shared amound all the todo container like all,completed,today
 // also all the new created projects
 export const universalLogic = (function () {
-  
   // this is used on all the todos
-  const todoFormat = function (title, description, date,priority, target) {
+  const todoFormat = function (title, description, date, priority, target) {
     return {
       title: title,
       description: description,
       date: date,
       location: target,
-      priority:priority,
+      priority: priority,
       completed: false,
     };
   };
