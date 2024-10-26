@@ -23,7 +23,9 @@ export const renderProjectList = (function () {
         });
 
         // these are for accesing the newly created projects
-        button.addEventListener("click", () => {});
+        button.addEventListener("click", (e) => {
+          projectLogic.displayProjectListItems(e.target.textContent);
+        });
       }
     }
   };
@@ -240,13 +242,25 @@ export const renderNotesList = (function () {
   return { render, noteNotAdded };
 })();
 
+
+// this is for rendering object stored inside each object in projectLIst(todo)
 export const renderTodo = (function () {
   let currentContainer = null;
+
   const render = function (container) {
     currentContainer = container;
     currentContainer.textContent = "";
-    // currentContainer.classList.remove("notesContainer");
-    // currentContainer.classList.add("todoContainer");
+    currentContainer.classList.remove("notesContainer");
+    currentContainer.classList.add("todoContainer");
+    const div = document.createElement("div");
+    const checkBox = document.createElement("checkbox");
+    const title = document.createElement("p");
+    const detailButton = document.createElement("button");
+    const editButton = document.createElement("button");
+    const deleteButton = document.createElement("button");
+
+    
+    // append append append
   };
 
   return { render };
