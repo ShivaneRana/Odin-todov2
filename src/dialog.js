@@ -165,8 +165,8 @@ function initalize() {
         title,
         description,
         date,
-        priority,
         location,
+        priority,
       );
 
       if (projectLogic.addObjectToListItems(resultingObject)) {
