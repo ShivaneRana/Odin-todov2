@@ -302,10 +302,56 @@ export const renderTodo = (function () {
         console.log(`${list[i].title} was removed from ${list[i].target}`);
         todoLogic.removeTodoFromList(list[i].target, list[i].title);
       });
+
+      detailButton.addEventListener("click", () => {
+        renderTodoDetailDialog(list[i].target, list[i].title);
+      });
     }
   };
 
-  const renderTodoDetailDialog = function () {};
+  const renderTodoDetailDialog = function (target, title) {
+    const list = projectLogic.getList();
+    const dialog = document.createElement("dialog");
+    const wrapper = document.createElement("div");
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "X";
+    const p0 = document.createElement("p");
+    const p1 = document.createElement("p");
+    const p2 = document.createElement("p");
+    const p3 = document.createElement("p");
+    const p4 = document.createElement("p");
+    const header = document.createElement("p");
+
+    header.textContent = "Todo Details";
+
+    const month = new Date(list[target][title].date).getMonth() + 1;
+    const date = new Date(list[target][title].date).getDate();
+    const year = new Date(list[target][title].date).getFullYear();
+
+    p0.textContent = `Title: ${list[target][title].title}`;
+    p1.textContent = `Description: ${list[target][title].description}`;
+    p2.textContent = `Due-date: ${date}-${month}-${year}`;
+    p3.textContent = `Location: ${list[target][title].target}`;
+    p4.textContent = `Priority: ${list[target][title].priority}`;
+
+    dialog.classList.add("detailTodo");
+
+    // append append append append
+    wrapper.append(closeButton, header, p0, p1, p2, p3, p4);
+    dialog.append(wrapper);
+    document.body.append(dialog);
+    dialog.showModal();
+
+    dialog.addEventListener("click", (e) => {
+      if (!wrapper.contains(e.target)) {
+        dialog.close();
+      }
+    });
+
+    closeButton.addEventListener("click", () => {
+      dialog.close();
+    });
+  };
 
   return { render, renderTodoDetailDialog };
 })();
