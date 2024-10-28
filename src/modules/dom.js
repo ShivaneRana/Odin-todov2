@@ -286,6 +286,16 @@ export const renderTodo = (function () {
       // const year = list[i].date.getFullYear();
       // dueDate.textContent = `${date}-${month}-${year}`;
 
+      console.log("----------------------------");
+      console.log(`${list[i].title}`);
+      console.log(`${list[i].description}`);
+      console.log(`${new Date(list[i].date).getFullYear()}`);
+      console.log(`${list[i].location}`);
+      console.log(`${list[i].priority}`);
+      console.log(`${list[i].completed}`);
+
+      console.log("----------------------------");
+
       // append append append append
       div.append(title, detailButton, deleteButton, editButton);
 

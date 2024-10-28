@@ -146,8 +146,7 @@ function initalize() {
   tConfirm.addEventListener("click", () => {
     const title = tTitle.value.trim();
     const description = tDescription.value.trim();
-    const temporalDateAssign = new Date(tDate.value);
-    const date = temporalDateAssign;
+    const date = tDate.value;
     const priority = defaultDialogLogic.getPriority();
     const location =
       targetProject.options[targetProject.selectedIndex].textContent;
