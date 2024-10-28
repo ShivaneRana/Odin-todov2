@@ -1,7 +1,9 @@
+import { renderDefaultDialog } from "../dialog.js";
 import { getMainBar } from "../index.js";
 import "./dom.css";
 import { notesLogic } from "./notes.js";
 import { projectLogic } from "./project.js";
+import { todoLogic } from "./todo.js";
 
 // render project list
 export const renderProjectList = (function () {
@@ -254,17 +256,56 @@ export const renderTodo = (function () {
   const render = function (list) {
     assignCurrent();
     currentContainer.textContent = "";
+    currentContainer.classList.remove("notesContainer");
+    currentContainer.classList.add("todoContainer");
     for (let i in list) {
-      console.log("----------------------------");
-      console.log(`Title: ${list[i].title}`);
-      console.log(`Description: ${list[i].description}`);
-      console.log(`Date: ${list[i].date}`);
-      console.log(`Priority: ${list[i].priority}`);
-      console.log(`Target: ${list[i].target}`);
+      const div = document.createElement("div");
+      const title = document.createElement("p");
+      const detailButton = document.createElement("button");
+      const editButton = document.createElement("button");
+      const deleteButton = document.createElement("button");
+      const dateDate = document.createElement("p");
+      const checkBox = document.createElement("input");
+      checkBox.setAttribute("type", "checkbox");
 
-      console.log("----------------------------");
+      title.textContent = `${list[i].title}`;
+      detailButton.textContent = `Detail`;
+      editButton.textContent = "Edit";
+      deleteButton.textContent = "Delete";
+
+      const month = new Date(list[i].date).getMonth() + 1;
+      const year = new Date(list[i].date).getFullYear();
+      const date = new Date(list[i].date).getDate();
+
+      dateDate.textContent = `${date}-${month}-${year}`;
+
+      // assign all the class
+
+      editButton.classList.add("tEdit");
+      detailButton.classList.add("tDetail");
+      title.classList.add("tTitle");
+      deleteButton.classList.add("tDelete");
+      dateDate.classList.add("tDate");
+      checkBox.classList.add("tCheckBox");
+
+      div.append(
+        checkBox,
+        title,
+        detailButton,
+        dateDate,
+        editButton,
+        deleteButton,
+      );
+      currentContainer.append(div);
+
+      deleteButton.addEventListener("click", () => {
+        console.log(`${list[i].title} was removed from ${list[i].target}`);
+        todoLogic.removeTodoFromList(list[i].target, list[i].title);
+      });
     }
   };
 
-  return { render };
+  const renderTodoDetailDialog = function () {};
+
+  return { render, renderTodoDetailDialog };
 })();

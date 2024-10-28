@@ -146,7 +146,7 @@ function initalize() {
   tConfirm.addEventListener("click", () => {
     const title = tTitle.value.trim();
     const description = tDescription.value.trim();
-    const date = new Date(tDate.value);
+    const date = new Date(tDate.value); //dont remove the new Date it will break the validation
     const priority = defaultDialogLogic.getPriority();
     const target =
       targetProject.options[targetProject.selectedIndex].textContent;
@@ -161,8 +161,6 @@ function initalize() {
         priority,
         target,
       );
-
-      console.log(resultingObject);
 
       if (projectLogic.addObjectToListItems(resultingObject)) {
         closeDialog();

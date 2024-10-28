@@ -20,7 +20,6 @@ export const projectLogic = (function () {
 
   const getList = function () {
     console.log("projectList was called");
-    console.log(projectList);
     return projectList;
   };
 
@@ -127,6 +126,5 @@ export const universalLogic = (function () {
       completed: false,
     };
   };
-
   return { todoFormat };
 })();

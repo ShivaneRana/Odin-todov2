@@ -132,14 +132,20 @@ body {
       height: 50%;
     }
 
+    & > p {
+      font-size: 1.2rem;
+    }
+
     /* title */
     & > .tTitle {
       grid-column: 2/13;
-      font-size: 2rem;
+      font-weight: bolder;
     }
 
     & > button {
-      font-size: 1px;
+      font-size: 1rem;
+      height: 80%;
+      width: 90%;
     }
 
     /* detail */
