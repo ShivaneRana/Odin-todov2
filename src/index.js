@@ -73,3 +73,7 @@ export const clickNotes = function () {
 export const getMainBar = function () {
   return mainBar;
 };
+
+export const clickAllButton = function () {
+  allButton.click();
+};
