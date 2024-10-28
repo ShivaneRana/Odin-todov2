@@ -313,6 +313,7 @@ export const renderTodo = (function () {
     const list = projectLogic.getList();
     const dialog = document.createElement("dialog");
     const wrapper = document.createElement("div");
+    const innerDiv = document.createElement("div");
     const closeButton = document.createElement("button");
     closeButton.textContent = "X";
     const p0 = document.createElement("p");
@@ -337,7 +338,8 @@ export const renderTodo = (function () {
     dialog.classList.add("detailTodo");
 
     // append append append append
-    wrapper.append(closeButton, header, p0, p1, p2, p3, p4);
+    innerDiv.append(p0, p1, p2, p3, p4);
+    wrapper.append(closeButton, header, innerDiv);
     dialog.append(wrapper);
     document.body.append(dialog);
     dialog.showModal();
