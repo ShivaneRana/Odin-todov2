@@ -146,28 +146,24 @@ function initalize() {
   tConfirm.addEventListener("click", () => {
     const title = tTitle.value.trim();
     const description = tDescription.value.trim();
-    const date = new Date(tDate.value);
+    const temporalDateAssign = new Date(tDate.value);
+    const date = temporalDateAssign;
     const priority = defaultDialogLogic.getPriority();
     const location =
       targetProject.options[targetProject.selectedIndex].textContent;
 
-    // check that the value being entered is valid or not
-    if (
-      title === "" ||
-      description === "" ||
-      isNaN(date.getTime()) ||
-      priority === ""
-    ) {
-      // this method is from project.js
-      renderProjectInputDialog.projectNotAdded("Please enter valid input!");
+    if (title === "" || description === "" || priority === "" || isNaN(date)) {
+      renderProjectInputDialog.projectNotAdded("Input is incomplete");
     } else {
       const resultingObject = universalLogic.todoFormat(
         title,
         description,
         date,
-        location,
         priority,
+        location,
       );
+
+      console.log(resultingObject);
 
       if (projectLogic.addObjectToListItems(resultingObject)) {
         closeDialog();

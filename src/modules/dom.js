@@ -275,11 +275,16 @@ export const renderTodo = (function () {
 
       // assign assign assign
       title.textContent = list[i].title;
-      // `${list[i].getFullYear}-${list[i].getFullYear}-${list[i].getFullYear}`
       checkBox.setAttribute("type", "checkbox");
       editButton.textContent = "Edit";
       deleteButton.textContent = "Delete";
       detailButton.textContent = "Detail";
+
+      // to fetch the date from the date.
+      // const month = list[i].date.getMonth() + 1;
+      // const date = list[i].date.getDate();
+      // const year = list[i].date.getFullYear();
+      // dueDate.textContent = `${date}-${month}-${year}`;
 
       // append append append append
       div.append(title, detailButton, deleteButton, editButton);

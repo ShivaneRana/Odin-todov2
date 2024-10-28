@@ -73,6 +73,7 @@ export const projectLogic = (function () {
     renderProjectList.render(projectList, container);
   };
 
+  // if the value can be inserted into the project then true else false
   const addObjectToListItems = function (obj) {
     if (obj.title in projectList[obj.location]) {
       renderProjectInputDialog.projectNotAdded(
@@ -120,8 +121,8 @@ export const universalLogic = (function () {
       title: title,
       description: description,
       date: date,
-      location: target,
       priority: priority,
+      location: target,
       completed: false,
     };
   };
