@@ -306,6 +306,10 @@ export const renderTodo = (function () {
       detailButton.addEventListener("click", () => {
         renderTodoDetailDialog(list[i].target, list[i].title);
       });
+
+      editButton.addEventListener("click",() => {
+        console.log("uwuwuwuwuwuw edit button was pressed");
+      })
     }
   };
 
