@@ -75,13 +75,13 @@ export const projectLogic = (function () {
 
   // if the value can be inserted into the project then true else false
   const addObjectToListItems = function (obj) {
-    if (obj.title in projectList[obj.location]) {
+    if (obj.title in projectList[obj.target]) {
       renderProjectInputDialog.projectNotAdded(
         "Todo with similar name already exist",
       );
       return false;
     } else {
-      projectList[obj.location][obj.title] = obj;
+      projectList[obj.target][obj.title] = obj;
       localStorageProject.storeProjectList();
       return true;
     }
@@ -91,6 +91,7 @@ export const projectLogic = (function () {
   const displayProjectListItems = function (name) {
     const list = projectList[name];
     renderTodo.render(list);
+    console.log(`${name} was rendered`);
   };
 
   const finale = function (container, projectName) {
@@ -122,7 +123,7 @@ export const universalLogic = (function () {
       description: description,
       date: date,
       priority: priority,
-      location: target,
+      target: target,
       completed: false,
     };
   };

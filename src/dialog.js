@@ -146,9 +146,9 @@ function initalize() {
   tConfirm.addEventListener("click", () => {
     const title = tTitle.value.trim();
     const description = tDescription.value.trim();
-    const date = tDate.value;
+    const date = new Date(tDate.value);
     const priority = defaultDialogLogic.getPriority();
-    const location =
+    const target =
       targetProject.options[targetProject.selectedIndex].textContent;
 
     if (title === "" || description === "" || priority === "" || isNaN(date)) {
@@ -159,7 +159,7 @@ function initalize() {
         description,
         date,
         priority,
-        location,
+        target,
       );
 
       console.log(resultingObject);

@@ -255,51 +255,14 @@ export const renderTodo = (function () {
     assignCurrent();
     currentContainer.textContent = "";
     for (let i in list) {
-      currentContainer.classList.remove("notesContainer");
-      currentContainer.classList.add("todoContainer");
-      const div = document.createElement("div");
-      const checkBox = document.createElement("input");
-      const title = document.createElement("p");
-      const dueDate = document.createElement("p");
-      const detailButton = document.createElement("button");
-      const editButton = document.createElement("button");
-      const deleteButton = document.createElement("button");
-
-      // assign classes
-      title.classList.add("tTitle");
-      checkBox.classList.add("tCheckBox");
-      dueDate.classList.add("tDate");
-      detailButton.classList.add("tDetail");
-      editButton.classList.add("tEdit");
-      deleteButton.classList.add("tDelete");
-
-      // assign assign assign
-      title.textContent = list[i].title;
-      checkBox.setAttribute("type", "checkbox");
-      editButton.textContent = "Edit";
-      deleteButton.textContent = "Delete";
-      detailButton.textContent = "Detail";
-
-      // to fetch the date from the date.
-      // const month = list[i].date.getMonth() + 1;
-      // const date = list[i].date.getDate();
-      // const year = list[i].date.getFullYear();
-      // dueDate.textContent = `${date}-${month}-${year}`;
+      console.log("----------------------------");
+      console.log(`Title: ${list[i].title}`);
+      console.log(`Description: ${list[i].description}`);
+      console.log(`Date: ${list[i].date}`);
+      console.log(`Priority: ${list[i].priority}`);
+      console.log(`Target: ${list[i].target}`);
 
       console.log("----------------------------");
-      console.log(`${list[i].title}`);
-      console.log(`${list[i].description}`);
-      console.log(`${new Date(list[i].date).getFullYear()}`);
-      console.log(`${list[i].location}`);
-      console.log(`${list[i].priority}`);
-      console.log(`${list[i].completed}`);
-
-      console.log("----------------------------");
-
-      // append append append append
-      div.append(title, detailButton, deleteButton, editButton);
-
-      currentContainer.append(div);
     }
   };
 
