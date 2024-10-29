@@ -69,6 +69,7 @@ export const renderProjectInputDialog = (function () {
   const clearButton = document.createElement("button");
 
   projectName.setAttribute("placeholder", "enter project name....");
+  projectName.setAttribute("maxLength", "20");
   closeButton.textContent = "X";
   confirmButton.textContent = "Confirm";
   clearButton.textContent = "Clear";
@@ -427,6 +428,7 @@ export const renderTodo = (function () {
     document.body.append(dialog);
     dialog.showModal();
 
+    // changes class based on button clicked
     const priorityButtonAll = document.querySelectorAll(".priorityButton");
     priorityButtonAll.forEach((item) => {
       if (item.textContent === priority) {
@@ -442,6 +444,19 @@ export const renderTodo = (function () {
 
     closeButton.addEventListener("click", () => {
       dialog.close();
+    });
+
+    confirmButton.addEventListener("click", () => {
+      if (
+        titleInput.value === "" ||
+        descriptionInput.value === "" ||
+        isNaN(new Date(dueDateInput.value))
+      ) {
+        renderProjectInputDialog.projectNotAdded(
+          "Please fill all Input fields",
+        );
+      } else {
+      }
     });
 
     dialog.addEventListener("click", (e) => {

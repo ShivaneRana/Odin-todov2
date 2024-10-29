@@ -25,5 +25,9 @@ export const todoLogic = (function () {
     renderTodo.renderTodoEditDialog(tit, description, priority, date);
   };
 
-  return { removeTodoFromList, changeTodo };
+  const editObjectInProjectList = function () {
+    const list = projectLogic.getList();
+  };
+
+  return { removeTodoFromList, changeTodo, editObjectInProjectList };
 })();
