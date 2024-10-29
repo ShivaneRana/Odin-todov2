@@ -413,9 +413,6 @@ export const renderTodo = (function () {
     descriptionInput.value = description;
     priorityInput = priority;
     dueDateInput.value = `${year}-${month}-${date}`;
-    const priorityButtonAll = document.querySelectorAll(".priorityButton");
-
-    priorityButtonAll.forEach((item) => {});
 
     wrapper.append(
       header,
@@ -429,6 +426,19 @@ export const renderTodo = (function () {
     dialog.append(wrapper);
     document.body.append(dialog);
     dialog.showModal();
+
+    const priorityButtonAll = document.querySelectorAll(".priorityButton");
+    priorityButtonAll.forEach((item) => {
+      if (item.textContent === priority) {
+        item.classList.add("picked");
+      }
+      item.addEventListener("click", () => {
+        priorityButtonAll.forEach((item) => {
+          item.classList.remove("picked");
+        });
+        item.classList.add("picked");
+      });
+    });
 
     closeButton.addEventListener("click", () => {
       dialog.close();
