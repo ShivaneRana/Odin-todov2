@@ -370,6 +370,7 @@ export const renderTodo = (function () {
     const wrapper = document.createElement("div");
     const titleInput = document.createElement("input");
     const descriptionInput = document.createElement("textarea");
+    const dueDateHolder = document.createElement("p");
     const dueDateInput = document.createElement("input");
     dueDateInput.setAttribute("type", "date");
 
@@ -386,14 +387,15 @@ export const renderTodo = (function () {
     header.textContent = "Todo Edits";
     titleInput.value = "Title";
     descriptionInput.value = "Description";
-    dueDateInput.textContent = "Date";
-    confirmButton.textContent = "Confirm";
-    closeButton.textContent = "X";
+    dueDateHolder.textContent = "Due-Date:  ";
+    dueDateHolder.append(dueDateInput);
     priorityHolder.textContent = "Priority:  ";
     priorityHolder.append(low, medium, high);
     low.textContent = "Low";
     medium.textContent = "Medium";
     high.textContent = "High";
+    closeButton.textContent = "close";
+    confirmButton.textContent = "Confirm";
 
     dialog.classList.add("editTodo");
 
@@ -401,7 +403,7 @@ export const renderTodo = (function () {
       header,
       closeButton,
       titleInput,
-      dueDateInput,
+      dueDateHolder,
       descriptionInput,
       priorityHolder,
       confirmButton,
