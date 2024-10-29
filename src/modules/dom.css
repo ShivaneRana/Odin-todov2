@@ -373,3 +373,38 @@ body {
     }
   }
 }
+
+.editTodo {
+  position: absolute;
+  margin: auto;
+
+  & > div {
+    width: 720px;
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+
+    /* header */
+    & > p:nth-child(1) {
+      background-color: red;
+    }
+
+    /* close button */
+    & > button:nth-child(2) {
+      background-color: purple;
+    }
+
+    & > input:nth-child(3) {
+      background-color: gold;
+    }
+
+    & > input:nth-child(4) {
+      background-color: lightblue;
+    }
+
+    & > input:nth-child(5) {
+      background-color: lightseagreen;
+    }
+  }
+}

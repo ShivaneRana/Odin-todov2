@@ -85,7 +85,7 @@ export const projectLogic = (function () {
       return true;
     }
   };
-  
+
   // display the content of the list
   const displayProjectListItems = function (name) {
     const list = projectList[name];

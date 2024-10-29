@@ -307,9 +307,9 @@ export const renderTodo = (function () {
         renderTodoDetailDialog(list[i].target, list[i].title);
       });
 
-      editButton.addEventListener("click",() => {
-        console.log("uwuwuwuwuwuw edit button was pressed");
-      })
+      editButton.addEventListener("click", () => {
+        todoLogic.changeTodo(list[i].target, list[i].title);
+      });
     }
   };
 
@@ -359,5 +359,57 @@ export const renderTodo = (function () {
     });
   };
 
-  return { render, renderTodoDetailDialog };
+  // dialog box for editin the todo'
+  const renderTodoEditDialog = function (
+    title,
+    description,
+    priority,
+    dueDate,
+  ) {
+    const dialog = document.createElement("dialog");
+    const wrapper = document.createElement("div");
+    const titleInput = document.createElement("input");
+    const descriptionInput = document.createElement("textarea");
+    const dueDateInput = document.createElement("input");
+    dueDateInput.setAttribute("type", "date");
+
+    const header = document.createElement("p");
+    const closeButton = document.createElement("button");
+    const confirmButton = document.createElement("button");
+    const priorityHolder = document.createElement("p");
+    const low = document.createElement("button");
+    const medium = document.createElement("button");
+    const high = document.createElement("button");
+
+    // assign assign assign assign
+
+    header.textContent = "Todo Edits";
+    titleInput.value = "Title";
+    descriptionInput.value = "Description";
+    dueDateInput.textContent = "Date";
+    confirmButton.textContent = "Confirm";
+    closeButton.textContent = "X";
+    priorityHolder.textContent = "Priority:  ";
+    priorityHolder.append(low, medium, high);
+    low.textContent = "Low";
+    medium.textContent = "Medium";
+    high.textContent = "High";
+
+    dialog.classList.add("editTodo");
+
+    wrapper.append(
+      header,
+      closeButton,
+      titleInput,
+      dueDateInput,
+      descriptionInput,
+      priorityHolder,
+      confirmButton,
+    );
+    dialog.append(wrapper);
+    document.body.append(dialog);
+    dialog.showModal();
+  };
+
+  return { render, renderTodoDetailDialog, renderTodoEditDialog };
 })();
