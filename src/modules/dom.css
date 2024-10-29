@@ -344,8 +344,9 @@ body {
     & > button {
       grid-row: 1/4;
       grid-column: 19/21;
-      font-size: 1rem;
+      font-size: 1.1rem;
       font-weight: bolder;
+      border: 2px solid black;
     }
 
     & > p:nth-child(2) {
@@ -366,7 +367,7 @@ body {
       justify-content: space-evenly;
 
       & > p {
-        font-size: 1rem;
+        font-size: 1.1rem;
         overflow: scroll;
         overflow-wrap: break-word;
       }
