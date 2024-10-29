@@ -378,6 +378,10 @@ body {
 .editTodo {
   position: absolute;
   margin: auto;
+  &::backdrop {
+    background-color: transparent;
+    backdrop-filter: blur(10px);
+  }
 
   & > div {
     width: 720px;
@@ -468,7 +472,7 @@ body {
         padding: 4%;
         margin: 0px 5px 0px 5px;
         font-size: 0.8rem;
-        border: 2px solid black;
+        border: none;
       }
     }
 
@@ -481,4 +485,15 @@ body {
       font-size: 1.1rem;
     }
   }
+}
+
+.priorityButton {
+  outline: 2px solid black;
+  color: black;
+  background-color: whitesmoke;
+}
+
+.picked {
+  background-color: black;
+  color: whitesmoke;
 }

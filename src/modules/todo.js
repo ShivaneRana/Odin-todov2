@@ -22,7 +22,7 @@ export const todoLogic = (function () {
     const date = list[target][title].date;
     const priority = list[target][title].priority;
 
-    renderTodo.renderTodoEditDialog(tit, description, date, priority);
+    renderTodo.renderTodoEditDialog(tit, description, priority, date);
   };
 
   return { removeTodoFromList, changeTodo };

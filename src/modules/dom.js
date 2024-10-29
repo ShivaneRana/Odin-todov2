@@ -367,6 +367,7 @@ export const renderTodo = (function () {
     dueDate,
   ) {
     const dialog = document.createElement("dialog");
+    dialog.classList.add("editTodo");
     const wrapper = document.createElement("div");
     const titleInput = document.createElement("input");
     const descriptionInput = document.createElement("textarea");
@@ -381,23 +382,40 @@ export const renderTodo = (function () {
     const low = document.createElement("button");
     const medium = document.createElement("button");
     const high = document.createElement("button");
+    low.classList.add("priorityButton");
+    medium.classList.add("priorityButton");
+    high.classList.add("priorityButton");
+    let priorityInput;
 
-    // assign assign assign assign
+    // this is same in all the editDialog
 
     header.textContent = "Todo Edits";
-    titleInput.value = "Title";
-    descriptionInput.value = "Description";
     dueDateHolder.textContent = "Due-Date:  ";
     dueDateHolder.append(dueDateInput);
     priorityHolder.textContent = "Priority:  ";
-    priorityHolder.append(low, medium, high);
     low.textContent = "Low";
     medium.textContent = "Medium";
     high.textContent = "High";
+    priorityHolder.append(low, medium, high);
     closeButton.textContent = "close";
     confirmButton.textContent = "Confirm";
 
-    dialog.classList.add("editTodo");
+    // this one is dynamic
+
+    const newDate = new Date(dueDate);
+    const year = newDate.getFullYear();
+    //padStart ensure if the string is below 10 it pre fix 0 to it
+    const month = String(newDate.getMonth() + 1).padStart(2, "0");
+    const date = String(newDate.getDate()).padStart(2, "0");
+
+    // assign assign assign assign value
+    titleInput.value = title;
+    descriptionInput.value = description;
+    priorityInput = priority;
+    dueDateInput.value = `${year}-${month}-${date}`;
+    const priorityButtonAll = document.querySelectorAll(".priorityButton");
+
+    priorityButtonAll.forEach((item) => {});
 
     wrapper.append(
       header,
@@ -411,6 +429,16 @@ export const renderTodo = (function () {
     dialog.append(wrapper);
     document.body.append(dialog);
     dialog.showModal();
+
+    closeButton.addEventListener("click", () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener("click", (e) => {
+      if (!wrapper.contains(e.target)) {
+        dialog.close();
+      }
+    });
   };
 
   return { render, renderTodoDetailDialog, renderTodoEditDialog };
