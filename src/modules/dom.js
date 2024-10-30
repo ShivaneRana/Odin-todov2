@@ -301,16 +301,15 @@ export const renderTodo = (function () {
       currentContainer.append(div);
 
       deleteButton.addEventListener("click", () => {
-        console.log(`${list[i].title} was removed from ${list[i].target}`);
-        todoLogic.removeTodoFromList(list[i].target, list[i].title);
+        todoLogic.removeTodoFromList(list[i].target, list[i].initialTitle);
       });
 
       detailButton.addEventListener("click", () => {
-        renderTodoDetailDialog(list[i].target, list[i].title);
+        renderTodoDetailDialog(list[i].target, list[i].initialTitle);
       });
 
       editButton.addEventListener("click", () => {
-        renderTodoEditDialog(list[i].target, list[i].title);
+        renderTodoEditDialog(list[i].target, list[i].initialTitle);
       });
     }
   };
@@ -483,8 +482,12 @@ export const renderTodo = (function () {
         list[target][title].description = descriptionInput.value;
         list[target][title].priority = priorityInput;
         list[target][title].date = d;
+
+        // now i understand when assing new value to the object
+        // i change the title key inside but not the object key
+        // so when i try to acess the object i search for new title but it does not exist;
+
         localStorageProject.storeProjectList();
-        console.log(list);
         projectLogic.displayProjectListItems(list[target][title].target);
         dialog.close();
       }

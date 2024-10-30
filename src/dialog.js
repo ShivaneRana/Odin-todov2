@@ -173,6 +173,7 @@ function initalize() {
       if (projectLogic.addObjectToListItems(resultingObject)) {
         closeDialog();
         projectLogic.displayProjectListItems(resultingObject.target);
+        console.log(resultingObject);
       }
     }
   });
