@@ -1,4 +1,3 @@
-import { renderTodo } from "./dom";
 import { projectLogic } from "./project";
 import { localStorageProject } from "./storage";
 

@@ -1,8 +1,7 @@
-import { renderDefaultDialog } from "../dialog.js";
 import { getMainBar } from "../index.js";
 import "./dom.css";
 import { notesLogic } from "./notes.js";
-import { projectLogic, universalLogic } from "./project.js";
+import { projectLogic } from "./project.js";
 import { localStorageProject } from "./storage.js";
 import { todoLogic } from "./todo.js";
 
