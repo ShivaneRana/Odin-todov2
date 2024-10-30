@@ -316,6 +316,8 @@ export const renderTodo = (function () {
   };
 
   const renderTodoDetailDialog = function (target, title) {
+    const list = projectLogic.getList();
+
     // create DOM elements
     const dialog = document.createElement("dialog");
     const wrapper = document.createElement("div");
