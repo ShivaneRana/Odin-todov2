@@ -2,7 +2,8 @@ import { renderDefaultDialog } from "../dialog.js";
 import { getMainBar } from "../index.js";
 import "./dom.css";
 import { notesLogic } from "./notes.js";
-import { projectLogic } from "./project.js";
+import { projectLogic, universalLogic } from "./project.js";
+import { localStorageProject } from "./storage.js";
 import { todoLogic } from "./todo.js";
 
 // render project list
@@ -315,7 +316,7 @@ export const renderTodo = (function () {
   };
 
   const renderTodoDetailDialog = function (target, title) {
-    const list = projectLogic.getList();
+    // create DOM elements
     const dialog = document.createElement("dialog");
     const wrapper = document.createElement("div");
     const innerDiv = document.createElement("div");
@@ -361,59 +362,64 @@ export const renderTodo = (function () {
   };
 
   // dialog box for editin the todo'
-  const renderTodoEditDialog = function (
-    title,
-    description,
-    priority,
-    dueDate,
-  ) {
+  const renderTodoEditDialog = function (target, title) {
+    // create variable as assign value from list to them
+    const list = projectLogic.getList();
+    let originalTitle = list[target][title].title;
+    let orignalDescription = list[target][title].description;
+    let orignalDate = new Date(list[target][title].date);
+    let orignalPriority = list[target][title].priority;
+
+    // create DOM elements and assign value to them
     const dialog = document.createElement("dialog");
     dialog.classList.add("editTodo");
     const wrapper = document.createElement("div");
+
+    // title description field
     const titleInput = document.createElement("input");
+
+    // description input field
     const descriptionInput = document.createElement("textarea");
+
+    // contains due date input field
     const dueDateHolder = document.createElement("p");
+    dueDateHolder.textContent = "Due-Date:  ";
+
+    // due date input field
     const dueDateInput = document.createElement("input");
     dueDateInput.setAttribute("type", "date");
 
+    // header for the dialog box
     const header = document.createElement("p");
-    const closeButton = document.createElement("button");
-    const confirmButton = document.createElement("button");
-    const priorityHolder = document.createElement("p");
-    const low = document.createElement("button");
-    const medium = document.createElement("button");
-    const high = document.createElement("button");
-    low.classList.add("priorityButton");
-    medium.classList.add("priorityButton");
-    high.classList.add("priorityButton");
-    let priorityInput;
-
-    // this is same in all the editDialog
-
     header.textContent = "Todo Edits";
-    dueDateHolder.textContent = "Due-Date:  ";
-    dueDateHolder.append(dueDateInput);
-    priorityHolder.textContent = "Priority:  ";
-    low.textContent = "Low";
-    medium.textContent = "Medium";
-    high.textContent = "High";
-    priorityHolder.append(low, medium, high);
-    closeButton.textContent = "close";
+
+    // close button
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Close";
+
+    // confirmation button
+    const confirmButton = document.createElement("button");
     confirmButton.textContent = "Confirm";
 
-    // this one is dynamic
+    // hold all the prioirty button
+    const priorityHolder = document.createElement("p");
+    priorityHolder.textContent = "Priority:  ";
 
-    const newDate = new Date(dueDate);
-    const year = newDate.getFullYear();
-    //padStart ensure if the string is below 10 it pre fix 0 to it
-    const month = String(newDate.getMonth() + 1).padStart(2, "0");
-    const date = String(newDate.getDate()).padStart(2, "0");
+    // all the priority button
+    const low = document.createElement("button");
+    low.textContent = "Low";
+    low.classList.add("priorityButton");
 
-    // assign assign assign assign value
-    titleInput.value = title;
-    descriptionInput.value = description;
-    priorityInput = priority;
-    dueDateInput.value = `${year}-${month}-${date}`;
+    const medium = document.createElement("button");
+    medium.textContent = "Medium";
+    medium.classList.add("priorityButton");
+
+    const high = document.createElement("button");
+    high.textContent = "High";
+    high.classList.add("priorityButton");
+
+    dueDateHolder.append(dueDateInput);
+    priorityHolder.append(low, medium, high);
 
     wrapper.append(
       header,
@@ -427,20 +433,6 @@ export const renderTodo = (function () {
     dialog.append(wrapper);
     document.body.append(dialog);
     dialog.showModal();
-
-    // changes class based on button clicked
-    const priorityButtonAll = document.querySelectorAll(".priorityButton");
-    priorityButtonAll.forEach((item) => {
-      if (item.textContent === priority) {
-        item.classList.add("picked");
-      }
-      item.addEventListener("click", () => {
-        priorityButtonAll.forEach((item) => {
-          item.classList.remove("picked");
-        });
-        item.classList.add("picked");
-      });
-    });
 
     closeButton.addEventListener("click", () => {
       dialog.close();

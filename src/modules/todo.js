@@ -15,19 +15,8 @@ export const todoLogic = (function () {
   };
 
   const changeTodo = function (target, title) {
-    const list = projectLogic.getList();
-
-    const tit = list[target][title].title;
-    const description = list[target][title].description;
-    const date = list[target][title].date;
-    const priority = list[target][title].priority;
-
-    renderTodo.renderTodoEditDialog(tit, description, priority, date);
+    renderTodo.renderTodoEditDialog(target, title);
   };
 
-  const editObjectInProjectList = function () {
-    const list = projectLogic.getList();
-  };
-
-  return { removeTodoFromList, changeTodo, editObjectInProjectList };
+  return { removeTodoFromList, changeTodo };
 })();
