@@ -1,4 +1,3 @@
-import { clickNotes } from "./index.js";
 import "./modules/dialog.css";
 import { renderProjectInputDialog } from "./modules/dom.js";
 import { notesLogic } from "./modules/notes.js";
@@ -17,7 +16,7 @@ notesButton.textContent = "Notes";
 
 //  close confirm and clear all button for the notes list
 const nClose = document.createElement("button");
-nClose.textContent = "Close";
+nClose.textContent = "close";
 nClose.classList.add("close");
 const nClearAll = document.createElement("button");
 nClearAll.textContent = "Clear All";
@@ -44,11 +43,13 @@ th1.textContent = "Add Todo";
 const tTitle = document.createElement("input");
 tTitle.setAttribute("placeholder", "add title");
 tTitle.classList.add("tTitle");
+tTitle.setAttribute("maxLength", "50");
 const tDate = document.createElement("input");
 tDate.setAttribute("type", "date");
 tDate.classList.add("tDate");
 const tDescription = document.createElement("textarea");
 tDescription.setAttribute("placeholder", "add description");
+tDescription.setAttribute("maxLength", "250");
 tDescription.classList.add("tDescription");
 const tPriority = document.createElement("h3");
 tPriority.textContent = "Priority:";
@@ -125,6 +126,12 @@ function initalize() {
     }
   });
 
+  dialog.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeDialog();
+    }
+  });
+
   tClose.addEventListener("click", () => {
     closeDialog();
     renderDefaultDialog.rerenderPriority(priorityButtonAll);
@@ -144,30 +151,29 @@ function initalize() {
   });
 
   tConfirm.addEventListener("click", () => {
-    const title = tTitle.value;
-    const description = tDescription.value;
-    const date = new Date(tDate.value);
+    const title = tTitle.value.trim();
+    const description = tDescription.value.trim();
+    const date = new Date(tDate.value); //dont remove the new Date it will break the validation
     const priority = defaultDialogLogic.getPriority();
-    const location =
+    const target =
       targetProject.options[targetProject.selectedIndex].textContent;
 
-    // check that the value being entered is valid or not
-    if (
-      title === "" ||
-      description === "" ||
-      isNaN(date.getTime()) ||
-      priority === ""
-    ) {
-      // this method is from project.js
-      renderProjectInputDialog.projectNotAdded("Please enter valid input!");
+    if (title === "" || description === "" || priority === "" || isNaN(date)) {
+      renderProjectInputDialog.projectNotAdded("Input is incomplete");
     } else {
       const resultingObject = universalLogic.todoFormat(
         title,
         description,
         date,
         priority,
-        location,
+        target,
       );
+
+      if (projectLogic.addObjectToListItems(resultingObject)) {
+        closeDialog();
+        projectLogic.displayProjectListItems(resultingObject.target);
+        console.log(resultingObject);
+      }
     }
   });
 

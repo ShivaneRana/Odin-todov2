@@ -1,6 +1,9 @@
+import { getMainBar } from "../index.js";
 import "./dom.css";
 import { notesLogic } from "./notes.js";
 import { projectLogic } from "./project.js";
+import { localStorageProject } from "./storage.js";
+import { todoLogic } from "./todo.js";
 
 // render project list
 export const renderProjectList = (function () {
@@ -23,7 +26,9 @@ export const renderProjectList = (function () {
         });
 
         // these are for accesing the newly created projects
-        button.addEventListener("click", () => {});
+        button.addEventListener("click", (e) => {
+          projectLogic.displayProjectListItems(e.target.textContent);
+        });
       }
     }
   };
@@ -64,6 +69,7 @@ export const renderProjectInputDialog = (function () {
   const clearButton = document.createElement("button");
 
   projectName.setAttribute("placeholder", "enter project name....");
+  projectName.setAttribute("maxLength", "20");
   closeButton.textContent = "X";
   confirmButton.textContent = "Confirm";
   clearButton.textContent = "Clear";
@@ -240,14 +246,258 @@ export const renderNotesList = (function () {
   return { render, noteNotAdded };
 })();
 
+// this is for rendering object stored inside each object in projectLIst(todo)
 export const renderTodo = (function () {
   let currentContainer = null;
-  const render = function (container) {
-    currentContainer = container;
+
+  function assignCurrent() {
+    currentContainer = getMainBar();
+  }
+
+  const render = function (list) {
+    assignCurrent();
     currentContainer.textContent = "";
-    // currentContainer.classList.remove("notesContainer");
-    // currentContainer.classList.add("todoContainer");
+    currentContainer.classList.remove("notesContainer");
+    currentContainer.classList.add("todoContainer");
+    for (let i in list) {
+      const div = document.createElement("div");
+      const title = document.createElement("p");
+      const detailButton = document.createElement("button");
+      const editButton = document.createElement("button");
+      const deleteButton = document.createElement("button");
+      const dateDate = document.createElement("p");
+      const checkBox = document.createElement("input");
+      checkBox.setAttribute("type", "checkbox");
+
+      title.textContent = `${list[i].title}`;
+      detailButton.textContent = `Detail`;
+      editButton.textContent = "Edit";
+      deleteButton.textContent = "Delete";
+
+      const month = new Date(list[i].date).getMonth() + 1;
+      const year = new Date(list[i].date).getFullYear();
+      const date = new Date(list[i].date).getDate();
+
+      dateDate.textContent = `${date}-${month}-${year}`;
+
+      // assign all the class
+
+      editButton.classList.add("tEdit");
+      detailButton.classList.add("tDetail");
+      title.classList.add("tTitle");
+      deleteButton.classList.add("tDelete");
+      dateDate.classList.add("tDate");
+      checkBox.classList.add("tCheckBox");
+
+      div.append(
+        checkBox,
+        title,
+        detailButton,
+        dateDate,
+        editButton,
+        deleteButton,
+      );
+      currentContainer.append(div);
+
+      deleteButton.addEventListener("click", () => {
+        todoLogic.removeTodoFromList(list[i].target, list[i].initialTitle);
+      });
+
+      detailButton.addEventListener("click", () => {
+        renderTodoDetailDialog(list[i].target, list[i].initialTitle);
+      });
+
+      editButton.addEventListener("click", () => {
+        renderTodoEditDialog(list[i].target, list[i].initialTitle);
+      });
+    }
   };
 
-  return { render };
+  const renderTodoDetailDialog = function (target, title) {
+    const list = projectLogic.getList();
+
+    // create DOM elements
+    const dialog = document.createElement("dialog");
+    const wrapper = document.createElement("div");
+    const innerDiv = document.createElement("div");
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "X";
+    const p0 = document.createElement("p");
+    const p1 = document.createElement("p");
+    const p2 = document.createElement("p");
+    const p3 = document.createElement("p");
+    const p4 = document.createElement("p");
+    const header = document.createElement("p");
+
+    header.textContent = "Todo Details";
+
+    const month = new Date(list[target][title].date).getMonth() + 1;
+    const date = new Date(list[target][title].date).getDate();
+    const year = new Date(list[target][title].date).getFullYear();
+
+    p0.textContent = `Title: ${list[target][title].title}`;
+    p1.textContent = `Description: ${list[target][title].description}`;
+    p2.textContent = `Due-date: ${date}-${month}-${year}`;
+    p3.textContent = `Location: ${list[target][title].target}`;
+    p4.textContent = `Priority: ${list[target][title].priority}`;
+
+    dialog.classList.add("detailTodo");
+
+    // append append append append
+    innerDiv.append(p0, p1, p2, p3, p4);
+    wrapper.append(closeButton, header, innerDiv);
+    dialog.append(wrapper);
+    document.body.append(dialog);
+    dialog.showModal();
+
+    dialog.addEventListener("click", (e) => {
+      if (!wrapper.contains(e.target)) {
+        dialog.close();
+      }
+    });
+
+    closeButton.addEventListener("click", () => {
+      dialog.close();
+    });
+  };
+
+  // dialog box for editin the todo'
+  const renderTodoEditDialog = function (target, title) {
+    // create variable as assign value from list to them
+    const list = projectLogic.getList();
+    let orignalTitle = list[target][title].title;
+    let orignalDescription = list[target][title].description;
+    let orignalDate = new Date(list[target][title].date);
+    let orignalPriority = list[target][title].priority;
+
+    // create DOM elements and assign value to them
+    const dialog = document.createElement("dialog");
+    dialog.classList.add("editTodo");
+    const wrapper = document.createElement("div");
+
+    // priorityInput
+    let priorityInput;
+
+    // title description field
+    let titleInput = document.createElement("input");
+
+    // description input field
+    let descriptionInput = document.createElement("textarea");
+
+    // contains due date input field
+    const dueDateHolder = document.createElement("p");
+    dueDateHolder.textContent = "Due-Date:  ";
+
+    // due date input field
+    let dueDateInput = document.createElement("input");
+    dueDateInput.setAttribute("type", "date");
+
+    // header for the dialog box
+    const header = document.createElement("p");
+    header.textContent = "Todo Edits";
+
+    // close button
+    const closeButton = document.createElement("button");
+    closeButton.textContent = "Close";
+
+    // confirmation button
+    const confirmButton = document.createElement("button");
+    confirmButton.textContent = "Confirm";
+
+    // hold all the prioirty button
+    const priorityHolder = document.createElement("p");
+    priorityHolder.textContent = "Priority:  ";
+
+    // all the priority button
+    const low = document.createElement("button");
+    low.textContent = "Low";
+    low.classList.add("priorityButton");
+
+    const medium = document.createElement("button");
+    medium.textContent = "Medium";
+    medium.classList.add("priorityButton");
+
+    const high = document.createElement("button");
+    high.textContent = "High";
+    high.classList.add("priorityButton");
+
+    dueDateHolder.append(dueDateInput);
+    priorityHolder.append(low, medium, high);
+
+    wrapper.append(
+      header,
+      closeButton,
+      titleInput,
+      dueDateHolder,
+      descriptionInput,
+      priorityHolder,
+      confirmButton,
+    );
+    dialog.append(wrapper);
+    document.body.append(dialog);
+    dialog.showModal();
+
+    // assign value to all the input field
+
+    titleInput.value = orignalTitle;
+    descriptionInput.value = orignalDescription;
+    priorityInput = orignalPriority;
+
+    // working with dates is a pain
+    let date = String(orignalDate.getDate()).padStart(2, "0");
+    let months = String(orignalDate.getMonth() + 1).padStart(2, "0");
+    let year = String(orignalDate.getFullYear()).padStart(4, "0");
+
+    dueDateInput.value = `${year}-${months}-${date}`;
+
+    const allPriorityButton = document.querySelectorAll(".priorityButton");
+    allPriorityButton.forEach((item) => {
+      if (item.textContent === orignalPriority) {
+        item.classList.add("picked");
+      }
+      item.addEventListener("click", () => {
+        allPriorityButton.forEach((but) => {
+          but.classList.remove("picked");
+        });
+        item.classList.add("picked");
+        priorityInput = item.textContent;
+      });
+    });
+
+    closeButton.addEventListener("click", () => {
+      dialog.close();
+    });
+
+    confirmButton.addEventListener("click", () => {
+      const d = new Date(dueDateInput.value);
+      if (
+        titleInput.value === "" ||
+        descriptionInput.value === "" ||
+        isNaN(d)
+      ) {
+        renderProjectInputDialog.projectNotAdded("Please fill all input field");
+      } else {
+        list[target][title].title = titleInput.value;
+        list[target][title].description = descriptionInput.value;
+        list[target][title].priority = priorityInput;
+        list[target][title].date = d;
+
+        // now i understand when assing new value to the object
+        // i change the title key inside but not the object key
+        // so when i try to acess the object i search for new title but it does not exist;
+
+        localStorageProject.storeProjectList();
+        projectLogic.displayProjectListItems(list[target][title].target);
+        dialog.close();
+      }
+    });
+
+    dialog.addEventListener("click", (e) => {
+      if (!wrapper.contains(e.target)) {
+        dialog.close();
+      }
+    });
+  };
+
+  return { render, renderTodoDetailDialog, renderTodoEditDialog };
 })();

@@ -1,4 +1,8 @@
-import { renderProjectInputDialog, renderProjectList } from "./dom.js";
+import {
+  renderProjectInputDialog,
+  renderProjectList,
+  renderTodo,
+} from "./dom.js";
 import { localStorageProject } from "./storage.js";
 
 export const projectLogic = (function () {
@@ -6,14 +10,12 @@ export const projectLogic = (function () {
     All: {},
     Completed: {},
     Today: {},
-    Gym: {},
-    Study: {},
-    HouseChore: {},
   };
 
   const setList = function () {
     console.log("ProjectList was set");
-    projectList = localStorageProject.retrieveProjectList();
+    let retrivedList = localStorageProject.retrieveProjectList();
+    projectList = { ...projectList, ...retrivedList };
   };
 
   const getList = function () {
@@ -70,6 +72,27 @@ export const projectLogic = (function () {
     renderProjectList.render(projectList, container);
   };
 
+  // if the value can be inserted into the project then true else false
+  const addObjectToListItems = function (obj) {
+    if (obj.title in projectList[obj.target]) {
+      renderProjectInputDialog.projectNotAdded(
+        "Todo with similar name already exist",
+      );
+      return false;
+    } else {
+      projectList[obj.target][obj.title] = obj;
+      localStorageProject.storeProjectList();
+      return true;
+    }
+  };
+
+  // display the content of the list
+  const displayProjectListItems = function (name) {
+    const list = projectList[name];
+    renderTodo.render(list);
+    console.log(`${name} was rendered`);
+  };
+
   const finale = function (container, projectName) {
     if (checkInput(projectName)) {
       addToList(projectName);
@@ -78,25 +101,31 @@ export const projectLogic = (function () {
     }
   };
 
-  return { finale, removeFromList, renderList, getList, setList };
+  return {
+    finale,
+    removeFromList,
+    renderList,
+    getList,
+    setList,
+    addObjectToListItems,
+    displayProjectListItems,
+  };
 })();
 
 // this logic is shared amound all the todo container like all,completed,today
 // also all the new created projects
 export const universalLogic = (function () {
-  
   // this is used on all the todos
-  const todoFormat = function (title, description, date, target, priority) {
+  const todoFormat = function (title, description, date, priority, target) {
     return {
       title: title,
       description: description,
       date: date,
+      priority: priority,
       target: target,
-      priority,
-      priority,
+      initialTitle: title,
       completed: false,
     };
   };
-
   return { todoFormat };
 })();

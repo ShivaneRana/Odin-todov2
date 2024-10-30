@@ -1,6 +1,6 @@
 import "./style.css";
 import "./asset/Gilroy/stylesheet.css";
-import { projectLogic, universalLogic } from "./modules/project.js";
+import { projectLogic } from "./modules/project.js";
 import { expandLogic, themeLogic } from "./modules/uilogic.js";
 import { defaultDialogLogic } from "./dialog.js";
 import { renderProjectInputDialog } from "./modules/dom.js";
@@ -27,13 +27,20 @@ document.addEventListener("DOMContentLoaded", () => {
   projectLogic.setList();
   projectLogic.renderList(projectContainer);
   notesLogic.setNotesList();
+  allButton.click();
 });
 
-allButton.addEventListener("click", () => {});
+allButton.addEventListener("click", (e) => {
+  projectLogic.displayProjectListItems(e.target.textContent);
+});
 
-todayButton.addEventListener("click", () => {});
+todayButton.addEventListener("click", (e) => {
+  projectLogic.displayProjectListItems(e.target.textContent);
+});
 
-completedButton.addEventListener("click", () => {});
+completedButton.addEventListener("click", (e) => {
+  projectLogic.displayProjectListItems(e.target.textContent);
+});
 
 expandButton.addEventListener("click", () => {
   expandLogic.expandFinale(sideBar, navBar, mainBar, expandButton);
@@ -61,4 +68,12 @@ notesButton.addEventListener("click", () => {
 // used for displaying notes screen after pressing confirm adding notes dialog
 export const clickNotes = function () {
   notesButton.click();
+};
+
+export const getMainBar = function () {
+  return mainBar;
+};
+
+export const clickAllButton = function () {
+  allButton.click();
 };

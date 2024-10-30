@@ -106,11 +106,13 @@
   & > .tPriority {
     grid-row: 16/18;
     grid-column: 1/8;
+    justify-content: flex-start;
 
     & > button {
       padding: 4%;
       margin: 0px 5px 0px 5px;
       font-size: 0.8rem;
+      width: 19%;
       border: none;
     }
   }
@@ -124,6 +126,7 @@
       padding: 4%;
       margin: 0px 5px 0px 5px;
       font-size: 0.8rem;
+      width: 50%;
     }
   }
 
