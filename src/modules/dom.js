@@ -471,15 +471,22 @@ export const renderTodo = (function () {
     });
 
     confirmButton.addEventListener("click", () => {
+      const d = new Date(dueDateInput.value);
       if (
         titleInput.value === "" ||
         descriptionInput.value === "" ||
-        isNaN(new Date(dueDateInput.value))
+        isNaN(d)
       ) {
-        renderProjectInputDialog.projectNotAdded(
-          "Please fill all Input fields",
-        );
+        renderProjectInputDialog.projectNotAdded("Please fill all input field");
       } else {
+        list[target][title].title = titleInput.value;
+        list[target][title].description = descriptionInput.value;
+        list[target][title].priority = priorityInput;
+        list[target][title].date = d;
+        localStorageProject.storeProjectList();
+        console.log(list);
+        projectLogic.displayProjectListItems(list[target][title].target);
+        dialog.close();
       }
     });
 
