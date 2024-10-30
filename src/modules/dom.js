@@ -365,7 +365,7 @@ export const renderTodo = (function () {
   const renderTodoEditDialog = function (target, title) {
     // create variable as assign value from list to them
     const list = projectLogic.getList();
-    let originalTitle = list[target][title].title;
+    let orignalTitle = list[target][title].title;
     let orignalDescription = list[target][title].description;
     let orignalDate = new Date(list[target][title].date);
     let orignalPriority = list[target][title].priority;
@@ -375,18 +375,21 @@ export const renderTodo = (function () {
     dialog.classList.add("editTodo");
     const wrapper = document.createElement("div");
 
+    // priorityInput
+    let priorityInput;
+
     // title description field
-    const titleInput = document.createElement("input");
+    let titleInput = document.createElement("input");
 
     // description input field
-    const descriptionInput = document.createElement("textarea");
+    let descriptionInput = document.createElement("textarea");
 
     // contains due date input field
     const dueDateHolder = document.createElement("p");
     dueDateHolder.textContent = "Due-Date:  ";
 
     // due date input field
-    const dueDateInput = document.createElement("input");
+    let dueDateInput = document.createElement("input");
     dueDateInput.setAttribute("type", "date");
 
     // header for the dialog box
@@ -433,6 +436,26 @@ export const renderTodo = (function () {
     dialog.append(wrapper);
     document.body.append(dialog);
     dialog.showModal();
+
+    // assign value to all the input field
+
+    titleInput.value = orignalTitle;
+    descriptionInput.value = orignalDescription;
+    priorityInput = orignalPriority;
+
+    const allPriorityButton = document.querySelectorAll(".priorityButton");
+    allPriorityButton.forEach((item) => {
+      if (item.textContent === orignalPriority) {
+        item.classList.add("picked");
+      }
+      item.addEventListener("click", () => {
+        allPriorityButton.forEach((but) => {
+          but.classList.remove("picked");
+        });
+        item.classList.add("picked");
+        priorityInput = item.textContent;
+      });
+    });
 
     closeButton.addEventListener("click", () => {
       dialog.close();
