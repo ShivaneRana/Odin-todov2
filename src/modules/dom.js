@@ -310,7 +310,7 @@ export const renderTodo = (function () {
       });
 
       editButton.addEventListener("click", () => {
-        todoLogic.changeTodo(list[i].target, list[i].title);
+        renderTodoEditDialog(list[i].target, list[i].title);
       });
     }
   };
@@ -442,6 +442,13 @@ export const renderTodo = (function () {
     titleInput.value = orignalTitle;
     descriptionInput.value = orignalDescription;
     priorityInput = orignalPriority;
+
+    // working with dates is a pain
+    let date = String(orignalDate.getDate()).padStart(2, "0");
+    let months = String(orignalDate.getMonth() + 1).padStart(2, "0");
+    let year = String(orignalDate.getFullYear()).padStart(4, "0");
+
+    dueDateInput.value = `${year}-${months}-${date}`;
 
     const allPriorityButton = document.querySelectorAll(".priorityButton");
     allPriorityButton.forEach((item) => {

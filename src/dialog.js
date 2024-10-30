@@ -127,6 +127,12 @@ function initalize() {
     }
   });
 
+  dialog.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeDialog();
+    }
+  });
+
   tClose.addEventListener("click", () => {
     closeDialog();
     renderDefaultDialog.rerenderPriority(priorityButtonAll);
