@@ -102,9 +102,10 @@ export const renderProjectInputDialog = (function () {
   let currentContainer = null;
 
   confirmButton.addEventListener("click", () => {
-    dialog.close();
-    projectLogic.finale(currentContainer, projectName.value);
-    projectName.value = "";
+    if (projectLogic.finale(currentContainer, projectName.value)) {
+      closeDialog();
+    } else {
+    }
   });
 
   const closeDialog = function () {
@@ -112,7 +113,6 @@ export const renderProjectInputDialog = (function () {
   };
 
   const projectNotAdded = function (message) {
-    dialog.close();
     notAddedDialog(message);
   };
 

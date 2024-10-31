@@ -38,7 +38,6 @@ export const projectLogic = (function () {
       name === "Today" ||
       name === "today"
     ) {
-      renderProjectInputDialog.closeDialog();
       renderProjectInputDialog.projectNotAdded(
         "This will break the program so dont bother writting it",
       );
@@ -49,14 +48,12 @@ export const projectLogic = (function () {
         console.log("value added to projectList");
         return true;
       } else {
-        renderProjectInputDialog.closeDialog();
         renderProjectInputDialog.projectNotAdded(
           "Project with same name already exist!",
         );
         return false;
       }
     } else {
-      renderProjectInputDialog.closeDialog();
       renderProjectInputDialog.projectNotAdded("No project Name was provided!");
       return false;
     }
@@ -96,9 +93,10 @@ export const projectLogic = (function () {
   const finale = function (container, projectName) {
     if (checkInput(projectName)) {
       addToList(projectName);
-      getList();
       renderList(container);
+      return true;
     }
+    return false;
   };
 
   return {
