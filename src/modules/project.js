@@ -123,6 +123,7 @@ export const universalLogic = (function () {
       target: target,
       initialTitle: title,
       completed: false,
+      initialTarget: target,
     };
   };
 

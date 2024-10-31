@@ -328,7 +328,7 @@ export const renderTodo = (function () {
         renderTodoEditDialog(list[i].target, list[i].initialTitle);
       });
 
-      // check completed value
+      // check for competed value in all todo
       if (list[i].completed === true) {
         checkBox.checked = true;
       } else if (list[i].completed === false) {
@@ -336,15 +336,12 @@ export const renderTodo = (function () {
       }
 
       checkBox.addEventListener("click", () => {
-        if (list[i].completed === false) {
-          const projectL = projectLogic.getList();
-          // instead of making different way to access an obj
-          // chagne .target instead to COmpleted
-
+        if (checkBox.checked === true) {
           list[i].completed = true;
-        } else if (list[i].completed === true) {
+        } else {
           list[i].completed = false;
         }
+        localStorageProject.storeProjectList();
       });
     }
   };
