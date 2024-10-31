@@ -90,6 +90,13 @@ export const renderProjectInputDialog = (function () {
     }
   });
 
+  dialog.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      projectName.value = "";
+      dialog.close();
+    }
+  });
+
   closeButton.addEventListener("click", () => {
     projectName.value = "";
     dialog.close();
@@ -104,7 +111,6 @@ export const renderProjectInputDialog = (function () {
   confirmButton.addEventListener("click", () => {
     if (projectLogic.finale(currentContainer, projectName.value)) {
       closeDialog();
-    } else {
     }
   });
 
@@ -119,6 +125,7 @@ export const renderProjectInputDialog = (function () {
   function render(container) {
     currentContainer = container;
     dialog.showModal();
+    projectName.focus();
   }
 
   return { render, projectNotAdded, closeDialog };
