@@ -13,7 +13,5 @@ export const todoLogic = (function () {
     projectLogic.displayProjectListItems(listObjectName);
   };
 
-  const changeTodo = function (target, title) {};
-
-  return { removeTodoFromList, changeTodo };
+  return { removeTodoFromList };
 })();

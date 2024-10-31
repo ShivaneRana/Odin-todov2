@@ -380,9 +380,11 @@ export const renderTodo = (function () {
 
     // title description field
     let titleInput = document.createElement("input");
+    titleInput.setAttribute("maxLength", "50");
 
     // description input field
     let descriptionInput = document.createElement("textarea");
+    descriptionInput.setAttribute("maxLength", "250");
 
     // contains due date input field
     const dueDateHolder = document.createElement("p");
@@ -450,7 +452,7 @@ export const renderTodo = (function () {
 
     dueDateInput.value = `${year}-${months}-${date}`;
 
-    const allPriorityButton = document.querySelectorAll(".priorityButton");
+    const allPriorityButton = document.querySelectorAll(".priorityButtonn");
     allPriorityButton.forEach((item) => {
       if (item.textContent === orignalPriority) {
         item.classList.add("pickedn");
