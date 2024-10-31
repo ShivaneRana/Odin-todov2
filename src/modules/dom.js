@@ -232,7 +232,6 @@ export const renderNotesList = (function () {
           list[i].title = editTitle.value;
           list[i].description = editDecription.value;
           localStorageNotes.storeNotesList();
-          console.log(list);
           clickNotes();
           editDialog.close();
         });
@@ -291,6 +290,14 @@ export const renderTodo = (function () {
       deleteButton.classList.add("tDelete");
       dateDate.classList.add("tDate");
       checkBox.classList.add("tCheckBox");
+
+      if (list[i].priority === "High") {
+        div.classList.add("red");
+      } else if (list[i].priority === "Medium") {
+        div.classList.add("yellow");
+      } else if (list[i].priority === "Low") {
+        div.classList.add("green");
+      }
 
       div.append(
         checkBox,
