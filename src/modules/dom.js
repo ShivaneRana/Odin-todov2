@@ -327,6 +327,25 @@ export const renderTodo = (function () {
       editButton.addEventListener("click", () => {
         renderTodoEditDialog(list[i].target, list[i].initialTitle);
       });
+
+      // check completed value
+      if (list[i].completed === true) {
+        checkBox.checked = true;
+      } else if (list[i].completed === false) {
+        checkBox.checked = false;
+      }
+
+      checkBox.addEventListener("click", () => {
+        if (list[i].completed === false) {
+          const projectL = projectLogic.getList();
+          // instead of making different way to access an obj
+          // chagne .target instead to COmpleted
+
+          list[i].completed = true;
+        } else if (list[i].completed === true) {
+          list[i].completed = false;
+        }
+      });
     }
   };
 
