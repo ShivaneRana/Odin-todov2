@@ -6,19 +6,18 @@ export const notesLogic = (function () {
   let notesList = {};
 
   const setNotesList = function () {
-    notesList = localStorageNotes.retrieveNotesList();
+    notesList = { ...localStorageNotes.retrieveNotesList() };
   };
 
   const getNotesList = function () {
-    console.log("notes list was called");
     return notesList;
   };
 
   const addToNotesList = function (title, description) {
     if (!alreadyInList(title)) {
       notesList[title] = description;
+      localStorageNotes.storeNotesList();
     }
-    localStorageNotes.storeNotesList();
   };
 
   const alreadyInList = function (title) {

@@ -2,7 +2,7 @@ import { getMainBar } from "../index.js";
 import "./dom.css";
 import { notesLogic } from "./notes.js";
 import { projectLogic } from "./project.js";
-import { localStorageProject } from "./storage.js";
+import { localStorageNotes, localStorageProject } from "./storage.js";
 import { todoLogic } from "./todo.js";
 
 // render project list
@@ -231,6 +231,7 @@ export const renderNotesList = (function () {
         saveButton.addEventListener("click", () => {
           title.textContent = editTitle.value;
           description.textContent = editDecription.value;
+          localStorageNotes.storeNotesList();
           editDialog.close();
         });
 

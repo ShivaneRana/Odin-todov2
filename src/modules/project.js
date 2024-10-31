@@ -125,5 +125,14 @@ export const universalLogic = (function () {
       completed: false,
     };
   };
-  return { todoFormat };
+
+  const notesFormat = function (title, description) {
+    return {
+      title: title,
+      description: description,
+      initialTitle: title,
+    };
+  };
+
+  return { todoFormat, notesFormat };
 })();
