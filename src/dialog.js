@@ -1,3 +1,4 @@
+import { clickNotes } from "./index.js";
 import "./modules/dialog.css";
 import { renderProjectInputDialog } from "./modules/dom.js";
 import { notesLogic } from "./modules/notes.js";

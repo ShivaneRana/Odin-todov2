@@ -234,6 +234,7 @@ body {
   margin: auto;
   border: none;
   outline: 2px solid;
+  background-color: transparent;
 
   &::backdrop {
     background-color: transparent;
@@ -242,6 +243,7 @@ body {
 
   & > div {
     padding: 20px;
+    background-color: transparent;
   }
 }
 

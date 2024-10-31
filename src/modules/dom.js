@@ -450,7 +450,7 @@ export const renderTodo = (function () {
 
     dueDateInput.value = `${year}-${months}-${date}`;
 
-    const allPriorityButton = document.querySelectorAll(".priorityButtonn");
+    const allPriorityButton = document.querySelectorAll(".priorityButton");
     allPriorityButton.forEach((item) => {
       if (item.textContent === orignalPriority) {
         item.classList.add("pickedn");
