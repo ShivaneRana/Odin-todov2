@@ -185,7 +185,11 @@ function initalize() {
       // this method is from project.js
       renderProjectInputDialog.projectNotAdded("Please enter valid input!");
     } else {
-      notesLogic.addToNotesList(nTitle.value, nDescription.value);
+      const resultingObject = universalLogic.notesFormat(
+        nTitle.value,
+        nDescription.value,
+      );
+      notesLogic.addToNotesList(resultingObject);
       closeDialog();
       clickNotes();
     }

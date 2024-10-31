@@ -13,10 +13,11 @@ export const notesLogic = (function () {
     return notesList;
   };
 
-  const addToNotesList = function (title, description) {
-    if (!alreadyInList(title)) {
-      notesList[title] = description;
+  const addToNotesList = function (obj) {
+    if (!alreadyInList(obj.initialTitle)) {
+      notesList[obj.initialTitle] = obj;
       localStorageNotes.storeNotesList();
+      console.log(notesList);
     }
   };
 

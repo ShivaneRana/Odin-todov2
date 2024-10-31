@@ -1,4 +1,4 @@
-import { getMainBar } from "../index.js";
+import { clickNotes, getMainBar } from "../index.js";
 import "./dom.css";
 import { notesLogic } from "./notes.js";
 import { projectLogic } from "./project.js";
@@ -168,9 +168,9 @@ export const renderNotesList = (function () {
     for (let i in list) {
       const div = document.createElement("div");
       const title = document.createElement("h1");
-      title.textContent = i;
+      title.textContent = list[i].title;
       const description = document.createElement("p");
-      description.textContent = list[i];
+      description.textContent = list[i].description;
       const editButton = document.createElement("button");
       editButton.textContent = "Edit";
       editButton.classList.add("editBut");
@@ -229,9 +229,11 @@ export const renderNotesList = (function () {
         // that is not a bug thats a feature (easter egg)
 
         saveButton.addEventListener("click", () => {
-          title.textContent = editTitle.value;
-          description.textContent = editDecription.value;
+          list[i].title = editTitle.value;
+          list[i].description = editDecription.value;
           localStorageNotes.storeNotesList();
+          console.log(list);
+          clickNotes();
           editDialog.close();
         });
 
