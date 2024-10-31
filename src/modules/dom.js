@@ -336,12 +336,13 @@ export const renderTodo = (function () {
       }
 
       checkBox.addEventListener("click", () => {
+        // chekcbox checked
         if (checkBox.checked === true) {
           list[i].completed = true;
         } else {
+          //checkbox unchecked
           list[i].completed = false;
         }
-        localStorageProject.storeProjectList();
       });
     }
   };
