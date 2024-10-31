@@ -411,15 +411,15 @@ export const renderTodo = (function () {
     // all the priority button
     const low = document.createElement("button");
     low.textContent = "Low";
-    low.classList.add("priorityButton");
+    low.classList.add("priorityButtonn");
 
     const medium = document.createElement("button");
     medium.textContent = "Medium";
-    medium.classList.add("priorityButton");
+    medium.classList.add("priorityButtonn");
 
     const high = document.createElement("button");
     high.textContent = "High";
-    high.classList.add("priorityButton");
+    high.classList.add("priorityButtonn");
 
     dueDateHolder.append(dueDateInput);
     priorityHolder.append(low, medium, high);
@@ -450,16 +450,16 @@ export const renderTodo = (function () {
 
     dueDateInput.value = `${year}-${months}-${date}`;
 
-    const allPriorityButton = document.querySelectorAll(".priorityButton");
+    const allPriorityButton = document.querySelectorAll(".priorityButtonn");
     allPriorityButton.forEach((item) => {
       if (item.textContent === orignalPriority) {
-        item.classList.add("picked");
+        item.classList.add("pickedn");
       }
       item.addEventListener("click", () => {
         allPriorityButton.forEach((but) => {
-          but.classList.remove("picked");
+          but.classList.remove("pickedn");
         });
-        item.classList.add("picked");
+        item.classList.add("pickedn");
         priorityInput = item.textContent;
       });
     });

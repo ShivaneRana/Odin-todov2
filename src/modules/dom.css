@@ -487,13 +487,13 @@ body {
   }
 }
 
-.priorityButton {
+.priorityButtonn {
   outline: 2px solid black;
   color: black;
   background-color: whitesmoke;
 }
 
-.picked {
+.pickedn {
   background-color: black;
   color: whitesmoke;
 }
