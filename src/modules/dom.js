@@ -328,27 +328,31 @@ export const renderTodo = (function () {
         renderTodoEditDialog(list[i].target, list[i].initialTitle);
       });
 
-      // check for competed value in all todo
-      // if (list[i].completed === true) {
-      //   checkBox.checked = true;
-      // } else if (list[i].completed === false) {
-      //   checkBox.checked = false;
-      // }
+      if (list[i].completed === true) {
+        checkBox.checked = true;
+      } else if (list[i].completed === false) {
+        checkBox.checked = false;
+      }
 
       checkBox.addEventListener("click", () => {
         const projectL = projectLogic.getList();
         const currentTarget = list[i].target;
         // check mark
         if (checkBox.checked === true) {
+          list[i].completed = true;
           // give complete list the current obj
+          list[i].target = "Completed";
           projectL.Completed[list[i].initialTitle] = list[i];
-          delete projectL[list[i].target][list[i].initialTitle];
+          delete list[i];
           projectLogic.displayProjectListItems(currentTarget);
 
           // then remove it from the current list
           // also change it target to completed
           // no checkmark
         } else if (checkBox.checked === false) {
+          list[i].completed = false;
+
+          // list[i].target = list[i].initialTarget;
         }
       });
     }

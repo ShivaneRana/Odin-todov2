@@ -40,6 +40,7 @@ todayButton.addEventListener("click", (e) => {
 
 completedButton.addEventListener("click", (e) => {
   projectLogic.displayProjectListItems(e.target.textContent);
+  console.log(projectLogic.getList().Completed);
 });
 
 expandButton.addEventListener("click", () => {
