@@ -4,6 +4,7 @@ import { projectLogic } from "./modules/project.js";
 import {
   expandLogic,
   highLightCurrentTab,
+  highLightOnClick,
   themeLogic,
 } from "./modules/uilogic.js";
 import { defaultDialogLogic } from "./dialog.js";
@@ -66,6 +67,7 @@ addTodoOrNotesButton.addEventListener("click", () => {
 
 // display notes
 notesButton.addEventListener("click", () => {
+  highLightOnClick("Notes");
   notesLogic.finale(mainBar);
 });
 

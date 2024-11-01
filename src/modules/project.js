@@ -5,6 +5,7 @@ import {
   renderTodo,
 } from "./dom.js";
 import { localStorageProject } from "./storage.js";
+import { highLightOnClick } from "./uilogic.js";
 
 export const projectLogic = (function () {
   let projectList = {
@@ -86,6 +87,7 @@ export const projectLogic = (function () {
 
   // display the content of the list
   const displayProjectListItems = function (name) {
+    highLightOnClick(name);
     const list = projectList[name];
     renderTodo.render(list);
     console.log(`${name} was rendered`);

@@ -61,3 +61,14 @@ export const themeLogic = (function () {
 
   return { themeFinale };
 })();
+
+export const highLightOnClick = function (name) {
+  const everything = document.querySelectorAll(".highlightOnClick");
+  everything.forEach((item) => {
+    if (item.textContent === name) {
+      item.classList.add("highLight");
+    } else {
+      item.classList.remove("highLight");
+    }
+  });
+};

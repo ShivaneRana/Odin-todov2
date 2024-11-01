@@ -21,6 +21,8 @@ export const renderProjectList = (function () {
         div.append(button, remove);
         container.append(div);
 
+        button.classList.add("highlightOnClick");
+
         remove.addEventListener("click", () => {
           div.remove();
           projectLogic.removeFromList(i);
