@@ -516,7 +516,9 @@ body {
 
 /* picked list */
 .highLight {
-  background-color: lightblue;
+  background-color: darkgray;
   color: black;
   border: none;
+  outline: 2px solid;
+  font-weight: bolder;
 }
