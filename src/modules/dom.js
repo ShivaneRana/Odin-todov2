@@ -10,7 +10,7 @@ import { highLightCurrentTab } from "./uilogic.js";
 export const renderProjectList = (function () {
   const render = function (projectList, container) {
     for (let i in projectList) {
-      if (!(i === "All" || i === "Today" || i === "Completed")) {
+      if (!(i === "All" || i === "Completed")) {
         const div = document.createElement("div");
         div.classList.add("newProject");
         const button = document.createElement("button");

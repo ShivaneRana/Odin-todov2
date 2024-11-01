@@ -3,7 +3,6 @@ import "./asset/Gilroy/stylesheet.css";
 import { projectLogic } from "./modules/project.js";
 import {
   expandLogic,
-  highLightCurrentTab,
   highLightOnClick,
   themeLogic,
 } from "./modules/uilogic.js";
@@ -21,11 +20,9 @@ const projectContainer = document.querySelector(".projectContainer");
 const addTodoOrNotesButton = document.querySelector(".add");
 const notesButton = document.querySelector(".notes");
 const allButton = document.querySelector(".all");
-const todayButton = document.querySelector(".today");
 const completedButton = document.querySelector(".completed");
 
 allButton.classList.add("filter-but");
-todayButton.classList.add("filter-but");
 completedButton.classList.add("filter-but");
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -36,10 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 allButton.addEventListener("click", (e) => {
-  projectLogic.displayProjectListItems(e.target.textContent);
-});
-
-todayButton.addEventListener("click", (e) => {
   projectLogic.displayProjectListItems(e.target.textContent);
 });
 

@@ -230,7 +230,7 @@ export const renderDefaultDialog = (function () {
 
     // avoid adding add,completed and today as an option
     for (let i in projectLogic.getList()) {
-      if (!(i === "All" || i === "Completed" || i === "Today")) {
+      if (!(i === "All" || i === "Completed")) {
         const option = document.createElement("option");
         option.textContent = i;
         targetProject.append(option);

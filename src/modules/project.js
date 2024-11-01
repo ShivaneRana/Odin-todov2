@@ -11,7 +11,6 @@ export const projectLogic = (function () {
   let projectList = {
     All: {},
     Completed: {},
-    Today: {},
   };
 
   const setList = function () {
@@ -36,9 +35,7 @@ export const projectLogic = (function () {
       name === "all" ||
       name === "ALL" ||
       name === "completed" ||
-      name === "Completed" ||
-      name === "Today" ||
-      name === "today"
+      name === "Completed"
     ) {
       renderProjectInputDialog.projectNotAdded(
         "This will break the program so dont bother writting it",
