@@ -36,7 +36,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 allButton.addEventListener("click", (e) => {
   projectLogic.displayProjectListItems(e.target.textContent);
-  highLightCurrentTab.displayBut();
 });
 
 todayButton.addEventListener("click", (e) => {

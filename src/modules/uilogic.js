@@ -61,16 +61,3 @@ export const themeLogic = (function () {
 
   return { themeFinale };
 })();
-
-// this is to highLight current tab
-
-export const highLightCurrentTab = (function () {
-  let currentTab = "";
-  let allButton = document.querySelectorAll(".but");
-
-  function displayBut(name) {
-    currentTab = name;
-  }
-
-  return { displayBut };
-})();
