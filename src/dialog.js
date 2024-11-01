@@ -171,6 +171,7 @@ function initalize() {
       );
 
       if (projectLogic.addObjectToListItems(resultingObject)) {
+        console.log(resultingObject);
         closeDialog();
         projectLogic.displayProjectListItems(resultingObject.target);
       }

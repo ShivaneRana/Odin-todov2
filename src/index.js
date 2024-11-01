@@ -9,6 +9,7 @@ import {
 import { defaultDialogLogic } from "./dialog.js";
 import { renderProjectInputDialog } from "./modules/dom.js";
 import { notesLogic } from "./modules/notes.js";
+import { localStorageProject } from "./modules/storage.js";
 
 const expandButton = document.querySelector(".expand");
 const themeButton = document.querySelector(".theme");
