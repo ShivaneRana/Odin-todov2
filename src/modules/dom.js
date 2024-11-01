@@ -351,8 +351,10 @@ export const renderTodo = (function () {
           // no checkmark
         } else if (checkBox.checked === false) {
           list[i].completed = false;
-
-          // list[i].target = list[i].initialTarget;
+          list[i].target = list[i].initialTarget;
+          projectL[list[i].target][list[i].initialTitle] = list[i];
+          delete list[i];
+          projectLogic.displayProjectListItems("Completed");
         }
       });
     }
