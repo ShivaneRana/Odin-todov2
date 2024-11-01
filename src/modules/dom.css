@@ -513,3 +513,8 @@ body {
 .green {
   background-color: #2ecc71;
 }
+
+.highLight {
+  background-color: black;
+  color: white;
+}

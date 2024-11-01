@@ -1,7 +1,11 @@
 import "./style.css";
 import "./asset/Gilroy/stylesheet.css";
 import { projectLogic } from "./modules/project.js";
-import { expandLogic, themeLogic } from "./modules/uilogic.js";
+import {
+  expandLogic,
+  highLightCurrentTab,
+  themeLogic,
+} from "./modules/uilogic.js";
 import { defaultDialogLogic } from "./dialog.js";
 import { renderProjectInputDialog } from "./modules/dom.js";
 import { notesLogic } from "./modules/notes.js";
@@ -32,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 allButton.addEventListener("click", (e) => {
   projectLogic.displayProjectListItems(e.target.textContent);
+  highLightCurrentTab.displayBut();
 });
 
 todayButton.addEventListener("click", (e) => {
@@ -40,7 +45,6 @@ todayButton.addEventListener("click", (e) => {
 
 completedButton.addEventListener("click", (e) => {
   projectLogic.displayProjectListItems(e.target.textContent);
-  console.log(projectLogic.getList().Completed);
 });
 
 expandButton.addEventListener("click", () => {

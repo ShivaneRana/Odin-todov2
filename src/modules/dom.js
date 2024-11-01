@@ -4,6 +4,7 @@ import { notesLogic } from "./notes.js";
 import { projectLogic } from "./project.js";
 import { localStorageNotes, localStorageProject } from "./storage.js";
 import { todoLogic } from "./todo.js";
+import { highLightCurrentTab } from "./uilogic.js";
 
 // render project list
 export const renderProjectList = (function () {
@@ -340,21 +341,20 @@ export const renderTodo = (function () {
         // check mark
         if (checkBox.checked === true) {
           list[i].completed = true;
-          // give complete list the current obj
           list[i].target = "Completed";
           projectL.Completed[list[i].initialTitle] = list[i];
           delete list[i];
           projectLogic.displayProjectListItems(currentTarget);
 
-          // then remove it from the current list
-          // also change it target to completed
-          // no checkmark
+          localStorageProject.storeProjectList();
         } else if (checkBox.checked === false) {
           list[i].completed = false;
           list[i].target = list[i].initialTarget;
           projectL[list[i].target][list[i].initialTitle] = list[i];
           delete list[i];
           projectLogic.displayProjectListItems("Completed");
+
+          localStorageProject.storeProjectList();
         }
       });
     }
