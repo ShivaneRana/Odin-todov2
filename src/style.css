@@ -1,27 +1,14 @@
 @import url(./modules/colorsheet.css);
-@import url(./asset/Gilroy/stylesheet.css);
 
-/* used to apply font styling to buttons */
-.gilroyLight {
-  font-family: gilroy-light, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.gilroyBold {
-  font-family: gilroy-bold, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.gilroyHeavy {
-  font-family: gilroy-heavy, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.gilroyRegular {
-  font-family: gilroy-regular, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+@font-face {
+  font-family: sourcePro;
+  src: url(./font/SourceCodePro-VariableFont_wght.ttf);
 }
 
 :root {
   scroll-behavior: smooth;
   transition: all 0.75 ease;
-  font-family: gilroy-light, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 * {
@@ -31,7 +18,7 @@
 }
 
 body {
-  background-color: var(--color-light-secondary);
+  background-color: var(--color-light-primary);
   font-size: 16px;
   width: 100vw;
   height: 100vh;
@@ -46,7 +33,6 @@ body {
 .sideBar,
 .navBar,
 .mainBar {
-  outline: 2px dashed;
 }
 
 .sideBar {
@@ -55,6 +41,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  border: 2px solid var(--color-dark-primary);
+  border-radius: 15px;
 
   /*contains:- all,today,completed  */
   & > div:first-child {
@@ -71,6 +59,7 @@ body {
       width: 90%;
       height: 6vh;
       cursor: pointer;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
   }
 
@@ -79,6 +68,7 @@ body {
     width: 80%;
     height: 6vh;
     cursor: pointer;
+    font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 
   /*contains:- add new project  */
@@ -96,6 +86,7 @@ body {
       width: 90%;
       height: 6vh;
       cursor: pointer;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     /* holds newly created project */
@@ -125,6 +116,7 @@ body {
     height: 90%;
     width: 10vw;
     cursor: pointer;
+    font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   }
 }
 

@@ -1,5 +1,4 @@
 import "./style.css";
-import "./asset/Gilroy/stylesheet.css";
 import { projectLogic } from "./modules/project.js";
 import {
   expandLogic,

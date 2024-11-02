@@ -1,5 +1,4 @@
 @import url(./colorsheet.css);
-@import url(../asset/Gilroy/stylesheet.css);
 
 * {
   margin: 0;
@@ -28,6 +27,8 @@ body {
     cursor: pointer;
     overflow-wrap: anywhere;
     overflow: hidden;
+    font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
   }
 
   /* remove button */
@@ -35,6 +36,8 @@ body {
     height: 5vh;
     width: 20%;
     cursor: pointer;
+    font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bolder;
   }
 }
 
@@ -75,11 +78,24 @@ body {
       font-weight: bold;
     }
 
+    /* header */
+
+    & > p {
+      grid-row: 1/3;
+      grid-column: 3/8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.4rem;
+      font-weight: bolder;
+    }
+
     & > input {
-      grid-row: 4/6;
+      grid-row: 5/7;
       grid-column: 2/10;
       padding: 5px;
       font-size: 1rem;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
       &:focus {
         outline: none;
@@ -87,19 +103,22 @@ body {
     }
 
     /* close */
-    & > button:first-child {
+    & > button:first-of-type {
       grid-row: 1/3;
       grid-column: 9/11;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
-    & > button:nth-child(3) {
+    & > button:nth-child(4) {
       grid-row: 9/11;
       grid-column: 1/3;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     & > button:last-child {
       grid-row: 9/11;
       grid-column: 9/11;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
   }
 }
@@ -137,7 +156,8 @@ body {
 
     /* title */
     & > .tTitle {
-      grid-column: 2/13;
+      grid-column: 2/12;
+      font-size: 1.3rem;
       font-weight: bolder;
     }
 
@@ -145,16 +165,17 @@ body {
       font-size: 1rem;
       height: 80%;
       width: 90%;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     /* detail */
     & > .tDetail {
-      grid-column: 13/15;
+      grid-column: 12/14;
     }
 
     /* date */
     & > .tDate {
-      grid-column: 15/17;
+      grid-column: 14/17;
       text-align: center;
     }
 
@@ -209,6 +230,7 @@ body {
     & > button {
       border: none;
       outline: 1px solid black;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     & > .editBut {
@@ -276,6 +298,7 @@ body {
       border: none;
       padding: 5px;
       font-size: 1rem;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
       &:focus {
         border: none;
@@ -301,6 +324,7 @@ body {
       outline: 1px solid;
       font-size: 1rem;
       font-weight: bolder;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     /* this is for the save */
@@ -348,6 +372,7 @@ body {
       font-size: 1.1rem;
       font-weight: bolder;
       border: 2px solid black;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     & > p:nth-child(2) {
@@ -409,6 +434,7 @@ body {
       font-size: 1.1rem;
       font-weight: bolder;
       border: 2px solid black;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     /* title */
@@ -418,6 +444,7 @@ body {
       font-size: 1rem;
       padding: 5px;
       border: 2px solid black;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
       &:focus {
         outline: none;
@@ -438,6 +465,7 @@ body {
         padding: 4%;
         margin-left: 5px;
         border: 2px solid black;
+        font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
         &:focus {
           outline: none;
@@ -453,6 +481,7 @@ body {
       resize: none;
       border: 2px solid black;
       padding: 5px;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 
       &:focus {
         outline: none;
@@ -474,6 +503,7 @@ body {
         margin: 0px 5px 0px 5px;
         font-size: 0.8rem;
         border: none;
+        font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
     }
 
@@ -484,6 +514,7 @@ body {
       font-weight: bolder;
       border: 2px solid black;
       font-size: 1.1rem;
+      font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
   }
 }
