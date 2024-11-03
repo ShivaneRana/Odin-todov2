@@ -17,7 +17,7 @@ notesButton.textContent = "Notes";
 
 //  close confirm and clear all button for the notes list
 const nClose = document.createElement("button");
-nClose.textContent = "close";
+nClose.textContent = "Close";
 nClose.classList.add("close");
 const nClearAll = document.createElement("button");
 nClearAll.textContent = "Clear All";

@@ -5,6 +5,7 @@
   position: absolute;
   margin: auto;
   border: 2px solid var(--color-font);
+  border-radius: 15px;
 
   &::backdrop {
     background-color: transparent;
@@ -35,6 +36,7 @@
     background-color: var(--color-light-secondary);
     color: var(--color-font);
     outline: 2px solid var(--color-font);
+    border-radius: 5px;
   }
 }
 
@@ -72,6 +74,7 @@
     background-color: var(--color-light-secondary);
     outline: 2px solid var(--color-font);
     color: var(--color-font);
+    border-radius: 5px;
   }
 
   & > .tTitle {
@@ -161,6 +164,7 @@
     background-color: var(--color-light-secondary);
     outline: 2px solid var(--color-font);
     color: var(--color-font);
+    border-radius: 5px;
   }
 
   & > .confirm {
@@ -173,6 +177,7 @@
     background-color: var(--color-light-secondary);
     outline: 2px solid var(--color-font);
     color: var(--color-font);
+    border-radius: 5px;
   }
 }
 
@@ -180,7 +185,7 @@
 .notesArea {
   & > h1 {
     grid-row: 1/3;
-    grid-column: 3/14;
+    grid-column: 1/14;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -196,6 +201,7 @@
     background-color: var(--color-light-secondary);
     outline: 2px solid var(--color-font);
     color: var(--color-font);
+    border-radius: 5px;
   }
 
   & > .nTitle {
@@ -233,6 +239,7 @@
     background-color: var(--color-light-secondary);
     outline: 2px solid var(--color-font);
     color: var(--color-font);
+    border-radius: 5px;
   }
 
   & > .confirm {
@@ -245,6 +252,7 @@
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-light-secondary);
     color: var(--color-font);
+    border-radius: 5px;
   }
 }
 
