@@ -361,6 +361,8 @@ body {
 .detailTodo {
   position: absolute;
   margin: auto;
+  border: 2px solid var(--color-font);
+
   &::backdrop {
     background-color: transparent;
     backdrop-filter: blur(10px);
@@ -381,10 +383,11 @@ body {
       grid-column: 19/21;
       font-size: 1.1rem;
       font-weight: bolder;
-      border: 2px solid black;
+      border: none;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: var(--color-font);
       background-color: var(--color-light-secondary);
+      outline: 2px solid var(--color-font);
     }
 
     & > p:nth-child(2) {
@@ -416,6 +419,8 @@ body {
 .editTodo {
   position: absolute;
   margin: auto;
+  border: none;
+
   &::backdrop {
     background-color: transparent;
     backdrop-filter: blur(10px);
@@ -431,6 +436,7 @@ body {
     gap: 5px;
     background-color: var(--color-light-primary);
     color: var(--color-font);
+    border: 2px solid var(--color-font);
 
     /* header */
     & > p:nth-child(1) {
@@ -456,6 +462,7 @@ body {
       font-weight: bolder;
       border: none;
       color: var(--color-font);
+      outline: 2px solid var(--color-font);
       background-color: var(--color-light-secondary);
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
@@ -469,10 +476,11 @@ body {
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       border: none;
       color: var(--color-font);
-      background-color: var(--color-light-secondary);
+      background-color: var(--color-light-primary);
+      outline: 2px solid var(--color-font);
 
       &:focus {
-        outline: none;
+        outline: 2px solid var(--color-font);
       }
     }
 
@@ -492,13 +500,13 @@ body {
         margin-left: 5px;
         font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         outline: 2px solid var(--color-font);
-        background-color: var(--color-light-secondary);
+        background-color: var(--color-light-primary);
         color: var(--color-font);
 
         border: none;
 
         &:focus {
-          outline: none;
+          outline: 2px solid var(--color-font);
         }
       }
     }
@@ -512,11 +520,12 @@ body {
       padding: 5px;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: var(--color-font);
-      background-color: var(--color-light-secondary);
+      background-color: var(--color-light-primary);
+      outline: 2px solid var(--color-font);
       border: none;
 
       &:focus {
-        outline: none;
+        outline: 2px solid var(--color-font);
       }
     }
 
@@ -550,6 +559,7 @@ body {
       font-weight: bolder;
       font-size: 1.1rem;
       background-color: var(--color-light-secondary);
+      outline: 2px solid var(--color-font);
       border: none;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }

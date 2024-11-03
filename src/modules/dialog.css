@@ -4,6 +4,7 @@
 .addDialog {
   position: absolute;
   margin: auto;
+  border: 2px solid var(--color-font);
 
   &::backdrop {
     background-color: transparent;
@@ -22,16 +23,18 @@
   flex-direction: column;
   padding: 10px;
   gap: 20px;
-  outline: 2px dashed;
   width: 20%;
+  background-color: var(--color-light-secondary);
 
   & > button {
     height: 10%;
     border: none;
-    outline: 2px solid black;
     font-size: 1rem;
     font-weight: bolder;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-secondary);
+    color: var(--color-font);
+    outline: 2px solid var(--color-font);
   }
 }
 
@@ -39,18 +42,17 @@
 .notesArea {
   width: 80%;
   height: 100%;
-  outline: 2px dashed;
   display: grid;
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: repeat(20, 1fr);
   overflow: hidden;
   padding: 10px;
+  background-color: var(--color-light-primary);
+  color: var(--color-font);
 }
 
 /* this is for todoContainer Item */
 .todoArea {
-  background-color: lightgrey;
-
   & > h1 {
     grid-row: 1/3;
     grid-column: 1/14;
@@ -66,8 +68,10 @@
     font-size: 1rem;
     font-weight: bolder;
     border: none;
-    outline: 2px solid black;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-secondary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 
   & > .tTitle {
@@ -76,17 +80,21 @@
     font-size: 1rem;
     padding: 5px;
     border: none;
-    outline: 2px solid black;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-primary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 
   & > .tDate {
     grid-row: 4/6;
     grid-column: 12/16;
     border: none;
-    outline: 2px solid black;
     margin-left: 10px;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-primary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 
   & > .tDescription {
@@ -96,8 +104,10 @@
     font-size: 1rem;
     padding: 5px;
     border: none;
-    outline: 2px solid black;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-primary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 
   & > .tPriority,
@@ -130,12 +140,14 @@
     grid-column: 9/16;
     & > select {
       border: none;
-      outline: 2px solid black;
       padding: 4%;
       margin: 0px 5px 0px 5px;
       font-size: 0.8rem;
       width: 50%;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--color-light-primary);
+      color: var(--color-font);
+      outline: 2px solid var(--color-font);
     }
   }
 
@@ -145,8 +157,10 @@
     font-size: 1rem;
     font-weight: bolder;
     border: none;
-    outline: 2px solid black;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-secondary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 
   & > .confirm {
@@ -155,15 +169,15 @@
     font-size: 1rem;
     font-weight: bolder;
     border: none;
-    outline: 2px solid black;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-secondary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 }
 
 /* this is for notesContainer Item */
 .notesArea {
-  background-color: lightgray;
-
   & > h1 {
     grid-row: 1/3;
     grid-column: 3/14;
@@ -177,9 +191,11 @@
     grid-column: 14/16;
     font-size: 1rem;
     font-weight: bolder;
-    outline: 2px solid black;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-secondary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 
   & > .nTitle {
@@ -188,8 +204,10 @@
     font-size: 1rem;
     padding: 5px;
     border: none;
-    outline: 2px solid black;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-primary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 
   & > .nDescription {
@@ -199,8 +217,10 @@
     font-size: 1rem;
     padding: 5px;
     border: none;
-    outline: 2px solid black;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-primary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 
   & > .clearAll {
@@ -209,8 +229,10 @@
     font-size: 1rem;
     font-weight: bolder;
     border: none;
-    outline: 2px solid black;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-secondary);
+    outline: 2px solid var(--color-font);
+    color: var(--color-font);
   }
 
   & > .confirm {
@@ -219,8 +241,10 @@
     font-size: 1rem;
     font-weight: bolder;
     border: none;
-    outline: 2px solid black;
+    outline: 2px solid var(--color-font);
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--color-light-secondary);
+    color: var(--color-font);
   }
 }
 
@@ -229,12 +253,12 @@
 }
 
 .priorityButton {
-  outline: 2px solid black;
-  color: black;
-  background-color: whitesmoke;
+  outline: 2px solid var(--color-font);
+  color: var(--color-font);
+  background-color: var(--color-light-primary);
 }
 
 .picked {
-  background-color: black;
-  color: whitesmoke;
+  background-color: var(--color-light-secondary);
+  color: var(--color-font);
 }
