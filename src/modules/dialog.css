@@ -4,7 +4,6 @@
 .addDialog {
   position: absolute;
   margin: auto;
-  border: 2px solid var(--color-font);
   border-radius: 15px;
 
   &::backdrop {
@@ -25,7 +24,6 @@
   padding: 10px;
   gap: 20px;
   width: 20%;
-  background-color: var(--color-light-secondary);
 
   & > button {
     height: 10%;
@@ -33,9 +31,6 @@
     font-size: 1rem;
     font-weight: bolder;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-secondary);
-    color: var(--color-font);
-    outline: 2px solid var(--color-font);
     border-radius: 5px;
   }
 }
@@ -49,8 +44,6 @@
   grid-template-rows: repeat(20, 1fr);
   overflow: hidden;
   padding: 10px;
-  background-color: var(--color-light-primary);
-  color: var(--color-font);
 }
 
 /* this is for todoContainer Item */
@@ -71,9 +64,6 @@
     font-weight: bolder;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-secondary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
     border-radius: 5px;
   }
 
@@ -84,9 +74,6 @@
     padding: 5px;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-primary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
   }
 
   & > .tDate {
@@ -95,9 +82,6 @@
     border: none;
     margin-left: 10px;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-primary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
   }
 
   & > .tDescription {
@@ -108,9 +92,6 @@
     padding: 5px;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-primary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
   }
 
   & > .tPriority,
@@ -148,9 +129,6 @@
       font-size: 0.8rem;
       width: 50%;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background-color: var(--color-light-primary);
-      color: var(--color-font);
-      outline: 2px solid var(--color-font);
     }
   }
 
@@ -161,9 +139,6 @@
     font-weight: bolder;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-secondary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
     border-radius: 5px;
   }
 
@@ -174,9 +149,6 @@
     font-weight: bolder;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-secondary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
     border-radius: 5px;
   }
 }
@@ -198,9 +170,6 @@
     font-weight: bolder;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-secondary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
     border-radius: 5px;
   }
 
@@ -211,9 +180,6 @@
     padding: 5px;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-primary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
   }
 
   & > .nDescription {
@@ -224,9 +190,6 @@
     padding: 5px;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-primary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
   }
 
   & > .clearAll {
@@ -236,9 +199,6 @@
     font-weight: bolder;
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-secondary);
-    outline: 2px solid var(--color-font);
-    color: var(--color-font);
     border-radius: 5px;
   }
 
@@ -248,10 +208,7 @@
     font-size: 1rem;
     font-weight: bolder;
     border: none;
-    outline: 2px solid var(--color-font);
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--color-light-secondary);
-    color: var(--color-font);
     border-radius: 5px;
   }
 }
@@ -260,13 +217,10 @@
   display: none;
 }
 
+/* these are applied by default */
 .priorityButton {
-  outline: 2px solid var(--color-font);
-  color: var(--color-font);
-  background-color: var(--color-light-primary);
 }
 
+/* these will be applied to picked one */
 .picked {
-  background-color: var(--color-light-secondary);
-  color: var(--color-font);
 }
