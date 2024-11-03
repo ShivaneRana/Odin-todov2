@@ -60,6 +60,7 @@ body {
       cursor: pointer;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--color-preset);
+      color: var(--color-font);
     }
   }
 
@@ -70,6 +71,7 @@ body {
     cursor: pointer;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-preset);
+    color: var(--color-font);
   }
 
   /*contains:- add new project  */
@@ -88,6 +90,7 @@ body {
       cursor: pointer;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--color-preset);
+      color: var(--color-font);
     }
 
     /* holds newly created project */
@@ -119,6 +122,7 @@ body {
     cursor: pointer;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-preset);
+    color: var(--color-font);
   }
 }
 

@@ -4,7 +4,11 @@
   --color-light-secondary: #dddbff;
   --color-dark-secondary: #020024;
   --color-font: #000000;
+  --color-font-inverse: #ffffff;
   --color-preset: #443dff;
+  --color-red: #e16262;
+  --color-orange: #fabc60;
+  --color-green: #9ede73;
 }
 
 :root.dark {
@@ -13,5 +17,9 @@
   --color-light-secondary: #020024;
   --color-dark-secondary: #dddbff;
   --color-font: #ffffff;
+  --color-font-inverse: #000000;
   --color-preset: #0600c2;
+  --color-red: #be0000;
+  --color-orange: #e48900;
+  --color-green: #3a9679;
 }

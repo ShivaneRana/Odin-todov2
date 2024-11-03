@@ -4,7 +4,6 @@ import { notesLogic } from "./notes.js";
 import { projectLogic } from "./project.js";
 import { localStorageNotes, localStorageProject } from "./storage.js";
 import { todoLogic } from "./todo.js";
-import { highLightCurrentTab } from "./uilogic.js";
 
 // render project list
 export const renderProjectList = (function () {
@@ -304,11 +303,11 @@ export const renderTodo = (function () {
       checkBox.classList.add("tCheckBox");
 
       if (list[i].priority === "High") {
-        div.classList.add("red");
+        div.style.backgroundColor = "var(--color-red)";
       } else if (list[i].priority === "Medium") {
-        div.classList.add("yellow");
+        div.style.backgroundColor = "var(--color-orange)";
       } else if (list[i].priority === "Low") {
-        div.classList.add("green");
+        div.style.backgroundColor = "var(--color-green)";
       }
 
       div.append(
