@@ -221,6 +221,7 @@ body {
     & > p {
       grid-row: 3/14;
       grid-column: 1/16;
+      overflow-wrap: anywhere;
       overflow: scroll;
       font-size: 1rem;
       outline: 1px solid black;
