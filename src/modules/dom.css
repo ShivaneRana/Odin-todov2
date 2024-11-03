@@ -27,6 +27,7 @@ body {
     cursor: pointer;
     overflow-wrap: anywhere;
     overflow: hidden;
+    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-preset);
     color: var(--color-font);
@@ -37,6 +38,7 @@ body {
     height: 5vh;
     width: 20%;
     cursor: pointer;
+    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-preset);
     color: var(--color-font);
@@ -59,6 +61,7 @@ body {
   position: absolute;
   margin: auto;
   outline: none;
+  border: 2px solid var(--color-font);
 
   &::backdrop {
     background-color: transparent;
@@ -72,12 +75,15 @@ body {
     grid-template-rows: repeat(10, 1fr);
     grid-template-columns: repeat(10, 1fr);
     padding: 5px;
+    background-color: var(--color-light-primary);
 
     & > button {
       border: none;
       font-size: 1rem;
-      outline: 2px solid;
       font-weight: bold;
+      background-color: var(--color-light-secondary);
+      outline: 2px solid var(--color-font);
+      color: var(--color-font);
     }
 
     /* header */
@@ -90,6 +96,7 @@ body {
       align-items: center;
       font-size: 1.4rem;
       font-weight: bolder;
+      color: var(--color-font);
     }
 
     & > input {
@@ -97,10 +104,14 @@ body {
       grid-column: 2/10;
       padding: 5px;
       font-size: 1rem;
+      border: none;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--color-light-primary);
+      color: var(--color-font);
+      outline: 2px solid var(--color-font);
 
       &:focus {
-        outline: none;
+        outline: 2px solid var(--color-font);
       }
     }
 
@@ -135,7 +146,7 @@ body {
   padding: 20px;
 
   & > div {
-    outline: 1px solid;
+    outline: 2px solid var(--color-font);
     width: 100%;
     height: 10%;
 
@@ -205,7 +216,7 @@ body {
   gap: 30px;
 
   & > div {
-    background-color: lightgrey;
+    background-color: var(--color-blue);
     outline: 2px solid;
     width: 370px;
     height: 370px;
@@ -221,7 +232,6 @@ body {
       display: flex;
       font-size: 2rem;
       overflow: scroll;
-      color: var(--color-font);
     }
 
     & > p {
@@ -230,16 +240,14 @@ body {
       overflow-wrap: anywhere;
       overflow: scroll;
       font-size: 1rem;
-      outline: 1px solid black;
       padding: 5px;
-      color: var(--color-font);
     }
 
     & > button {
       border: none;
-      outline: 1px solid black;
+      outline: 2px solid black;
+      background-color: var(--color-blue);
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      color: var(--color-font);
     }
 
     & > .editBut {
@@ -282,10 +290,8 @@ body {
 .editNotes {
   position: absolute;
   margin: auto;
-  padding: 10px;
-  border: none;
-  outline: 2px solid;
-  background-color: lightgrey;
+  border: 2px solid var(--color-font);
+  background-color: var(--color-light-primary);
 
   &::backdrop {
     background-color: transparent;
@@ -293,7 +299,8 @@ body {
   }
 
   & > div {
-    background-color: lightgrey;
+    background-color: var(--color-light-primary);
+    padding: 10px;
     width: 600px;
     height: 400px;
     display: grid;
@@ -318,6 +325,8 @@ body {
     & > input {
       grid-row: 3/5;
       grid-column: 1/16;
+      background-color: var(--color-light-primary);
+      color: var(--color-font);
     }
 
     /* this is for the description */
@@ -325,6 +334,8 @@ body {
       resize: none;
       grid-row: 5/13;
       grid-column: 1/16;
+      background-color: var(--color-light-primary);
+      color: var(--color-font);
     }
 
     /* this target all the buttons */
@@ -334,6 +345,8 @@ body {
       font-size: 1rem;
       font-weight: bolder;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--color-light-secondary);
+      color: var(--color-font);
     }
 
     /* this is for the save */
@@ -347,6 +360,7 @@ body {
       grid-row: 1/3;
       grid-column: 1/14;
       text-align: center;
+      color: var(--color-font);
     }
 
     /* this is for the close button */

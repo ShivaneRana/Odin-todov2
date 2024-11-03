@@ -58,6 +58,7 @@ body {
       width: 90%;
       height: 6vh;
       cursor: pointer;
+      border: none;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--color-preset);
       color: var(--color-font);
@@ -69,6 +70,7 @@ body {
     width: 80%;
     height: 6vh;
     cursor: pointer;
+    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-preset);
     color: var(--color-font);
@@ -88,6 +90,7 @@ body {
       width: 90%;
       height: 6vh;
       cursor: pointer;
+      border: none;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background-color: var(--color-preset);
       color: var(--color-font);
@@ -112,17 +115,19 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-right: 5px;
-  gap: 5px;
+  padding-right: 20px;
+  gap: 20px;
 
   /* theme,add and expand button */
   & > button {
     height: 90%;
     width: 10vw;
     cursor: pointer;
+    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--color-preset);
     color: var(--color-font);
+    outline: 2px solid var(--color-font);
   }
 }
 
