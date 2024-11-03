@@ -29,6 +29,7 @@ body {
     overflow: hidden;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bolder;
+    background-color: var(--color-preset);
   }
 
   /* remove button */
@@ -38,6 +39,7 @@ body {
     cursor: pointer;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bolder;
+    background-color: var(--color-preset);
   }
 }
 
