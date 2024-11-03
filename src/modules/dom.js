@@ -431,11 +431,11 @@ export const renderTodo = (function () {
 
     // title description field
     let titleInput = document.createElement("input");
-    titleInput.setAttribute("maxLength", "50");
+    titleInput.setAttribute("maxLength", "45");
 
     // description input field
     let descriptionInput = document.createElement("textarea");
-    descriptionInput.setAttribute("maxLength", "250");
+    descriptionInput.setAttribute("maxLength", "230");
 
     // contains due date input field
     const dueDateHolder = document.createElement("p");
