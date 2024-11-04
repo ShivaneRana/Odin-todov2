@@ -26,3 +26,4 @@ A feature-rich todo application to help you stay organized and on track with you
 | Description      | Screenshot                           |
 |------------------|--------------------------------------|
 | Home Page        | ![Dark Theme - Home](./src/screenshot/darktheme.png) |
+
