@@ -5,6 +5,8 @@
   position: absolute;
   margin: auto;
   border-radius: 15px;
+  border: none;
+  outline: none;
 
   &::backdrop {
     background-color: transparent;
@@ -22,16 +24,34 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  padding-top: 20px;
   gap: 20px;
   width: 20%;
+  background-color: var(--color-dark-primary);
 
   & > button {
     height: 10%;
-    border: none;
     font-size: 1rem;
     font-weight: bolder;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
+    border: none;
+    outline: 1px solid var(--color-light-primary);
+    color: var(--color-light-primary);
+    background-color: var(--color-dark-primary);
+    box-shadow: var(--box-shadow1);
+    transition: var(--transition1);
+
+    &:hover {
+      transform: var(--translate1);
+      box-shadow: var(--box-shadow-hover1);
+    }
+
+    &:active {
+      transform: translateY(5px);
+      letter-spacing: 2px;
+      box-shadow: none;
+    }
   }
 }
 
@@ -43,7 +63,9 @@
   grid-template-columns: repeat(15, 1fr);
   grid-template-rows: repeat(20, 1fr);
   overflow: hidden;
-  padding: 10px;
+  padding: 15px;
+  background-color: var(--color-light-primary);
+  color: var(--color-dark-primary);
 }
 
 /* this is for todoContainer Item */
@@ -62,9 +84,25 @@
     grid-column: 14/16;
     font-size: 1rem;
     font-weight: bolder;
-    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
+    border: none;
+    outline: 1px solid var(--color-dark-primary);
+    color: var(--color-dark-primary);
+    background-color: var(--color-light-primary);
+    box-shadow: var(--box-shadow1);
+    transition: var(--transition1);
+
+    &:hover {
+      transform: var(--translate1);
+      box-shadow: var(--box-shadow-hover1);
+    }
+
+    &:active {
+      transform: translateY(5px);
+      letter-spacing: 2px;
+      box-shadow: none;
+    }
   }
 
   & > .tTitle {
@@ -74,6 +112,7 @@
     padding: 5px;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border: none;
+    border-radius: 5px;
     background-color: var(--color-light-primary);
     color: var(--color-dark-primary);
     outline: 1px solid var(--color-dark-primary);
@@ -85,6 +124,7 @@
     margin-left: 10px;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border: none;
+    border-radius: 5px;
     background-color: var(--color-light-primary);
     color: var(--color-dark-primary);
     outline: 1px solid var(--color-dark-primary);
@@ -98,6 +138,7 @@
     padding: 5px;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border: none;
+    border-radius: 5px;
     background-color: var(--color-light-primary);
     color: var(--color-dark-primary);
     outline: 1px solid var(--color-dark-primary);
@@ -138,6 +179,7 @@
       width: 50%;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       border: none;
+      border-radius: 5px;
       background-color: var(--color-light-primary);
       color: var(--color-dark-primary);
       outline: 1px solid var(--color-dark-primary);
@@ -149,9 +191,25 @@
     grid-column: 2/7;
     font-size: 1rem;
     font-weight: bolder;
-    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
+    border: none;
+    outline: 1px solid var(--color-dark-primary);
+    color: var(--color-dark-primary);
+    background-color: var(--color-light-primary);
+    box-shadow: var(--box-shadow1);
+    transition: var(--transition1);
+
+    &:hover {
+      transform: var(--translate1);
+      box-shadow: var(--box-shadow-hover1);
+    }
+
+    &:active {
+      transform: translateY(5px);
+      letter-spacing: 2px;
+      box-shadow: none;
+    }
   }
 
   & > .confirm {
@@ -159,9 +217,25 @@
     grid-column: 10/15;
     font-size: 1rem;
     font-weight: bolder;
-    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
+    border: none;
+    outline: 1px solid var(--color-dark-primary);
+    color: var(--color-dark-primary);
+    background-color: var(--color-light-primary);
+    box-shadow: var(--box-shadow1);
+    transition: var(--transition1);
+
+    &:hover {
+      transform: var(--translate1);
+      box-shadow: var(--box-shadow-hover1);
+    }
+
+    &:active {
+      transform: translateY(5px);
+      letter-spacing: 2px;
+      box-shadow: none;
+    }
   }
 }
 
@@ -180,9 +254,25 @@
     grid-column: 14/16;
     font-size: 1rem;
     font-weight: bolder;
-    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
+    border: none;
+    outline: 1px solid var(--color-dark-primary);
+    color: var(--color-dark-primary);
+    background-color: var(--color-light-primary);
+    box-shadow: var(--box-shadow1);
+    transition: var(--transition1);
+
+    &:hover {
+      transform: var(--translate1);
+      box-shadow: var(--box-shadow-hover1);
+    }
+
+    &:active {
+      transform: translateY(5px);
+      letter-spacing: 2px;
+      box-shadow: none;
+    }
   }
 
   & > .nTitle {
@@ -192,6 +282,7 @@
     padding: 5px;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border: none;
+    border-radius: 5px;
     background-color: var(--color-light-primary);
     color: var(--color-dark-primary);
     outline: 1px solid var(--color-dark-primary);
@@ -205,6 +296,7 @@
     padding: 5px;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border: none;
+    border-radius: 5px;
     background-color: var(--color-light-primary);
     color: var(--color-dark-primary);
     outline: 1px solid var(--color-dark-primary);
@@ -218,6 +310,22 @@
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
+    outline: 1px solid var(--color-dark-primary);
+    color: var(--color-dark-primary);
+    background-color: var(--color-light-primary);
+    box-shadow: var(--box-shadow1);
+    transition: var(--transition1);
+
+    &:hover {
+      transform: var(--translate1);
+      box-shadow: var(--box-shadow-hover1);
+    }
+
+    &:active {
+      transform: translateY(5px);
+      letter-spacing: 2px;
+      box-shadow: none;
+    }
   }
 
   & > .confirm {
@@ -225,9 +333,25 @@
     grid-column: 10/15;
     font-size: 1rem;
     font-weight: bolder;
-    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 5px;
+    border: none;
+    outline: 1px solid var(--color-dark-primary);
+    color: var(--color-dark-primary);
+    background-color: var(--color-light-primary);
+    box-shadow: var(--box-shadow1);
+    transition: var(--transition1);
+
+    &:hover {
+      transform: var(--translate1);
+      box-shadow: var(--box-shadow-hover1);
+    }
+
+    &:active {
+      transform: translateY(5px);
+      letter-spacing: 2px;
+      box-shadow: none;
+    }
   }
 }
 
@@ -237,8 +361,14 @@
 
 /* these are applied by default */
 .priorityButton {
+  background-color: var(--color-light-primary);
+  outline: 2px solid var(--color-dark-primary);
+  color: var(--color-dark-primary);
+  border-radius: 5px;
 }
 
 /* these will be applied to picked one */
 .picked {
+  background-color: var(--color-dark-primary);
+  color: var(--color-light-primary);
 }
