@@ -208,9 +208,24 @@ body {
       font-size: 1rem;
       height: 100%;
       width: 90%;
-      border: none;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       border-radius: 5px;
+      border: none;
+      color: var(--color-dark-primary);
+      background-color: var(--color-light-primary);
+      box-shadow: var(--box-shadow1);
+      transition: var(--transition1);
+
+      &:hover {
+        transform: var(--translate1);
+        box-shadow: var(--box-shadow-hover1);
+      }
+
+      &:active {
+        transform: translateY(5px);
+        letter-spacing: 2px;
+        box-shadow: none;
+      }
     }
 
     /* detail */
@@ -245,7 +260,6 @@ body {
   gap: 30px;
 
   & > div {
-    outline: 2px solid;
     width: 370px;
     height: 370px;
     display: grid;
@@ -277,6 +291,21 @@ body {
       border: none;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       border-radius: 10px;
+      color: var(--color-dark-primary);
+      background-color: var(--color-light-primary);
+      box-shadow: var(--box-shadow1);
+      transition: var(--transition1);
+
+      &:hover {
+        transform: var(--translate1);
+        box-shadow: var(--box-shadow-hover1);
+      }
+
+      &:active {
+        transform: translateY(5px);
+        letter-spacing: 2px;
+        box-shadow: none;
+      }
     }
 
     & > .editBut {
