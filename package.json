@@ -9,7 +9,8 @@
     "deploy": "git add --all && git commit -m 'rebundle' && git subtree push --prefix dist origin gh-pages && git push",
     "build": "webpack",
     "pwrite": "prettier . --write",
-    "pcheck": "prettier . --check"
+    "pcheck": "prettier . --check",
+    "whatever": "git add --all && git commit -m 'minor_changes' && git push"
   },
   "keywords": [],
   "author": "",
