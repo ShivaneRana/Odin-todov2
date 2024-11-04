@@ -8,7 +8,7 @@
 
   &::backdrop {
     background-color: transparent;
-    backdrop-filter: blur(10px);
+    backdrop-filter: var(--blur);
   }
 }
 
@@ -72,16 +72,22 @@
     grid-column: 1/12;
     font-size: 1rem;
     padding: 5px;
-    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    background-color: var(--color-light-primary);
+    color: var(--color-dark-primary);
+    outline: 1px solid var(--color-dark-primary);
   }
 
   & > .tDate {
     grid-row: 4/6;
     grid-column: 12/16;
-    border: none;
     margin-left: 10px;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    background-color: var(--color-light-primary);
+    color: var(--color-dark-primary);
+    outline: 1px solid var(--color-dark-primary);
   }
 
   & > .tDescription {
@@ -90,8 +96,11 @@
     resize: none;
     font-size: 1rem;
     padding: 5px;
-    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    background-color: var(--color-light-primary);
+    color: var(--color-dark-primary);
+    outline: 1px solid var(--color-dark-primary);
   }
 
   & > .tPriority,
@@ -123,12 +132,15 @@
     grid-row: 16/18;
     grid-column: 9/16;
     & > select {
-      border: none;
       padding: 4%;
       margin: 0px 5px 0px 5px;
       font-size: 0.8rem;
       width: 50%;
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      border: none;
+      background-color: var(--color-light-primary);
+      color: var(--color-dark-primary);
+      outline: 1px solid var(--color-dark-primary);
     }
   }
 
@@ -178,8 +190,11 @@
     grid-column: 1/16;
     font-size: 1rem;
     padding: 5px;
-    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    background-color: var(--color-light-primary);
+    color: var(--color-dark-primary);
+    outline: 1px solid var(--color-dark-primary);
   }
 
   & > .nDescription {
@@ -188,8 +203,11 @@
     resize: none;
     font-size: 1rem;
     padding: 5px;
-    border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+    background-color: var(--color-light-primary);
+    color: var(--color-dark-primary);
+    outline: 1px solid var(--color-dark-primary);
   }
 
   & > .clearAll {

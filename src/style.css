@@ -34,7 +34,7 @@ body {
 }
 
 .sideBar,
-.navBar{
+.navBar {
   background-color: transparent;
   backdrop-filter: blur(2px);
   border-radius: 15px;
@@ -67,14 +67,14 @@ body {
       font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       border-radius: 10px;
       font-size: 1rem;
-      transition: all 0.15s;
+      transition: var(--transition);
       background-color: var(--color-light-primary);
-      color: var(--color-dark-primary); 
-      box-shadow: 0px 3px 0px;
+      color: var(--color-dark-primary);
+      box-shadow: var(--box-shadow-active);
 
-      &:hover{
-        transform: translate(0px,-5px);
-        box-shadow: 0px 10px 0px;
+      &:hover {
+        transform: var(--translate);
+        box-shadow: var(--box-shadow-hover);
       }
     }
   }
@@ -88,8 +88,15 @@ body {
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 10px;
     font-size: 1rem;
+    transition: var(--transition);
     background-color: var(--color-light-primary);
     color: var(--color-dark-primary);
+    box-shadow: var(--box-shadow-active);
+
+    &:hover {
+      transform: var(--translate);
+      box-shadow: var(--box-shadow-hover);
+    }
   }
 
   /*contains:- add new project  */
@@ -112,6 +119,13 @@ body {
       font-size: 1rem;
       background-color: var(--color-light-primary);
       color: var(--color-dark-primary);
+      box-shadow: var(--box-shadow-active);
+      transition: var(--transition);
+
+      &:hover {
+        transform: var(--translate);
+        box-shadow: var(--box-shadow-hover);
+      }
     }
 
     /* holds newly created project */
@@ -122,7 +136,7 @@ body {
       flex-direction: column;
       align-items: center;
       overflow: scroll;
-      gap: 10px;
+      gap: 15px;
       padding-top: 5px;
     }
   }
@@ -145,6 +159,15 @@ body {
     border: none;
     font-family: sourcePro, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     border-radius: 10px;
+    transition: var(--transition);
+    background-color: var(--color-light-primary);
+    color: var(--color-dark-primary);
+    box-shadow: var(--box-shadow-active);
+
+    &:hover {
+      transform: var(--translate);
+      box-shadow: var(--box-shadow-hover);
+    }
   }
 }
 

@@ -20,6 +20,7 @@ export const renderProjectList = (function () {
         div.append(button, remove);
         container.append(div);
 
+        // this class is just for getting all the button  and not much else
         button.classList.add("highlightOnClick");
 
         remove.addEventListener("click", () => {
