@@ -18,7 +18,7 @@
 }
 
 body {
-  background-image: url(./images/bg.jpg);
+  background-image: var(--background);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -176,4 +176,6 @@ body {
   padding: 10px;
   overflow: scroll;
   position: relative;
+  background-color: transparent;
+  backdrop-filter: blur(2px);
 }

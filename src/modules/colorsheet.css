@@ -1,10 +1,11 @@
 :root {
   --color-light-primary: #ffffff;
-  --color-dark-primary: #023047;
-  --color-red: #e16262;
-  --color-orange: #fabc60;
-  --color-green: #9ede73;
-  --color-blue: #17bdc1;
+  --color-dark-primary: #000000;
+  --color-red: #ff3838;
+  --color-orange: #ff9f1a;
+  --color-green: #fff200;
+  --color-blue: #443dff;
+  --background: url(../images/bg.jpg);
 
   /* button effect */
   --box-shadow-hover: 0px 10px 0px;
@@ -25,6 +26,7 @@
 }
 
 :root.dark {
-  --color-light-primary: #023047;
+  --color-light-primary: #000000;
   --color-dark-primary: #ffffff;
+  --background: url(../images/bgd.png);
 }
