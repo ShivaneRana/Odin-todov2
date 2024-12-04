@@ -17,13 +17,12 @@ A feature-rich todo application to help you stay organized and on track with you
 
 ### Light Theme
 
-| Description      | Screenshot                           |
-|------------------|--------------------------------------|
-| Home Page        | ![Light Theme - Home](./src/screenshot/lighttheme.png) |
+| Description | Screenshot                                             |
+| ----------- | ------------------------------------------------------ |
+| Home Page   | ![Light Theme - Home](./src/screenshot/lighttheme.png) |
 
 ### Dark Theme
 
-| Description      | Screenshot                           |
-|------------------|--------------------------------------|
-| Home Page        | ![Dark Theme - Home](./src/screenshot/darktheme.png) |
-
+| Description | Screenshot                                           |
+| ----------- | ---------------------------------------------------- |
+| Home Page   | ![Dark Theme - Home](./src/screenshot/darktheme.png) |
