@@ -1,11 +1,13 @@
 :root {
   --color-light-primary: #ffffff;
   --color-dark-primary: #000000;
-  --color-red: #ff3838;
-  --color-orange: #ff9f1a;
-  --color-green: #fff200;
-  --color-blue: #443dff;
-  --background: url(../images/bg.jpg);
+  --color-red: #d62828;
+  --color-orange: #f77f00;
+  --color-green: #fcbf49;
+  --color-blue: #8338ec;
+  /* --color-blue:background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%); */
+
+  --background: #81c3d7;
 
   /* button effect */
   --box-shadow-hover: 0px 10px 0px;
@@ -28,5 +30,5 @@
 :root.dark {
   --color-light-primary: #000000;
   --color-dark-primary: #ffffff;
-  --background: url(../images/bgd.png);
+  --background: #3a7ca5;
 }
